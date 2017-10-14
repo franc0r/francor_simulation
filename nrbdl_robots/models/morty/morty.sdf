@@ -1,0 +1,378 @@
+<?xml version='1.0'?>
+<sdf version='1.4'>
+  <model name="morty">
+    <static>false</static>
+
+    <link name="body">
+      <pose>0 0 0 0 0 0</pose>
+
+      <collision name="collision">
+        <pose>0 0 .07 0 0 0</pose>
+        <geometry>
+          <box>
+            <size>.6 .3 .14</size>
+          </box>
+        </geometry>
+      </collision>
+
+      <visual name="visual">
+        <geometry>
+          <mesh><uri>model://morty/meshes/body.dae</uri></mesh>
+        </geometry>
+      </visual>
+    </link>
+
+    <!-- Left side. -->
+    <link name="rocker_left">
+      <pose>.0 .168 .046 0 0 1.571</pose>
+
+      <collision name="collision_rocker_left">
+        <pose>0 0 0 0 1.571 0</pose>
+        <geometry>
+          <cylinder>
+            <radius>.05</radius>
+            <length>.015</length>
+          </cylinder>
+        </geometry>
+      </collision>
+
+      <visual name="visual_rocker_left">
+        <geometry>
+          <mesh><uri>model://morty/meshes/rocker.dae</uri></mesh>
+        </geometry>
+      </visual>
+    </link>
+
+    <link name="bogie_left">
+      <pose>.2 .203 -.067 0 0 0</pose>
+
+      <collision name="collision_bogie_left">
+        <pose>0 0 0 1.571 0 0</pose>
+        <geometry>
+          <cylinder>
+            <radius>.05</radius>
+            <length>.015</length>
+          </cylinder>
+        </geometry>
+      </collision>
+
+      <visual name="visual_bogie_left">
+        <geometry>
+          <mesh>
+            <uri>model://morty/meshes/bogie.dae</uri>
+          </mesh>
+        </geometry>
+      </visual>
+    </link>
+
+    <link name="wheel_left_front">
+      <pose>.35 .287 -.157 3.14 0 0</pose>
+
+      <collision name="collision_wheel_left_front">
+        <pose>0 .03 0 1.571 0 0</pose>
+        <geometry>
+          <cylinder>
+            <radius>.11</radius>
+            <length>.08</length>
+          </cylinder>
+        </geometry>
+      </collision>
+
+      <collision name="collision_wheel_left_front_axis">
+        <pose>0 .11 0 1.571 0 0</pose>
+        <geometry>
+          <cylinder>
+            <radius>.01</radius>
+            <length>.08</length>
+          </cylinder>
+        </geometry>
+      </collision>
+
+      <visual name="visual_wheel_left_front">
+        <geometry>
+          <mesh>
+            <uri>model://morty/meshes/wheel.dae</uri>
+          </mesh>
+        </geometry>
+      </visual>
+    </link>
+
+    <link name="wheel_left_middle">
+      <pose>.05 .287 -.157 3.14 0 0</pose>
+
+      <collision name="collision_wheel_left_middle">
+        <pose>0 .03 0 1.571 0 0</pose>
+        <geometry>
+          <cylinder>
+            <radius>.11</radius>
+            <length>.08</length>
+          </cylinder>
+        </geometry>
+      </collision>
+
+      <collision name="collision_wheel_left_middle_axis">
+        <pose>0 .11 0 1.571 0 0</pose>
+        <geometry>
+          <cylinder>
+            <radius>.01</radius>
+            <length>.08</length>
+          </cylinder>
+        </geometry>
+      </collision>
+
+      <visual name="visual_wheel_left_middle">
+        <geometry>
+          <mesh>
+            <uri>model://morty/meshes/wheel.dae</uri>
+          </mesh>
+        </geometry>
+      </visual>
+    </link>
+
+    <link name="wheel_left_rear">
+      <pose>-.35 .287 -.157 3.14 0 0</pose>
+
+      <collision name="collision_wheel_left_rear">
+        <pose>0 .03 0 1.571 0 0</pose>
+        <geometry>
+          <cylinder>
+            <radius>.11</radius>
+            <length>.08</length>
+          </cylinder>
+        </geometry>
+      </collision>
+      <collision name="collision_wheel_left_rear_axis">
+        <pose>0 .11 0 1.571 0 0</pose>
+        <geometry>
+          <cylinder>
+            <radius>.01</radius>
+            <length>.08</length>
+          </cylinder>
+        </geometry>
+      </collision>
+
+      <visual name="visual_wheel_left_rear">
+        <geometry>
+          <mesh>
+            <uri>model://morty/meshes/wheel.dae</uri>
+          </mesh>
+        </geometry>
+      </visual>
+    </link>
+
+    <!-- Right side. -->
+    <link name="rocker_right">
+      <pose>.0 -.168 .046 0 0 1.571</pose>
+
+      <collision name="collision_rocker_right">
+        <pose>0 0 0 0 1.571 0</pose>
+        <geometry>
+          <cylinder>
+            <radius>.05</radius>
+            <length>.015</length>
+          </cylinder>
+        </geometry>
+      </collision>
+
+      <visual name="visual_rocker_right">
+        <geometry>
+          <mesh><uri>model://morty/meshes/rocker_right.dae</uri></mesh>
+        </geometry>
+      </visual>
+    </link>
+
+    <link name="bogie_right">
+      <pose>.2 -.183 -.067 0 0 0</pose>
+
+      <collision name="collision_bogie_right">
+        <pose>0 0 0 1.571 0 0</pose>
+        <geometry>
+          <cylinder>
+            <radius>.05</radius>
+            <length>.015</length>
+          </cylinder>
+        </geometry>
+      </collision>
+
+      <visual name="visual_bogie_right">
+        <geometry>
+          <mesh>
+            <uri>model://morty/meshes/bogie.dae</uri>
+          </mesh>
+        </geometry>
+      </visual>
+    </link>
+
+    <link name="wheel_right_front">
+      <pose>.35 -.28 -.157 0 0 0</pose>
+
+      <collision name="collision_wheel_right_front">
+        <pose>0 .03 0 1.571 0 0</pose>
+        <geometry>
+          <cylinder>
+            <radius>.11</radius>
+            <length>.08</length>
+          </cylinder>
+        </geometry>
+      </collision>
+      <collision name="collision_wheel_left_right_axis">
+        <pose>0 .11 0 1.571 0 0</pose>
+        <geometry>
+          <cylinder>
+            <radius>.01</radius>
+            <length>.08</length>
+          </cylinder>
+        </geometry>
+      </collision>
+
+      <visual name="visual_wheel_right_front">
+        <geometry>
+          <mesh>
+            <uri>model://morty/meshes/wheel.dae</uri>
+          </mesh>
+        </geometry>
+      </visual>
+    </link>
+
+    <link name="wheel_right_middle">
+      <pose>.05 -.28 -.157 0 0 0</pose>
+
+      <collision name="collision_wheel_right_middle">
+        <pose>0 .03 0 1.571 0 0</pose>
+        <geometry>
+          <cylinder>
+            <radius>.11</radius>
+            <length>.08</length>
+          </cylinder>
+        </geometry>
+      </collision>
+      <collision name="collision_wheel_right_middle_axis">
+        <pose>0 .11 0 1.571 0 0</pose>
+        <geometry>
+          <cylinder>
+            <radius>.01</radius>
+            <length>.08</length>
+          </cylinder>
+        </geometry>
+      </collision>
+
+      <visual name="visual_wheel_right_middle">
+        <geometry>
+          <mesh>
+            <uri>model://morty/meshes/wheel.dae</uri>
+          </mesh>
+        </geometry>
+      </visual>
+    </link>
+
+    <link name="wheel_right_rear">
+      <pose>-.35 -.28 -.157 0 0 0</pose>
+
+      <collision name="collision_wheel_right_rear">
+        <pose>0 .03 0 1.571 0 0</pose>
+        <geometry>
+          <cylinder>
+            <radius>.11</radius>
+            <length>.08</length>
+          </cylinder>
+        </geometry>
+      </collision>
+      <collision name="collision_wheel_right_rear_axis">
+        <pose>0 .11 0 1.571 0 0</pose>
+        <geometry>
+          <cylinder>
+            <radius>.01</radius>
+            <length>.08</length>
+          </cylinder>
+        </geometry>
+      </collision>
+
+      <visual name="visual_wheel_right_rear">
+        <geometry>
+          <mesh>
+            <uri>model://morty/meshes/wheel.dae</uri>
+          </mesh>
+        </geometry>
+      </visual>
+    </link>
+
+    <!-- Joints -->
+    <joint type="revolute" name="left_body_rocker">
+      <child>rocker_left</child>
+      <parent>body</parent>
+      <axis>
+        <xyz>0 1 0</xyz>
+      </axis>
+    </joint>
+
+    <joint type="revolute" name="left_rocker_bogie">
+      <child>bogie_left</child>
+      <parent>rocker_left</parent>
+      <axis>
+        <xyz>0 1 0</xyz>
+      </axis>
+    </joint>
+
+    <joint type="revolute" name="left_bogie_wheel_front">
+      <child>wheel_left_front</child>
+      <parent>bogie_left</parent>
+      <axis>
+        <xyz>0 1 0</xyz>
+      </axis>
+    </joint>
+
+    <joint type="revolute" name="left_bogie_wheel_middle">
+      <child>wheel_left_middle</child>
+      <parent>bogie_left</parent>
+      <axis>
+        <xyz>0 1 0</xyz>
+      </axis>
+    </joint>
+    <joint type="revolute" name="left_bogie_wheel_rear">
+      <child>wheel_left_rear</child>
+      <parent>rocker_left</parent>
+      <axis>
+        <xyz>0 1 0</xyz>
+      </axis>
+    </joint>
+
+    <joint type="revolute" name="right_body_rocker">
+      <child>rocker_right</child>
+      <parent>body</parent>
+      <axis>
+        <xyz>0 1 0</xyz>
+      </axis>
+    </joint>
+
+    <joint type="revolute" name="right_rocker_bogie">
+      <child>bogie_right</child>
+      <parent>rocker_right</parent>
+      <axis>
+        <xyz>0 1 0</xyz>
+        </axis>
+    </joint>
+
+    <joint type="revolute" name="right_bogie_wheel_front">
+      <child>wheel_right_front</child>
+      <parent>bogie_right</parent>
+      <axis>
+        <xyz>0 1 0</xyz>
+      </axis>
+    </joint>
+
+    <joint type="revolute" name="right_bogie_wheel_middle">
+      <child>wheel_right_middle</child>
+      <parent>bogie_right</parent>
+      <axis>
+        <xyz>0 1 0</xyz>
+      </axis>
+    </joint>
+    <joint type="revolute" name="right_bogie_wheel_rear">
+      <child>wheel_right_rear</child>
+      <parent>rocker_right</parent>
+      <axis>
+        <xyz>0 1 0</xyz>
+      </axis>
+    </joint>
+  </model>
+</sdf>
