@@ -66,20 +66,39 @@
     </link>
 
     <link name="wheel_left_front">
-      <pose>.35 .287 -.157 3.14 0 0</pose>
+      <pose>.35 .287 -.157 3.141592654 0 0</pose>
+
+      <inertial>
+        <pose>-0.000000 0.030998 -0.000003 0 0 0</pose>
+        <mass>10.0</mass>
+        <inertia>
+          <ixx>0.000018</ixx>
+          <iyy>0.000031</iyy>
+          <izz>0.000018</izz>
+          <ixz>-7.4538e-07</ixz>
+          <iyz>-0.00014394</iyz>
+          </inertia>
+      </inertial>
 
       <collision name="collision_wheel_left_front">
-        <pose>0 .03 0 1.571 0 0</pose>
+        <pose>0 .03 0 1.570796327 0 0</pose>
         <geometry>
           <cylinder>
             <radius>.11</radius>
             <length>.08</length>
           </cylinder>
         </geometry>
+        <surface>
+          <friction>
+            <ode>
+              <mu>1</mu>
+              <mu2>1</mu2>
+            </ode>
+          </friction>
+        </surface>
       </collision>
-
       <collision name="collision_wheel_left_front_axis">
-        <pose>0 .11 0 1.571 0 0</pose>
+        <pose>0 .11 0 1.570796327 0 0</pose>
         <geometry>
           <cylinder>
             <radius>.01</radius>
@@ -98,20 +117,39 @@
     </link>
 
     <link name="wheel_left_middle">
-      <pose>.05 .287 -.157 3.14 0 0</pose>
+      <pose>.05 .287 -.157 3.141592654 0 0</pose>
+
+      <inertial>
+        <pose>-0.000000 0.030998 -0.000003 0 0 0</pose>
+        <mass>10.0</mass>
+        <inertia>
+          <ixx>0.000018</ixx>
+          <iyy>0.000031</iyy>
+          <izz>0.000018</izz>
+          <ixz>-7.4538e-07</ixz>
+          <iyz>-0.00014394</iyz>
+          </inertia>
+      </inertial>
 
       <collision name="collision_wheel_left_middle">
-        <pose>0 .03 0 1.571 0 0</pose>
+        <pose>0 .03 0 1.570796327 0 0</pose>
         <geometry>
           <cylinder>
             <radius>.11</radius>
             <length>.08</length>
           </cylinder>
         </geometry>
+        <surface>
+          <friction>
+            <ode>
+              <mu>1</mu>
+              <mu2>1</mu2>
+            </ode>
+          </friction>
+        </surface>
       </collision>
-
       <collision name="collision_wheel_left_middle_axis">
-        <pose>0 .11 0 1.571 0 0</pose>
+        <pose>0 .11 0 1.570796327 0 0</pose>
         <geometry>
           <cylinder>
             <radius>.01</radius>
@@ -130,19 +168,39 @@
     </link>
 
     <link name="wheel_left_rear">
-      <pose>-.35 .287 -.157 3.14 0 0</pose>
+      <pose>-.35 .287 -.157 3.141592654 0 0</pose>
+
+      <inertial>
+        <pose>-0.000000 0.030998 -0.000003 0 0 0</pose>
+        <mass>10.0</mass>
+        <inertia>
+          <ixx>0.000018</ixx>
+          <iyy>0.000031</iyy>
+          <izz>0.000018</izz>
+          <ixz>-7.4538e-07</ixz>
+          <iyz>-0.00014394</iyz>
+          </inertia>
+      </inertial>
 
       <collision name="collision_wheel_left_rear">
-        <pose>0 .03 0 1.571 0 0</pose>
+        <pose>0 .03 0 1.570796327 0 0</pose>
         <geometry>
           <cylinder>
             <radius>.11</radius>
             <length>.08</length>
           </cylinder>
         </geometry>
+        <surface>
+          <friction>
+            <ode>
+              <mu>1</mu>
+              <mu2>1</mu2>
+            </ode>
+          </friction>
+        </surface>
       </collision>
       <collision name="collision_wheel_left_rear_axis">
-        <pose>0 .11 0 1.571 0 0</pose>
+        <pose>0 .11 0 1.570796327 0 0</pose>
         <geometry>
           <cylinder>
             <radius>.01</radius>
@@ -162,10 +220,10 @@
 
     <!-- Right side. -->
     <link name="rocker_right">
-      <pose>.0 -.168 .046 0 0 1.571</pose>
+      <pose>.0 -.168 .046 0 0 1.570796327</pose>
 
       <collision name="collision_rocker_right">
-        <pose>0 0 0 0 1.571 0</pose>
+        <pose>0 0 0 0 1.570796327 0</pose>
         <geometry>
           <cylinder>
             <radius>.05</radius>
@@ -185,7 +243,7 @@
       <pose>.2 -.183 -.067 0 0 0</pose>
 
       <collision name="collision_bogie_right">
-        <pose>0 0 0 1.571 0 0</pose>
+        <pose>0 0 0 1.570796327 0 0</pose>
         <geometry>
           <cylinder>
             <radius>.05</radius>
@@ -206,17 +264,37 @@
     <link name="wheel_right_front">
       <pose>.35 -.28 -.157 0 0 0</pose>
 
+      <inertial>
+        <pose>-0.000000 0.030998 -0.000003 0 0 0</pose>
+        <mass>10.0</mass>
+        <inertia>
+          <ixx>0.000018</ixx>
+          <iyy>0.000031</iyy>
+          <izz>0.000018</izz>
+          <ixz>-7.4538e-07</ixz>
+          <iyz>-0.00014394</iyz>
+          </inertia>
+      </inertial>
+
       <collision name="collision_wheel_right_front">
-        <pose>0 .03 0 1.571 0 0</pose>
+        <pose>0 .03 0 1.570796327 0 0</pose>
         <geometry>
           <cylinder>
             <radius>.11</radius>
             <length>.08</length>
           </cylinder>
         </geometry>
+        <surface>
+          <friction>
+            <ode>
+              <mu>1</mu>
+              <mu2>1</mu2>
+            </ode>
+          </friction>
+        </surface>
       </collision>
       <collision name="collision_wheel_left_right_axis">
-        <pose>0 .11 0 1.571 0 0</pose>
+        <pose>0 .11 0 1.570796327 0 0</pose>
         <geometry>
           <cylinder>
             <radius>.01</radius>
@@ -237,17 +315,37 @@
     <link name="wheel_right_middle">
       <pose>.05 -.28 -.157 0 0 0</pose>
 
+      <inertial>
+        <pose>-0.000000 0.030998 -0.000003 0 0 0</pose>
+        <mass>10.0</mass>
+        <inertia>
+          <ixx>0.000018</ixx>
+          <iyy>0.000031</iyy>
+          <izz>0.000018</izz>
+          <ixz>-7.4538e-07</ixz>
+          <iyz>-0.00014394</iyz>
+          </inertia>
+      </inertial>
+
       <collision name="collision_wheel_right_middle">
-        <pose>0 .03 0 1.571 0 0</pose>
+        <pose>0 .03 0 1.570796327 0 0</pose>
         <geometry>
           <cylinder>
             <radius>.11</radius>
             <length>.08</length>
           </cylinder>
         </geometry>
+        <surface>
+          <friction>
+            <ode>
+              <mu>1</mu>
+              <mu2>1</mu2>
+            </ode>
+          </friction>
+        </surface>
       </collision>
       <collision name="collision_wheel_right_middle_axis">
-        <pose>0 .11 0 1.571 0 0</pose>
+        <pose>0 .11 0 1.570796327 0 0</pose>
         <geometry>
           <cylinder>
             <radius>.01</radius>
@@ -268,17 +366,37 @@
     <link name="wheel_right_rear">
       <pose>-.35 -.28 -.157 0 0 0</pose>
 
+      <inertial>
+        <pose>-0.000000 0.030998 -0.000003 0 0 0</pose>
+        <mass>10.0</mass>
+        <inertia>
+          <ixx>0.000018</ixx>
+          <iyy>0.000031</iyy>
+          <izz>0.000018</izz>
+          <ixz>-7.4538e-07</ixz>
+          <iyz>-0.00014394</iyz>
+          </inertia>
+      </inertial>
+
       <collision name="collision_wheel_right_rear">
-        <pose>0 .03 0 1.571 0 0</pose>
+        <pose>0 .03 0 1.570796327 0 0</pose>
         <geometry>
           <cylinder>
             <radius>.11</radius>
             <length>.08</length>
           </cylinder>
         </geometry>
+        <surface>
+          <friction>
+            <ode>
+              <mu>1</mu>
+              <mu2>1</mu2>
+            </ode>
+          </friction>
+        </surface>
       </collision>
       <collision name="collision_wheel_right_rear_axis">
-        <pose>0 .11 0 1.571 0 0</pose>
+        <pose>0 .11 0 1.570796327 0 0</pose>
         <geometry>
           <cylinder>
             <radius>.01</radius>
