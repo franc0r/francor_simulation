@@ -70,7 +70,7 @@
 
       <inertial>
         <pose>-0.000000 0.030998 -0.000003 0 0 0</pose>
-        <mass>10.0</mass>
+        <mass>4.0</mass>
         <inertia>
           <ixx>0.000018</ixx>
           <iyy>0.000031</iyy>
@@ -91,8 +91,8 @@
         <surface>
           <friction>
             <ode>
-              <mu>1</mu>
-              <mu2>1</mu2>
+              <mu>0.3</mu>
+              <mu2>0.3</mu2>
             </ode>
           </friction>
         </surface>
@@ -121,7 +121,7 @@
 
       <inertial>
         <pose>-0.000000 0.030998 -0.000003 0 0 0</pose>
-        <mass>10.0</mass>
+        <mass>4.0</mass>
         <inertia>
           <ixx>0.000018</ixx>
           <iyy>0.000031</iyy>
@@ -142,8 +142,8 @@
         <surface>
           <friction>
             <ode>
-              <mu>1</mu>
-              <mu2>1</mu2>
+              <mu>0.3</mu>
+              <mu2>0.3</mu2>
             </ode>
           </friction>
         </surface>
@@ -172,7 +172,7 @@
 
       <inertial>
         <pose>-0.000000 0.030998 -0.000003 0 0 0</pose>
-        <mass>10.0</mass>
+        <mass>4.0</mass>
         <inertia>
           <ixx>0.000018</ixx>
           <iyy>0.000031</iyy>
@@ -193,8 +193,8 @@
         <surface>
           <friction>
             <ode>
-              <mu>1</mu>
-              <mu2>1</mu2>
+              <mu>0.3</mu>
+              <mu2>0.3</mu2>
             </ode>
           </friction>
         </surface>
@@ -266,7 +266,7 @@
 
       <inertial>
         <pose>-0.000000 0.030998 -0.000003 0 0 0</pose>
-        <mass>10.0</mass>
+        <mass>4.0</mass>
         <inertia>
           <ixx>0.000018</ixx>
           <iyy>0.000031</iyy>
@@ -287,8 +287,8 @@
         <surface>
           <friction>
             <ode>
-              <mu>1</mu>
-              <mu2>1</mu2>
+              <mu>0.3</mu>
+              <mu2>0.3</mu2>
             </ode>
           </friction>
         </surface>
@@ -317,7 +317,7 @@
 
       <inertial>
         <pose>-0.000000 0.030998 -0.000003 0 0 0</pose>
-        <mass>10.0</mass>
+        <mass>4.0</mass>
         <inertia>
           <ixx>0.000018</ixx>
           <iyy>0.000031</iyy>
@@ -338,8 +338,8 @@
         <surface>
           <friction>
             <ode>
-              <mu>1</mu>
-              <mu2>1</mu2>
+              <mu>0.3</mu>
+              <mu2>0.3</mu2>
             </ode>
           </friction>
         </surface>
@@ -368,7 +368,7 @@
 
       <inertial>
         <pose>-0.000000 0.030998 -0.000003 0 0 0</pose>
-        <mass>10.0</mass>
+        <mass>4.0</mass>
         <inertia>
           <ixx>0.000018</ixx>
           <iyy>0.000031</iyy>
@@ -389,8 +389,8 @@
         <surface>
           <friction>
             <ode>
-              <mu>1</mu>
-              <mu2>1</mu2>
+              <mu>0.3</mu>
+              <mu2>0.3</mu2>
             </ode>
           </friction>
         </surface>
@@ -492,5 +492,9 @@
         <xyz>0 1 0</xyz>
       </axis>
     </joint>
+
+    <plugin name="morty_motor_controller" filename="libgazebo_morty_motor_controller.so">
+
+    </plugin>
   </model>
 </sdf>

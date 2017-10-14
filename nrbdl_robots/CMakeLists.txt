@@ -4,7 +4,11 @@ project(nrbdl_robots)
 ## Find catkin macros and libraries
 ## if COMPONENTS list like find_package(catkin REQUIRED COMPONENTS xyz)
 ## is used, also find other catkin packages
-find_package(catkin REQUIRED)
+find_package(catkin REQUIRED COMPONENTS
+  gazebo_dev
+  roscpp
+  geometry_msgs
+)
 
 ## System dependencies are found with CMake's conventions
 # find_package(Boost REQUIRED COMPONENTS system)
@@ -108,17 +112,19 @@ catkin_package(
 
 ## Specify additional locations of header files
 ## Your package locations should be listed before other locations
-# include_directories(include)
+include_directories(models/morty/plugins/include
+  ${catkin_INCLUDE_DIRS}
+)
 
 ## Declare a C++ library
-# add_library(nrbdl_robots
-#   src/${PROJECT_NAME}/nrbdl_robots.cpp
-# )
+add_library(gazebo_morty_motor_controller
+  models/morty/plugins/src/gazebo_morty_motor_controller.cpp
+)
 
 ## Add cmake target dependencies of the library
 ## as an example, code may need to be generated before libraries
 ## either from message generation or dynamic reconfigure
-# add_dependencies(nrbdl_robots ${${PROJECT_NAME}_EXPORTED_TARGETS} ${catkin_EXPORTED_TARGETS})
+add_dependencies(gazebo_morty_motor_controller ${${PROJECT_NAME}_EXPORTED_TARGETS} ${catkin_EXPORTED_TARGETS})
 
 ## Declare a C++ executable
 # add_executable(nrbdl_robots_node src/nrbdl_robots_node.cpp)
@@ -128,9 +134,9 @@ catkin_package(
 # add_dependencies(nrbdl_robots_node ${${PROJECT_NAME}_EXPORTED_TARGETS} ${catkin_EXPORTED_TARGETS})
 
 ## Specify libraries to link a library or executable target against
-# target_link_libraries(nrbdl_robots_node
-#   ${catkin_LIBRARIES}
-# )
+target_link_libraries(gazebo_morty_motor_controller
+  ${catkin_LIBRARIES}
+)
 
 #############
 ## Install ##
