@@ -104,8 +104,8 @@
         <surface>
           <friction>
             <ode>
-              <mu>0.3</mu>
-              <mu2>0.3</mu2>
+              <mu>1</mu>
+              <mu2>1</mu2>
             </ode>
           </friction>
         </surface>
@@ -155,8 +155,8 @@
         <surface>
           <friction>
             <ode>
-              <mu>0.3</mu>
-              <mu2>0.3</mu2>
+              <mu>1</mu>
+              <mu2>1</mu2>
             </ode>
           </friction>
         </surface>
@@ -206,8 +206,8 @@
         <surface>
           <friction>
             <ode>
-              <mu>0.3</mu>
-              <mu2>0.3</mu2>
+              <mu>1</mu>
+              <mu2>1</mu2>
             </ode>
           </friction>
         </surface>
@@ -235,12 +235,22 @@
     <link name="rocker_right">
       <pose>.0 -.168 .046 0 0 1.570796327</pose>
 
-      <collision name="collision_rocker_right">
+      <collision name="collision_center">
         <pose>0 0 0 0 1.570796327 0</pose>
         <geometry>
           <cylinder>
             <radius>.05</radius>
             <length>.015</length>
+          </cylinder>
+        </geometry>
+      </collision>
+
+      <collision name="collision_pipe_up">
+        <pose>0 0 0.05 0 0 0</pose>
+        <geometry>
+          <cylinder>
+            <radius>.01</radius>
+            <length>.15</length>
           </cylinder>
         </geometry>
       </collision>
@@ -300,8 +310,8 @@
         <surface>
           <friction>
             <ode>
-              <mu>0.3</mu>
-              <mu2>0.3</mu2>
+              <mu>1</mu>
+              <mu2>1</mu2>
             </ode>
           </friction>
         </surface>
@@ -351,8 +361,8 @@
         <surface>
           <friction>
             <ode>
-              <mu>0.3</mu>
-              <mu2>0.3</mu2>
+              <mu>1</mu>
+              <mu2>1</mu2>
             </ode>
           </friction>
         </surface>
@@ -402,8 +412,8 @@
         <surface>
           <friction>
             <ode>
-              <mu>0.3</mu>
-              <mu2>0.3</mu2>
+              <mu>1</mu>
+              <mu2>1</mu2>
             </ode>
           </friction>
         </surface>
@@ -431,14 +441,14 @@
     <link name="hebel">
       <pose>-0.1 0 0.14 0 0 0</pose>
 
-      <collision name="collision_hebel">
+<!--      <collision name="collision_hebel">
         <geometry>
           <box>
-            <size>0.06 0.4 0.03</size>
+            <size>0.06 0.32 0.03</size>
           </box>
         </geometry>
       </collision>
-
+-->
       <visual name="visual_hebel">
         <geometry>
           <mesh>
@@ -450,7 +460,7 @@
 
     <link name="verbinder_left">
       <pose>-0.1 0.152 0.1545 0 0 0</pose>
-
+<!--
       <collision name="collision_verbinder_left">
         <geometry>
           <box>
@@ -458,7 +468,7 @@
           </box>
         </geometry>
       </collision>
-
+-->
       <visual name="visual_verbinder_left">
         <geometry>
           <mesh>
@@ -470,15 +480,16 @@
 
     <link name="verbinder_right">
       <pose>-0.1 -0.152 0.1545 0 0 0</pose>
-
+<!--
       <collision name="collision">
+        <pose>0.05 0 0 0 0 0</pose>
         <geometry>
           <box>
-            <size>0.06 0.03 0.01</size>
+            <size>0.13 0.03 0.03</size>
           </box>
         </geometry>
       </collision>
-
+-->
       <visual name="visual">
         <geometry>
           <mesh>
@@ -498,6 +509,7 @@
     </joint>
 
     <joint type="revolute" name="left_rocker_bogie">
+      <pose>0 -0.02 0 0 0 0</pose>
       <child>bogie_left</child>
       <parent>rocker_left</parent>
       <axis>
@@ -506,6 +518,7 @@
     </joint>
 
     <joint type="revolute" name="left_bogie_wheel_front">
+      <pose>0 0.095 0 0 0 0</pose>
       <child>wheel_left_front</child>
       <parent>bogie_left</parent>
       <axis>
@@ -514,6 +527,7 @@
     </joint>
 
     <joint type="revolute" name="left_bogie_wheel_middle">
+      <pose>0 0.095 0 0 0 0</pose>
       <child>wheel_left_middle</child>
       <parent>bogie_left</parent>
       <axis>
@@ -521,6 +535,7 @@
       </axis>
     </joint>
     <joint type="revolute" name="left_bogie_wheel_rear">
+      <pose>0 0.095 0 0 0 0</pose>
       <child>wheel_left_rear</child>
       <parent>rocker_left</parent>
       <axis>
@@ -545,6 +560,7 @@
     </joint>
 
     <joint type="revolute" name="right_bogie_wheel_front">
+      <pose>0 0.095 0 0 0 0</pose>
       <child>wheel_right_front</child>
       <parent>bogie_right</parent>
       <axis>
@@ -553,6 +569,7 @@
     </joint>
 
     <joint type="revolute" name="right_bogie_wheel_middle">
+      <pose>0 0.095 0 0 0 0</pose>
       <child>wheel_right_middle</child>
       <parent>bogie_right</parent>
       <axis>
@@ -560,6 +577,7 @@
       </axis>
     </joint>
     <joint type="revolute" name="right_bogie_wheel_rear">
+      <pose>0 0.095 0 0 0 0</pose>
       <child>wheel_right_rear</child>
       <parent>rocker_right</parent>
       <axis>
@@ -567,8 +585,48 @@
       </axis>
     </joint>
 
-    <plugin name="morty_motor_controller" filename="libgazebo_morty_motor_controller.so">
+    <!-- Joints for the body balancer. -->
+    <joint type="revolute" name="body_hebel">
+      <child>hebel</child>
+      <parent>body</parent>
+      <axis>
+        <xyz>0 0 1</xyz>
+      </axis>
+    </joint>
+    <joint type="revolute" name="hebel_verbinder_left">
+      <child>verbinder_left</child>
+      <parent>hebel</parent>
+      <axis>
+        <xyz>0 0 1</xyz>
+      </axis>
+    </joint>
+    <joint type="revolute" name="verbinder_rocker_left">
+      <child>rocker_left</child>
+      <parent>verbinder_left</parent>
+      <pose>0 0 0.115 0 0 0</pose>
+      <axis>
+        <xyz>1 1 1</xyz>
+      </axis>
+    </joint>
+    <joint type="revolute" name="hebel_verbinder_right">
+      <child>verbinder_right</child>
+      <parent>hebel</parent>
+      <axis>
+        <xyz>0 0 1</xyz>
+      </axis>
+    </joint>
+    <joint type="revolute" name="verbinder_rocker_right">
+      <child>rocker_right</child>
+      <parent>verbinder_right</parent>
+      <pose>0 0 0.115 0 0 0</pose>
+      <axis>
+        <xyz>1 1 1</xyz>
+      </axis>
+    </joint>
 
-    </plugin>
+
+<!--    <plugin name="morty_motor_controller" filename="libgazebo_morty_motor_controller.so">
+
+    </plugin>-->
   </model>
 </sdf>
