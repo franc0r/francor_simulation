@@ -597,7 +597,7 @@
       <child>verbinder_left</child>
       <parent>hebel</parent>
       <axis>
-        <xyz>0 0 1</xyz>
+        <xyz>0 1 1</xyz>
       </axis>
     </joint>
     <joint type="revolute" name="verbinder_rocker_left">
@@ -612,7 +612,7 @@
       <child>verbinder_right</child>
       <parent>hebel</parent>
       <axis>
-        <xyz>0 0 1</xyz>
+        <xyz>0 1 1</xyz>
       </axis>
     </joint>
     <joint type="revolute" name="verbinder_rocker_right">
