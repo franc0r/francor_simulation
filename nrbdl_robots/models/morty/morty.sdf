@@ -10,11 +10,12 @@
         <pose>-0.010530 0.000000 0.067976 0 0 0</pose>
         <mass>1.0</mass>
         <inertia>
-          <ixx>0.000436</ixx>
-          <iyy>0.001444</iyy>
-          <izz>0.001727</izz>
-          <ixz>0.000026</ixz>
-          <ixy>-0.000009e-5</ixy>
+          <ixx>43.604542e-4</ixx>
+          <iyy>144.367569e-4</iyy>
+          <izz>172.691925e-4</izz>
+          <ixz>2.563373e-4
+          </ixz>
+          <ixy>-0.000009e-4</ixy>
           <iyz>0.0</iyz>
           </inertia>
       </inertial>
@@ -39,13 +40,22 @@
     <link name="rocker_left">
       <pose>.0 .168 .046 0 0 1.571</pose>
 
+      <inertial>
+        <pose>0.001286 0.014945 -0.056282 0 0 0</pose>
+        <mass>1.0</mass>
+        <inertia>
+          <ixx>2.983909e-2</ixx>
+          <iyy>0.652077e-2</iyy>
+          <izz>2.346098e-2</izz>
+          <ixy>-0.034413e-2</ixy>
+          <ixz>0.015052e-2</ixz>
+          <iyz>0.420844e-2</iyz>
+        </inertia>
+      </inertial>
+
       <collision name="collision_rocker_left">
-        <pose>0 0 0 0 1.571 0</pose>
         <geometry>
-          <cylinder>
-            <radius>.05</radius>
-            <length>.015</length>
-          </cylinder>
+          <mesh><uri>model://morty/meshes/rocker_2_left.dae</uri></mesh>
         </geometry>
       </collision>
 
@@ -59,13 +69,24 @@
     <link name="bogie_left">
       <pose>.2 .203 -.067 0 0 0</pose>
 
+      <inertial>
+        <pose>0.000632 -0.010000 -0.038800 0 0 0</pose>
+        <mass>0.3</mass>
+        <inertia>
+          <ixx>0.039283e-2</ixx>
+          <iyy>0.23786e-2</iyy>
+          <izz>0.199871e-2</izz>
+          <ixz>0.000113e-2</ixz>
+          <ixy>0</ixy>
+          <iyz>0</iyz>
+        </inertia>
+      </inertial>
+
       <collision name="collision_bogie_left">
-        <pose>0 0 0 1.571 0 0</pose>
         <geometry>
-          <cylinder>
-            <radius>.05</radius>
-            <length>.015</length>
-          </cylinder>
+          <mesh>
+            <uri>model://morty/meshes/bogie.dae</uri>
+          </mesh>
         </geometry>
       </collision>
 
@@ -85,11 +106,12 @@
         <pose>-0.000000 0.030998 -0.000003 0 0 0</pose>
         <mass>4.0</mass>
         <inertia>
-          <ixx>0.000018</ixx>
-          <iyy>0.000031</iyy>
-          <izz>0.000018</izz>
-          <ixz>-7.4538e-07</ixz>
-          <iyz>-0.00014394</iyz>
+          <ixx>1.835544e-2</ixx>
+          <iyy>3.058428e-2</iyy>
+          <izz>1.835553e-2</izz>
+          <iyz>0.000160e-2</iyz>
+          <ixy>0</ixy>
+          <ixz>0</ixz>
           </inertia>
       </inertial>
 
@@ -136,11 +158,12 @@
         <pose>-0.000000 0.030998 -0.000003 0 0 0</pose>
         <mass>4.0</mass>
         <inertia>
-          <ixx>0.000018</ixx>
-          <iyy>0.000031</iyy>
-          <izz>0.000018</izz>
-          <ixz>-7.4538e-07</ixz>
-          <iyz>-0.00014394</iyz>
+          <ixx>1.835544e-2</ixx>
+          <iyy>3.058428e-2</iyy>
+          <izz>1.835553e-2</izz>
+          <iyz>0.000160e-2</iyz>
+          <ixy>0</ixy>
+          <ixz>0</ixz>
           </inertia>
       </inertial>
 
@@ -187,11 +210,12 @@
         <pose>-0.000000 0.030998 -0.000003 0 0 0</pose>
         <mass>4.0</mass>
         <inertia>
-          <ixx>0.000018</ixx>
-          <iyy>0.000031</iyy>
-          <izz>0.000018</izz>
-          <ixz>-7.4538e-07</ixz>
-          <iyz>-0.00014394</iyz>
+          <ixx>1.835544e-2</ixx>
+          <iyy>3.058428e-2</iyy>
+          <izz>1.835553e-2</izz>
+          <iyz>0.000160e-2</iyz>
+          <ixy>0</ixy>
+          <ixz>0</ixz>
           </inertia>
       </inertial>
 
@@ -235,23 +259,22 @@
     <link name="rocker_right">
       <pose>.0 -.168 .046 0 0 1.570796327</pose>
 
-      <collision name="collision_center">
-        <pose>0 0 0 0 1.570796327 0</pose>
-        <geometry>
-          <cylinder>
-            <radius>.05</radius>
-            <length>.015</length>
-          </cylinder>
-        </geometry>
-      </collision>
+      <inertial>
+        <pose>-0.001461 0.014945 -0.056282 0 0 0</pose>
+        <mass>1.0</mass>
+        <inertia>
+          <ixx>2.983909e-2</ixx>
+          <iyy>0.652041e-2</iyy>
+          <izz>2.346062e-2</izz>
+          <ixy>0.034175e-2</ixy>
+          <ixz>-0.014369e-2</ixz>
+          <iyz>0.420844e-2</iyz>
+        </inertia>
+      </inertial>
 
-      <collision name="collision_pipe_up">
-        <pose>0 0 0.05 0 0 0</pose>
+      <collision name="collision_center">
         <geometry>
-          <cylinder>
-            <radius>.01</radius>
-            <length>.15</length>
-          </cylinder>
+          <mesh><uri>model://morty/meshes/rocker_2_right.dae</uri></mesh>
         </geometry>
       </collision>
 
@@ -265,13 +288,24 @@
     <link name="bogie_right">
       <pose>.2 -.183 -.067 0 0 0</pose>
 
+      <inertial>
+        <pose>0.000632 -0.010000 -0.038800 0 0 0</pose>
+        <mass>0.3</mass>
+        <inertia>
+          <ixx>0.039283e-2</ixx>
+          <iyy>0.23786e-2</iyy>
+          <izz>0.199871e-2</izz>
+          <ixz>0.000113e-2</ixz>
+          <ixy>0</ixy>
+          <iyz>0</iyz>
+        </inertia>
+      </inertial>
+
       <collision name="collision_bogie_right">
-        <pose>0 0 0 1.570796327 0 0</pose>
         <geometry>
-          <cylinder>
-            <radius>.05</radius>
-            <length>.015</length>
-          </cylinder>
+          <mesh>
+            <uri>model://morty/meshes/bogie.dae</uri>
+          </mesh>
         </geometry>
       </collision>
 
@@ -291,11 +325,12 @@
         <pose>-0.000000 0.030998 -0.000003 0 0 0</pose>
         <mass>4.0</mass>
         <inertia>
-          <ixx>0.000018</ixx>
-          <iyy>0.000031</iyy>
-          <izz>0.000018</izz>
-          <ixz>-7.4538e-07</ixz>
-          <iyz>-0.00014394</iyz>
+          <ixx>1.835544e-2</ixx>
+          <iyy>3.058428e-2</iyy>
+          <izz>1.835553e-2</izz>
+          <iyz>0.000160e-2</iyz>
+          <ixy>0</ixy>
+          <ixz>0</ixz>
           </inertia>
       </inertial>
 
@@ -342,11 +377,12 @@
         <pose>-0.000000 0.030998 -0.000003 0 0 0</pose>
         <mass>4.0</mass>
         <inertia>
-          <ixx>0.000018</ixx>
-          <iyy>0.000031</iyy>
-          <izz>0.000018</izz>
-          <ixz>-7.4538e-07</ixz>
-          <iyz>-0.00014394</iyz>
+          <ixx>1.835544e-2</ixx>
+          <iyy>3.058428e-2</iyy>
+          <izz>1.835553e-2</izz>
+          <iyz>0.000160e-2</iyz>
+          <ixy>0</ixy>
+          <ixz>0</ixz>
           </inertia>
       </inertial>
 
@@ -393,11 +429,12 @@
         <pose>-0.000000 0.030998 -0.000003 0 0 0</pose>
         <mass>4.0</mass>
         <inertia>
-          <ixx>0.000018</ixx>
-          <iyy>0.000031</iyy>
-          <izz>0.000018</izz>
-          <ixz>-7.4538e-07</ixz>
-          <iyz>-0.00014394</iyz>
+          <ixx>1.835544e-2</ixx>
+          <iyy>3.058428e-2</iyy>
+          <izz>1.835553e-2</izz>
+          <iyz>0.000160e-2</iyz>
+          <ixy>0</ixy>
+          <ixz>0</ixz>
           </inertia>
       </inertial>
 
@@ -441,14 +478,26 @@
     <link name="hebel">
       <pose>-0.1 0 0.14 0 0 0</pose>
 
-<!--      <collision name="collision_hebel">
+      <inertial>
+        <pose>0.000000 -0.000000 0.010000 0 0 0</pose>
+        <mass>2.0</mass>
+        <inertia>
+          <ixx>0.204804e-1</ixx>
+          <iyy>0.006227e-1</iyy>
+          <izz>0.209905e-1</izz>
+          <ixy>0</ixy>
+          <ixz>0</ixz>
+          <iyz>0</iyz>
+        </inertia>
+      </inertial>
+      <collision name="collision_hebel">
         <geometry>
-          <box>
-            <size>0.06 0.32 0.03</size>
-          </box>
+          <mesh>
+            <uri>model://morty/meshes/hebel.dae</uri>
+          </mesh>
         </geometry>
       </collision>
--->
+
       <visual name="visual_hebel">
         <geometry>
           <mesh>
@@ -459,16 +508,29 @@
     </link>
 
     <link name="verbinder_left">
-      <pose>-0.1 0.152 0.1545 0 0 0</pose>
-<!--
+      <pose>-0.1 0.167 0.1545 0 0 0</pose>
+
+      <inertial>
+        <pose>0.050000 0.000455 0.006981 0 0 0</pose>
+        <mass>0.3</mass>
+        <inertia>
+          <ixx>0.000413e-1</ixx>
+          <iyy>0.008758e-1</iyy>
+          <izz>0.008759e-1</izz>
+          <ixy>0.000063e-1</ixy>
+          <ixz>-0.000032e-1</ixz>
+          <iyz>0.000024e-1</iyz>
+        </inertia>
+      </inertial>
+
       <collision name="collision_verbinder_left">
         <geometry>
-          <box>
-            <size>0.06 0.03 0.01</size>
-          </box>
+          <mesh>
+            <uri>model://morty/meshes/verbinder.dae</uri>
+          </mesh>
         </geometry>
       </collision>
--->
+
       <visual name="visual_verbinder_left">
         <geometry>
           <mesh>
@@ -479,17 +541,29 @@
     </link>
 
     <link name="verbinder_right">
-      <pose>-0.1 -0.152 0.1545 0 0 0</pose>
-<!--
+      <pose>-0.1 -0.167 0.1545 0 0 0</pose>
+
+      <inertial>
+        <pose>0.050000 0.000455 0.006981 0 0 0</pose>
+        <mass>0.3</mass>
+        <inertia>
+          <ixx>0.000413e-1</ixx>
+          <iyy>0.008758e-1</iyy>
+          <izz>0.008759e-1</izz>
+          <ixy>0.000063e-1</ixy>
+          <ixz>-0.000032e-1</ixz>
+          <iyz>0.000024e-1</iyz>
+        </inertia>
+      </inertial>
+
       <collision name="collision">
-        <pose>0.05 0 0 0 0 0</pose>
         <geometry>
-          <box>
-            <size>0.13 0.03 0.03</size>
-          </box>
+          <mesh>
+            <uri>model://morty/meshes/verbinder.dae</uri>
+          </mesh>
         </geometry>
       </collision>
--->
+
       <visual name="visual">
         <geometry>
           <mesh>
@@ -501,6 +575,7 @@
 
     <!-- Joints -->
     <joint type="revolute" name="left_body_rocker">
+      <pose>-0.01 0 0 0 0 0</pose>
       <child>rocker_left</child>
       <parent>body</parent>
       <axis>
@@ -514,6 +589,10 @@
       <parent>rocker_left</parent>
       <axis>
         <xyz>0 1 0</xyz>
+        <limit>
+          <lower>-1.570796327</lower>
+          <upper>1.570796327</upper>
+        </limit>
       </axis>
     </joint>
 
@@ -544,6 +623,7 @@
     </joint>
 
     <joint type="revolute" name="right_body_rocker">
+      <pose>0.01 0 0 0 0 0</pose>
       <child>rocker_right</child>
       <parent>body</parent>
       <axis>
@@ -556,7 +636,11 @@
       <parent>rocker_right</parent>
       <axis>
         <xyz>0 1 0</xyz>
-        </axis>
+        <limit>
+          <lower>-1.570796327</lower>
+          <upper>1.570796327</upper>
+        </limit>
+      </axis>
     </joint>
 
     <joint type="revolute" name="right_bogie_wheel_front">
@@ -593,35 +677,23 @@
         <xyz>0 0 1</xyz>
       </axis>
     </joint>
-    <joint type="revolute" name="hebel_verbinder_left">
+    <joint type="ball" name="hebel_verbinder_left">
       <child>verbinder_left</child>
       <parent>hebel</parent>
-      <axis>
-        <xyz>0 1 1</xyz>
-      </axis>
     </joint>
-    <joint type="revolute" name="verbinder_rocker_left">
+    <joint type="ball" name="verbinder_rocker_left">
       <child>rocker_left</child>
       <parent>verbinder_left</parent>
       <pose>0 0 0.115 0 0 0</pose>
-      <axis>
-        <xyz>1 1 1</xyz>
-      </axis>
     </joint>
-    <joint type="revolute" name="hebel_verbinder_right">
+    <joint type="ball" name="hebel_verbinder_right">
       <child>verbinder_right</child>
       <parent>hebel</parent>
-      <axis>
-        <xyz>0 1 1</xyz>
-      </axis>
     </joint>
-    <joint type="revolute" name="verbinder_rocker_right">
+    <joint type="ball" name="verbinder_rocker_right">
       <child>rocker_right</child>
       <parent>verbinder_right</parent>
       <pose>0 0 0.115 0 0 0</pose>
-      <axis>
-        <xyz>1 1 1</xyz>
-      </axis>
     </joint>
 
 
