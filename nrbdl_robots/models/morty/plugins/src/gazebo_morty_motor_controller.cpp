@@ -54,14 +54,19 @@ void GazeboMortyMotorController::callbackTwistCommand(const geometry_msgs::Twist
     std::lock_guard<std::mutex> lock(syncMutex_);
     yaw_ = cmd_msg->angular.z;
     velocity_ = cmd_msg->linear.x;
+
+    if (yaw_ > M_PI * 0.5)
+        yaw_ = M_PI * 0.5;
+    else if (yaw_ < -M_PI * 0.5)
+        yaw_ = -M_PI * 0.5;
 }
 
 void GazeboMortyMotorController::calculateWheelRotation(void)
 {
     std::lock_guard<std::mutex> lock(syncMutex_);
-    const double velRot = 10.0 * std::sin(yaw_);
-    double velLeft = (yaw_ < 0.0 ? velocity_ + velRot : velocity_ - velRot);
-    double velRight = (yaw_ < 0.0 ? velocity_ - velRot : velocity_ + velRot);
+    const double velRot = 5.0 * std::sin(yaw_);
+    double velLeft = velocity_ - velRot;
+    double velRight = velocity_ + velRot;
     velLeft = velLeft / (wheelRadius_ * 4.0 * M_PI);
     velRight = velRight / (wheelRadius_ * 4.0 * M_PI);
     std::cout << "vel left = " << velLeft << std::endl;
