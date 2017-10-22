@@ -1,0 +1,54 @@
+<?xml version='1.0'?>
+<sdf version='1.5'>
+  <model name="logitech_c920">
+    <static>false</static>
+
+    <link name="case">
+      <pose>0 0 0 0 0 0</pose>
+
+      <inertial>
+        <pose>-0.014967 -0.036505 0.000000 0 0 0</pose>
+        <mass>0.1</mass>
+        <inertia>
+          <ixx>0.003100e-5</ixx>
+          <iyy>0.000103e-5</iyy>
+          <izz>0.003203e-5</izz>
+          <ixy>0.000109e-5</ixy>
+          <ixz>0</ixz>
+          <iyz>0.002024e-5</iyz>
+        </inertia>
+      </inertial>
+
+      <collision name="collision">
+        <pose>-0.0125 0 0.015 0 0 0</pose>
+        <geometry>
+          <box>
+            <size>0.025 0.09 0.03</size>
+          </box>
+        </geometry>
+      </collision>
+
+      <visual name="visual">
+        <geometry>
+          <mesh>
+            <uri>model://logitech_c920/meshes/c920.dae</uri>
+          </mesh>
+        </geometry>
+      </visual>
+      <sensor name="monocular" type="camera">
+        <update_rate>20</update_rate>
+        <camera name="webcam">
+          <image>
+            <width>1024</width>
+            <height>768</height>
+            <format>R8G8B8</format>
+          </image>
+        </camera>
+        <plugin name="camera_rendering" filename="libgazebo_ros_camera.so">
+          <cameraName>logitech_c920</cameraName>
+        </plugin>
+      </sensor>
+    </link>
+
+  </model>
+</sdf>
