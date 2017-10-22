@@ -72,17 +72,17 @@ void GazeboMortyMotorController::calculateWheelRotation(void)
     std::cout << "vel left = " << velLeft << std::endl;
     std::cout << "vel right = " << velRight << std::endl;
 
-    joints_[LEFT_FRONT]->SetParam("fmax", 0, 100.0);
+    joints_[LEFT_FRONT]->SetParam("fmax", 0, 200.0);
     joints_[LEFT_FRONT]->SetParam("vel", 0, velLeft);
-    joints_[LEFT_MID]->SetParam("fmax", 0, 100.0);
+    joints_[LEFT_MID]->SetParam("fmax", 0, 200.0);
     joints_[LEFT_MID]->SetParam("vel", 0, velLeft);
-    joints_[LEFT_REAR]->SetParam("fmax", 0, 100.0);
+    joints_[LEFT_REAR]->SetParam("fmax", 0, 200.0);
     joints_[LEFT_REAR]->SetParam("vel", 0, velLeft);
-    joints_[RIGHT_FRONT]->SetParam("fmax", 0, 100.0);
+    joints_[RIGHT_FRONT]->SetParam("fmax", 0, 200.0);
     joints_[RIGHT_FRONT]->SetParam("vel", 0, velRight);
-    joints_[RIGHT_MID]->SetParam("fmax", 0, 100.0);
+    joints_[RIGHT_MID]->SetParam("fmax", 0, 200.0);
     joints_[RIGHT_MID]->SetParam("vel", 0, velRight);
-    joints_[RIGHT_REAR]->SetParam("fmax", 0, 100.0);
+    joints_[RIGHT_REAR]->SetParam("fmax", 0, 200.0);
     joints_[RIGHT_REAR]->SetParam("vel", 0, velRight);
 }
 
