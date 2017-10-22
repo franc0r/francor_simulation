@@ -685,6 +685,11 @@
       <child>rocker_left</child>
       <parent>verbinder_left</parent>
       <pose>0 0 0.115 0 0 0</pose>
+      <axis>
+        <dynamics>
+          <damping>0.5</damping>
+        </dynamics>
+      </axis>
     </joint>
     <joint type="ball" name="hebel_verbinder_right">
       <child>verbinder_right</child>

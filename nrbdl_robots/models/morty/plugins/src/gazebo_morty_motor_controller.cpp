@@ -69,8 +69,8 @@ void GazeboMortyMotorController::calculateWheelRotation(void)
     double velRight = velocity_ + velRot;
     velLeft = velLeft / (wheelRadius_ * 4.0 * M_PI);
     velRight = velRight / (wheelRadius_ * 4.0 * M_PI);
-    std::cout << "vel left = " << velLeft << std::endl;
-    std::cout << "vel right = " << velRight << std::endl;
+//    std::cout << "vel left = " << velLeft << std::endl;
+//    std::cout << "vel right = " << velRight << std::endl;
 
     joints_[LEFT_FRONT]->SetParam("fmax", 0, 200.0);
     joints_[LEFT_FRONT]->SetParam("vel", 0, velLeft);
