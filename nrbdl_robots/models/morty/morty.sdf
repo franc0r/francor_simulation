@@ -476,7 +476,7 @@
 
     <!-- Hebel -->
     <link name="hebel">
-      <pose>-0.1 0 0.14 0 0 0</pose>
+      <pose>-0.153 0 0.14 0 0 0</pose>
 
       <inertial>
         <pose>0.000000 -0.000000 0.010000 0 0 0</pose>
@@ -508,7 +508,7 @@
     </link>
 
     <link name="verbinder_left">
-      <pose>-0.1 0.167 0.1545 0 0 0</pose>
+      <pose>-0.153 0.167 0.15 0 -0.06981317 0</pose>
 
       <inertial>
         <pose>0.050000 0.000455 0.006981 0 0 0</pose>
@@ -541,7 +541,7 @@
     </link>
 
     <link name="verbinder_right">
-      <pose>-0.1 -0.167 0.1545 0 0 0</pose>
+      <pose>-0.153 -0.167 0.15 0 -0.06981317 0</pose>
 
       <inertial>
         <pose>0.050000 0.000455 0.006981 0 0 0</pose>
