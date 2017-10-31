@@ -1,0 +1,161 @@
+<?xml version='1.0'?>
+<sdf version='1.5'>
+  <model name="laser_leveling">
+    <static>false</static>
+
+    <link name="dynamixel_roll">
+      <pose>0 0 0.0385 0 0 0</pose>
+
+      <inertial>
+        <pose>-0.016060 0.000006 -0.013540 0 0 0</pose>
+        <mass>0.06</mass>
+        <inertia>
+          <ixx>0.002137e-2</ixx>
+          <iyy>0.002384e-2</iyy>
+          <izz>0.001158e-2</izz>
+          <ixy>0</ixy>
+          <ixz>0</ixz>
+          <ixz>-0.000001e-2</ixz>
+        </inertia>
+      </inertial>
+
+      <collision name="collision">
+        <pose>-0.02 0 -0.015 0 0 0</pose>
+        <geometry>
+          <box>
+            <size>0.04 0.032 0.06</size>
+          </box>
+        </geometry>
+      </collision>
+
+      <visual name="visual">
+        <geometry>
+          <mesh>
+            <uri>model://laser_leveling/meshes/dynamixel_ax12a.dae</uri>
+          </mesh>
+        </geometry>
+      </visual>
+    </link>
+
+    <link name="dynamixel_pitch">
+      <pose>0.022 0.016 0.06 0 0 1.570796327</pose>
+
+      <inertial>
+        <pose>-0.016060 0.000006 -0.013540 0 0 0</pose>
+        <mass>0.06</mass>
+        <inertia>
+          <ixx>0.002137e-2</ixx>
+          <iyy>0.002384e-2</iyy>
+          <izz>0.001158e-2</izz>
+          <ixy>0</ixy>
+          <ixz>0</ixz>
+          <ixz>-0.000001e-2</ixz>
+        </inertia>
+      </inertial>
+
+      <collision name="collision">
+        <pose>-0.02 0 -0.015 0 0 0</pose>
+        <geometry>
+          <box>
+            <size>0.04 0.032 0.06</size>
+          </box>
+        </geometry>
+      </collision>
+
+      <visual name="visual">
+        <geometry>
+          <mesh>
+            <uri>model://laser_leveling/meshes/dynamixel_ax12a.dae</uri>
+          </mesh>
+        </geometry>
+      </visual>
+    </link>
+
+    <link name="mount_dynamixel_roll">
+      <pose>0 0 0.0385 0 0 0</pose>
+
+      <inertial>
+        <pose>0.005832 -0.000000 0.001146 0 0 0</pose>
+        <mass>0.01</mass>
+        <inertia>
+          <ixx>0.000087e-2</ixx>
+          <iyy>0.000051e-2</iyy>
+          <izz>0.000047e-2</izz>
+          <ixy>0</ixy>
+          <ixz>-0.000002e-2</ixz>
+          <iyz>0</iyz>
+        </inertia>
+      </inertial>
+
+      <collision name="collision">
+        <pose>0.0045 0 0 0 0 0</pose>
+        <geometry>
+          <box>
+            <size>0.009 0.026 0.03</size>
+          </box>
+        </geometry>
+      </collision>
+
+      <visual name="visual">
+        <geometry>
+          <mesh>
+            <uri>model://laser_leveling/meshes/dynamixel_ax12a_mount_side.dae</uri>
+          </mesh>
+        </geometry>
+      </visual>
+    </link>
+
+    <link name="mount_dynamixel_pitch">
+      <pose>0.022 0.016 0.06 0 0 1.570796327</pose>
+
+      <inertial>
+        <pose>-0.011189 -0.000000 0.010418 0 0 0</pose>
+        <mass>0.01</mass>
+        <inertia>
+          <ixx>0.000453e-3</ixx>
+          <iyy>0.001079e-3</iyy>
+          <izz>0.000949e-3</izz>
+          <ixy>0</ixy>
+          <ixz>0.000073e-3</ixz>
+          <iyz>0</iyz>
+        </inertia>
+      </inertial>
+
+      <visual name="visual">
+        <geometry>
+          <mesh>
+            <uri>model://laser_leveling/meshes/dynamixel_ax12a_mount.dae</uri>
+          </mesh>
+        </geometry>
+      </visual>
+    </link>
+
+    <!-- Joints -->
+    <joint name="roll" type="revolute">
+      <pose>0 0 0 0 0 0</pose>
+      <child>mount_dynamixel_roll</child>
+      <parent>dynamixel_roll</parent>
+      <axis>
+        <xyz>1 0 0</xyz>
+      </axis>
+    </joint>
+
+    <joint name="mount_roll_pitch" type="fixed">
+      <child>dynamixel_pitch</child>
+      <parent>mount_dynamixel_roll</parent>
+    </joint>
+
+    <joint name="pitch" type="revolute">
+      <pose>0 0 0 0 0 0</pose>
+      <child>mount_dynamixel_pitch</child>
+      <parent>dynamixel_pitch</parent>
+      <axis>
+        <xyz>1 0 0</xyz>
+        <limit>
+          <lower>-1.570796327</lower>
+          <upper>1.570796327</upper>
+        </limit>
+      </axis>
+    </joint>
+  </model>
+</sdf>
