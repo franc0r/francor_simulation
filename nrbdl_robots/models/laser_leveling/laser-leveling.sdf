@@ -157,5 +157,10 @@
         </limit>
       </axis>
     </joint>
+
+    <plugin name="controller" filename="libgazebo-francor-laser-leveling-plugin.so">
+      <jointServoRoll>roll</jointServoRoll>
+      <jointServoPitch>pitch</jointServoPitch>
+    </plugin>
   </model>
 </sdf>
