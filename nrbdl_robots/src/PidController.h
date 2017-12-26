@@ -82,6 +82,7 @@ private:
 	double limit_max_u_;
 	double limit_min_u_;
 	double target_;
+	// TODO: add a limit for the I component.
 
 	// Working variables of the controller.
 	double error_k0_;

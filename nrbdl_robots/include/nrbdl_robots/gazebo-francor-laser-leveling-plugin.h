@@ -27,8 +27,8 @@ private:
     gazebo::physics::JointPtr joint_pitch_;
 
     // Joint controllers.
-    PidController controller_roll_{0.00001, 0.000001, 0.0};
-    PidController controller_pitch_{0.00001, 0.000001, 0.0};
+    PidController controller_roll_{1.0, 0.01, 0.0};
+    PidController controller_pitch_{1.0, 0.01, 0.0};
 };
 
 

@@ -573,13 +573,20 @@
       </visual>
     </link>
 
+    <!-- Sensors -->
+    <include>
+      <uri>model://laser_leveling</uri>
+      <pose>0.2 0.0 0.14 0 0 0</pose>
+    </include>
+
     <!-- Joints -->
+    <!-- Joints left. -->
     <joint type="revolute" name="left_body_rocker">
       <pose>-0.01 0 0 0 0 0</pose>
       <child>rocker_left</child>
       <parent>body</parent>
       <axis>
-        <xyz>0 1 0</xyz>
+        <xyz>1 0 0</xyz>
       </axis>
     </joint>
 
@@ -622,12 +629,13 @@
       </axis>
     </joint>
 
+    <!-- Joints right. -->
     <joint type="revolute" name="right_body_rocker">
       <pose>0.01 0 0 0 0 0</pose>
       <child>rocker_right</child>
       <parent>body</parent>
       <axis>
-        <xyz>0 1 0</xyz>
+        <xyz>1 0 0</xyz>
       </axis>
     </joint>
 
@@ -680,6 +688,11 @@
     <joint type="ball" name="hebel_verbinder_left">
       <child>verbinder_left</child>
       <parent>hebel</parent>
+      <axis>
+        <dynamics>
+          <friction>0.1</friction>
+        </dynamics>
+      </axis>
     </joint>
     <joint type="ball" name="verbinder_rocker_left">
       <child>rocker_left</child>
@@ -687,20 +700,35 @@
       <pose>0 0 0.115 0 0 0</pose>
       <axis>
         <dynamics>
-          <damping>0.5</damping>
+          <friction>0.1</friction>
         </dynamics>
       </axis>
     </joint>
     <joint type="ball" name="hebel_verbinder_right">
       <child>verbinder_right</child>
       <parent>hebel</parent>
+      <axis>
+        <dynamics>
+          <friction>0.1</friction>
+        </dynamics>
+      </axis>
     </joint>
     <joint type="ball" name="verbinder_rocker_right">
       <child>rocker_right</child>
       <parent>verbinder_right</parent>
       <pose>0 0 0.115 0 0 0</pose>
+      <axis>
+        <dynamics>
+          <friction>0.1</friction>
+        </dynamics>
+      </axis>
     </joint>
 
+    <!-- Joints for the sensors. -->
+    <joint type="fixed" name="mount_leveling">
+      <child>laser_leveling::dynamixel_roll</child>
+      <parent>body</parent>
+    </joint>
 
     <plugin name="morty_motor_controller" filename="libgazebo_morty_motor_controller.so">
 

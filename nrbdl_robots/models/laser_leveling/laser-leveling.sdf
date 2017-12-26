@@ -137,6 +137,13 @@
       <parent>dynamixel_roll</parent>
       <axis>
         <xyz>1 0 0</xyz>
+        <limit>
+          <lower>-1.570796327</lower>
+          <upper>1.570796327</upper>
+        </limit>
+        <dynamics>
+          <friction>0.01</friction>
+        </dynamics>
       </axis>
     </joint>
 
@@ -155,6 +162,9 @@
           <lower>-1.570796327</lower>
           <upper>1.570796327</upper>
         </limit>
+        <dynamics>
+          <friction>0.01</friction>
+        </dynamics>
       </axis>
     </joint>
 
