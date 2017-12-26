@@ -5,6 +5,8 @@
 #include <gazebo/physics/physics.hh>
 #include <sdf/sdf.hh>
 
+#include "PidController.h"
+
 namespace nrbdl {
 
 class GazeboFrancorLaserLevelingPlugin : public gazebo::ModelPlugin
@@ -18,11 +20,15 @@ public:
 private:
     void levelLaser(void);
 
+    // Gazebo Model Members.
     gazebo::physics::ModelPtr model_;
     gazebo::event::ConnectionPtr update_connection_;
     gazebo::physics::JointPtr joint_roll_;
     gazebo::physics::JointPtr joint_pitch_;
-    std::shared_ptr<gazebo::physics::JointController> joint_controller_;
+
+    // Joint controllers.
+    PidController controller_roll_{0.00001, 0.000001, 0.0};
+    PidController controller_pitch_{0.00001, 0.000001, 0.0};
 };
 
 

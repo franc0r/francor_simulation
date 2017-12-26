@@ -115,6 +115,7 @@ catkin_package(
 include_directories(
   models/morty/plugins/include
   include
+  src
   ${catkin_INCLUDE_DIRS}
 )
 
@@ -125,6 +126,7 @@ add_library(gazebo_morty_motor_controller
 
 add_library(gazebo-francor-laser-leveling-plugin
   src/gazebo-francor-laser-leveling-plugin.cpp
+  src/PidController.cpp
 )
 
 ## Add cmake target dependencies of the library
