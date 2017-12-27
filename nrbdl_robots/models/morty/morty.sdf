@@ -578,6 +578,11 @@
       <uri>model://laser_leveling</uri>
       <pose>0.2 0.0 0.14 0 0 0</pose>
     </include>
+    <include>
+      <uri>model://rplidar_a2_m6</uri>
+      <pose>0.222 0.0 0.22 0 0 0</pose>
+      <parent>laser_leveling</parent>
+    </include>
 
     <!-- Joints -->
     <!-- Joints left. -->
@@ -728,6 +733,10 @@
     <joint type="fixed" name="mount_leveling">
       <child>laser_leveling::dynamixel_roll</child>
       <parent>body</parent>
+    </joint>
+    <joint type="fixed" name="laser_leveling">
+      <child>rplidar_a2_m6::case</child>
+      <parent>laser_leveling::mount_dynamixel_pitch</parent>
     </joint>
 
     <plugin name="morty_motor_controller" filename="libgazebo_morty_motor_controller.so">
