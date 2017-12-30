@@ -13,6 +13,8 @@
 #include <thread>
 #include <array>
 
+#include "RobotKinematicDifferential.h"
+
 namespace nrbdl {
 
 class GazeboFrancorMortyMotorController : public gazebo::ModelPlugin
@@ -32,6 +34,7 @@ public:
 private:
     void update(void);
     void rosQueueThread(void);
+    void receiveTwistMsg(const geometry_msgs::Twist& msg);
 
     enum class Wheel : std::size_t {
         LEFT_FRONT = 0,
@@ -39,22 +42,27 @@ private:
         LEFT_REAR,
         RIGHT_FRONT,
         RIGHT_MID,
-        RIGHT_REAR
+        RIGHT_REAR,
         COUNT_WHEELS
     };
 
-    // Gazebo Model Members.
+    // Gazebo Model Members
     gazebo::physics::ModelPtr model_;
     gazebo::event::ConnectionPtr update_connection_;
     std::shared_ptr<gazebo::physics::JointController> joint_controller_;
     std::array<gazebo::physics::JointPtr, static_cast<std::size_t>(Wheel::COUNT_WHEELS)> motor_joints_;
 
-    // ROS
+    // ROS objects
     ros::CallbackQueue ros_msg_queue_;
     std::thread callback_queue_thread_;
     ros::Publisher pub_odometry_;
     ros::Subscriber sub_velocity_;
     std::shared_ptr<ros::NodeHandle> ros_nodehandle_;
+    std::atomic<bool> alive_{false};
+    std::mutex mutex_ros_msgs_;
+
+    // Members
+    RobotKinematicDifferential kinematic_;
 };
 
 } // end namespace nrbdl

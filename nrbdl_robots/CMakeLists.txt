@@ -125,8 +125,8 @@ add_library(gazebo-francor
   src/RobotKinematicDifferential.cpp
 )
 
-add_library(gazebo_morty_motor_controller
-  models/morty/plugins/src/gazebo_morty_motor_controller.cpp
+add_library(gazebo-francor-morty-motor-controller-plugin
+  src/gazebo-francor-morty-motor-controller-plugin.cpp
 )
 
 add_library(gazebo-francor-laser-leveling-plugin
@@ -136,7 +136,8 @@ add_library(gazebo-francor-laser-leveling-plugin
 ## Add cmake target dependencies of the library
 ## as an example, code may need to be generated before libraries
 ## either from message generation or dynamic reconfigure
-add_dependencies(gazebo_morty_motor_controller ${${PROJECT_NAME}_EXPORTED_TARGETS} ${catkin_EXPORTED_TARGETS})
+add_dependencies(gazebo-francor-morty-motor-controller-plugin ${${PROJECT_NAME}_EXPORTED_TARGETS} ${catkin_EXPORTED_TARGETS})
+add_dependencies(gazebo-francor-laser-leveling-plugin ${${PROJECT_NAME}_EXPORTED_TARGETS} ${catkin_EXPORTED_TARGETS})
 
 ## Declare a C++ executable
 # add_executable(nrbdl_robots_node src/nrbdl_robots_node.cpp)
@@ -150,7 +151,7 @@ target_link_libraries(gazebo-francor
   ${catkin_LIBRARIES}
 )
 
-target_link_libraries(gazebo_morty_motor_controller
+target_link_libraries(gazebo-francor-morty-motor-controller-plugin
   ${catkin_LIBRARIES}
   gazebo-francor
 )
