@@ -52,6 +52,8 @@ void GazeboFrancorMortyMotorController::Load(gazebo::physics::ModelPtr model, sd
         if (sdf->HasElement(sdfPosTags[i]))
         {
             posWheels[i] = sdf->GetElement(sdfPosTags[i])->Get<gazebo::math::Vector3>();
+            ROS_INFO_STREAM("GazeboFrancorMortyMotorController: Added position " << posWheels[i] <<
+                            " to joint \"" << motor_joints_[i]->GetScopedName() << "\".");
         }
         else
         {
@@ -71,6 +73,8 @@ void GazeboFrancorMortyMotorController::Load(gazebo::physics::ModelPtr model, sd
         if (sdf->HasElement(sdfDiameterTag[i]))
         {
             diameterWheels[i] = sdf->GetElement(sdfDiameterTag[i])->Get<double>();
+            ROS_INFO_STREAM("GazeboFrancorMortyMotorController: Added diameter " << diameterWheels[i] <<
+                            " to joint \"" << motor_joints_[i]->GetScopedName() << "\".");
         }
         else
         {
@@ -123,13 +127,13 @@ void GazeboFrancorMortyMotorController::Load(gazebo::physics::ModelPtr model, sd
     joint_controller_ = std::make_shared<gazebo::physics::JointController>(model);
     // A copy of this PID controller is used by each motor joint.
     // TODO: find good parameter for the controller.
-    gazebo::common::PID pid(1.0, 0.0, 0.0);
+    gazebo::common::PID pid(500.0, 1.0, 0.0);
 
     for (std::size_t i = 0; i < static_cast<std::size_t>(Wheel::COUNT_WHEELS); ++i)
     {
         // Limit the joint. TODO: The limits should be configurable by SDF file.
         motor_joints_[i]->SetVelocityLimit(0, 10.0);
-        motor_joints_[i]->SetParam("fmax", 0, 30.0);
+        motor_joints_[i]->SetParam("fmax", 0, 500.0);
 
         // Add joint as wheel to the kinematic.
         kinematic_.addWheel(motor_joints_[i]->GetScopedName(), diameterWheels[i], posWheels[i]);
@@ -141,7 +145,7 @@ void GazeboFrancorMortyMotorController::Load(gazebo::physics::ModelPtr model, sd
     }
 
     // Initialize ROS part.
-    ros_nodehandle_ = std::make_shared<ros::NodeHandle>();
+    ros_nodehandle_ = std::make_shared<ros::NodeHandle>(rosNamespace);
     sub_velocity_ = ros_nodehandle_->subscribe(velocityTopic,
                                                1,
                                                &GazeboFrancorMortyMotorController::receiveTwistMsg,
@@ -166,6 +170,9 @@ void GazeboFrancorMortyMotorController::update(void)
     // The update method of the joint controller has to be called in each iteration.
     std::lock_guard<std::mutex> lock(mutex_ros_msgs_);
     joint_controller_->Update();
+
+    for (auto& joint : motor_joints_)
+        std::cout << joint->GetScopedName() << " force: " << joint->GetForce(0) << std::endl;
 }
 
 void GazeboFrancorMortyMotorController::rosQueueThread(void)

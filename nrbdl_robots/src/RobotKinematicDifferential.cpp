@@ -7,8 +7,8 @@
 namespace nrbdl {
 
 int RobotKinematicDifferential::addWheel(const std::string& name,
-                                                 const double diameter,
-                                                 const gazebo::math::Vector3& position)
+                                         const double diameter,
+                                         const gazebo::math::Vector3& position)
 {
     wheel_rotation_speeds_.push_back(0.0);
     wheels_.push_back(Wheel(name, diameter, position));
@@ -87,6 +87,7 @@ void RobotKinematicDifferential::calculate (const double linearVelocity, const g
         wheel_rotation_speeds_[i] = wheels_[i].rotationSpeed(v_wheel);
 
         std::cout << wheels_[i].name() << ":" << std::endl;
+        std::cout << "rotating speed = " << rotationSpeed.Radian() << std::endl;
         std::cout << "v_circle = " << v_circle << std::endl;
         std::cout << "v_rot    = " << v_rot << std::endl;
         std::cout << "v_wheel  = " << v_wheel << std::endl;
