@@ -12,6 +12,7 @@ GazeboFrancorMortyMotorController::~GazeboFrancorMortyMotorController(void)
 
 void GazeboFrancorMortyMotorController::Load(gazebo::physics::ModelPtr model, sdf::ElementPtr sdf)
 {
+    std::cout << __PRETTY_FUNCTION__ << std::endl;
     // Get the joints of each motor. All 6 joints are required. The order of the joint tag list must correspond to the
     // enum class Wheel!
     const std::vector<std::string> sdfJointTags{ "motorLeftFrontJoint", "motorLeftMidJoint",
@@ -127,13 +128,13 @@ void GazeboFrancorMortyMotorController::Load(gazebo::physics::ModelPtr model, sd
     joint_controller_ = std::make_shared<gazebo::physics::JointController>(model);
     // A copy of this PID controller is used by each motor joint.
     // TODO: find good parameter for the controller.
-    gazebo::common::PID pid(500.0, 1.0, 0.0);
+    gazebo::common::PID pid(50.0, 0.01, 0.0);
 
     for (std::size_t i = 0; i < static_cast<std::size_t>(Wheel::COUNT_WHEELS); ++i)
     {
         // Limit the joint. TODO: The limits should be configurable by SDF file.
         motor_joints_[i]->SetVelocityLimit(0, 10.0);
-        motor_joints_[i]->SetParam("fmax", 0, 500.0);
+        motor_joints_[i]->SetParam("fmax", 0, 50.0);
 
         // Add joint as wheel to the kinematic.
         kinematic_.addWheel(motor_joints_[i]->GetScopedName(), diameterWheels[i], posWheels[i]);
@@ -162,17 +163,19 @@ void GazeboFrancorMortyMotorController::Load(gazebo::physics::ModelPtr model, sd
 
 void GazeboFrancorMortyMotorController::Reset(void)
 {
-
+    std::cout << __PRETTY_FUNCTION__ << std::endl;
 }
 
 void GazeboFrancorMortyMotorController::update(void)
 {
     // The update method of the joint controller has to be called in each iteration.
     std::lock_guard<std::mutex> lock(mutex_ros_msgs_);
-    joint_controller_->Update();
+//    joint_controller_->Update();
 
     for (auto& joint : motor_joints_)
-        std::cout << joint->GetScopedName() << " force: " << joint->GetForce(0) << std::endl;
+        std::cout << joint->GetScopedName() << " force: " << joint->GetForce(0) << " fmax: "
+                  << joint->GetForce(0) << " vmax: " << joint->GetVelocityLimit(0)
+                  << " axis: " << joint->GetLocalAxis(0) << " effmax: " << joint->GetEffortLimit(0) << std::endl;
 }
 
 void GazeboFrancorMortyMotorController::rosQueueThread(void)

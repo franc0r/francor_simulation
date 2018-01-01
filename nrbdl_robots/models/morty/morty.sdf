@@ -9,14 +9,13 @@
 
       <inertial>
         <pose>-0.010530 0.000000 0.067976 0 0 0</pose>
-        <mass>1.0</mass>
+        <mass>10.0</mass>
         <inertia>
-          <ixx>43.604542e-4</ixx>
-          <iyy>144.367569e-4</iyy>
-          <izz>172.691925e-4</izz>
-          <ixz>2.563373e-4
-          </ixz>
-          <ixy>-0.000009e-4</ixy>
+          <ixx>0.090503408</ixx>
+          <iyy>0.299642109</iyy>
+          <izz>0.358430731</izz>
+          <ixz>0.005320407</ixz>
+          <ixy>-0.000000017</ixy>
           <iyz>0.0</iyz>
           </inertia>
       </inertial>
@@ -42,15 +41,15 @@
       <pose>.0 .168 .046 0 0 1.571</pose>
 
       <inertial>
-        <pose>0.001286 0.014945 -0.056282 0 0 0</pose>
+        <pose>-0.015279 0.001330 -0.062246 0 0 1.571</pose>
         <mass>1.0</mass>
         <inertia>
-          <ixx>2.983909e-2</ixx>
-          <iyy>0.652077e-2</iyy>
-          <izz>2.346098e-2</izz>
-          <ixy>-0.034413e-2</ixy>
-          <ixz>0.015052e-2</ixz>
-          <iyz>0.420844e-2</iyz>
+          <ixx>0.007941717</ixx>
+          <iyy>0.039707548</iyy>
+          <izz>0.031959155</izz>
+          <ixy>-0.000232016</ixy>
+          <ixz>-0.005681226</ixz>
+          <iyz>-0.00008782</iyz>
         </inertia>
       </inertial>
 
@@ -74,12 +73,12 @@
         <pose>0.000632 -0.010000 -0.038800 0 0 0</pose>
         <mass>0.3</mass>
         <inertia>
-          <ixx>0.039283e-2</ixx>
-          <iyy>0.23786e-2</iyy>
-          <izz>0.199871e-2</izz>
-          <ixz>0.000113e-2</ixz>
-          <ixy>0</ixy>
-          <iyz>0</iyz>
+          <ixx>0.000572097</ixx>
+          <iyy>0.003464068</iyy>
+          <izz>0.002910728</izz>
+          <ixz>0.000001631</ixz>
+          <ixy>0.0</ixy>
+          <iyz>0.0</iyz>
         </inertia>
       </inertial>
 
@@ -104,15 +103,15 @@
       <pose>.35 .287 -.155 3.141592654 0 0</pose>
 
       <inertial>
-        <pose>-0.000000 0.030998 -0.000003 0 0 0</pose>
+        <pose>-0.000000 0.030325 0.000000 0 0 0</pose>
         <mass>4.0</mass>
         <inertia>
-          <ixx>1.835544e-2</ixx>
-          <iyy>3.058428e-2</iyy>
-          <izz>1.835553e-2</izz>
-          <iyz>0.000160e-2</iyz>
-          <ixy>0</ixy>
-          <ixz>0</ixz>
+          <ixx>0.013259137</ixx>
+          <iyy>0.022356067</iyy>
+          <izz>0.013259137</izz>
+          <iyz>0.0</iyz>
+          <ixy>0.0</ixy>
+          <ixz>0.0</ixz>
           </inertia>
       </inertial>
 
@@ -129,23 +128,21 @@
             <uri>model://morty/meshes/wheel.dae</uri>
           </mesh>
         </geometry>
-        <max_contacts>1</max_contacts>
+        <max_contacts>10</max_contacts>
         <surface>
           <friction>
+
             <ode>
-              <mu>0.5</mu>
-              <mu2>0.3</mu2>
-              <fdir1>1 0 1</fdir1>
-              <fdir2>0 1 0</fdir2>
-              <slip1>0.1</slip1>
-              <slip2>0.1</slip2>
+              <mu>0.4</mu>
+              <mu2>0.8</mu2>
+              <fdir1>0 1 0</fdir1>
+              <slip1>0.3</slip1>
+              <slip2>0.0</slip2>
             </ode>
           </friction>
           <contact>
             <ode>
-              <min_depth>0.00</min_depth>
-              <max_depth>0.005</max_depth>
-              <kp>1e8</kp>
+              <min_depth>0.002</min_depth>
             </ode>
           </contact>
         </surface>
@@ -176,13 +173,13 @@
         <pose>-0.000000 0.030998 -0.000003 0 0 0</pose>
         <mass>4.0</mass>
         <inertia>
-          <ixx>1.835544e-2</ixx>
-          <iyy>3.058428e-2</iyy>
-          <izz>1.835553e-2</izz>
-          <iyz>0.000160e-2</iyz>
-          <ixy>0</ixy>
-          <ixz>0</ixz>
-          </inertia>
+          <ixx>0.013259137</ixx>
+          <iyy>0.022356067</iyy>
+          <izz>0.013259137</izz>
+          <iyz>0.0</iyz>
+          <ixy>0.0</ixy>
+          <ixz>0.0</ixz>
+        </inertia>
       </inertial>
 
       <collision name="collision_wheel_left_middle">
@@ -198,23 +195,21 @@
             <uri>model://morty/meshes/wheel.dae</uri>
           </mesh>
         </geometry>
-        <max_contacts>1</max_contacts>
+        <max_contacts>10</max_contacts>
         <surface>
           <friction>
+
             <ode>
-              <mu>0.5</mu>
-              <mu2>0.3</mu2>
-              <fdir1>1 0 1</fdir1>
-              <fdir2>0 1 0</fdir2>
-              <slip1>0.1</slip1>
-              <slip2>0.1</slip2>
+              <mu>0.4</mu>
+              <mu2>0.8</mu2>
+              <fdir1>0 1 0</fdir1>
+              <slip1>0.3</slip1>
+              <slip2>0.0</slip2>
             </ode>
           </friction>
           <contact>
             <ode>
-              <min_depth>0.00</min_depth>
-              <max_depth>0.005</max_depth>
-              <kp>1e8</kp>
+              <min_depth>0.002</min_depth>
             </ode>
           </contact>
         </surface>
@@ -245,13 +240,13 @@
         <pose>-0.000000 0.030998 -0.000003 0 0 0</pose>
         <mass>4.0</mass>
         <inertia>
-          <ixx>1.835544e-2</ixx>
-          <iyy>3.058428e-2</iyy>
-          <izz>1.835553e-2</izz>
-          <iyz>0.000160e-2</iyz>
-          <ixy>0</ixy>
-          <ixz>0</ixz>
-          </inertia>
+          <ixx>0.013259137</ixx>
+          <iyy>0.022356067</iyy>
+          <izz>0.013259137</izz>
+          <iyz>0.0</iyz>
+          <ixy>0.0</ixy>
+          <ixz>0.0</ixz>
+        </inertia>
       </inertial>
 
       <collision name="collision_wheel_left_rear">
@@ -267,23 +262,21 @@
             <uri>model://morty/meshes/wheel.dae</uri>
           </mesh>
         </geometry>
-        <max_contacts>1</max_contacts>
+        <max_contacts>10</max_contacts>
         <surface>
           <friction>
+
             <ode>
-              <mu>0.5</mu>
-              <mu2>0.3</mu2>
-              <fdir1>1 0 1</fdir1>
-              <fdir2>0 1 0</fdir2>
-              <slip1>0.1</slip1>
-              <slip2>0.1</slip2>
+              <mu>0.4</mu>
+              <mu2>0.8</mu2>
+              <fdir1>0 1 0</fdir1>
+              <slip1>0.3</slip1>
+              <slip2>0.0</slip2>
             </ode>
           </friction>
           <contact>
             <ode>
-              <min_depth>0.00</min_depth>
-              <max_depth>0.005</max_depth>
-              <kp>1e8</kp>
+              <min_depth>0.002</min_depth>
             </ode>
           </contact>
         </surface>
@@ -309,18 +302,18 @@
 
     <!-- Right side. -->
     <link name="rocker_right">
-      <pose>.0 -.168 .046 0 0 1.570796327</pose>
+      <pose>.0 -.168 .046 0 0 1.571</pose>
 
       <inertial>
-        <pose>-0.001461 0.014945 -0.056282 0 0 0</pose>
+        <pose>-0.015279 -0.000801 -0.062246 0 0 1.571</pose>
         <mass>1.0</mass>
         <inertia>
-          <ixx>2.983909e-2</ixx>
-          <iyy>0.652041e-2</iyy>
-          <izz>2.346062e-2</izz>
-          <ixy>0.034175e-2</ixy>
-          <ixz>-0.014369e-2</ixz>
-          <iyz>0.420844e-2</iyz>
+          <ixx>0.007932371</ixx>
+          <iyy>0.039707548</iyy>
+          <izz>0.031949809</izz>
+          <ixy>-0.000232016</ixy>
+          <ixz>-0.005681226</ixz>
+          <iyz>-0.00008782</iyz>
         </inertia>
       </inertial>
 
@@ -344,12 +337,12 @@
         <pose>0.000632 -0.010000 -0.038800 0 0 0</pose>
         <mass>0.3</mass>
         <inertia>
-          <ixx>0.039283e-2</ixx>
-          <iyy>0.23786e-2</iyy>
-          <izz>0.199871e-2</izz>
-          <ixz>0.000113e-2</ixz>
-          <ixy>0</ixy>
-          <iyz>0</iyz>
+          <ixx>0.000572097</ixx>
+          <iyy>0.003464068</iyy>
+          <izz>0.002910728</izz>
+          <ixz>0.000001631</ixz>
+          <ixy>0.0</ixy>
+          <iyz>0.0</iyz>
         </inertia>
       </inertial>
 
@@ -377,13 +370,13 @@
         <pose>-0.000000 0.030998 -0.000003 0 0 0</pose>
         <mass>4.0</mass>
         <inertia>
-          <ixx>1.835544e-2</ixx>
-          <iyy>3.058428e-2</iyy>
-          <izz>1.835553e-2</izz>
-          <iyz>0.000160e-2</iyz>
-          <ixy>0</ixy>
-          <ixz>0</ixz>
-          </inertia>
+          <ixx>0.013259137</ixx>
+          <iyy>0.022356067</iyy>
+          <izz>0.013259137</izz>
+          <iyz>0.0</iyz>
+          <ixy>0.0</ixy>
+          <ixz>0.0</ixz>
+        </inertia>
       </inertial>
 
       <collision name="collision_wheel_right_front">
@@ -399,23 +392,21 @@
             <uri>model://morty/meshes/wheel.dae</uri>
           </mesh>
         </geometry>
-        <max_contacts>1</max_contacts>
+        <max_contacts>10</max_contacts>
         <surface>
           <friction>
+
             <ode>
-              <mu>0.5</mu>
-              <mu2>0.3</mu2>
-              <fdir1>1 0 1</fdir1>
-              <fdir2>0 1 0</fdir2>
-              <slip1>0.1</slip1>
-              <slip2>0.1</slip2>
+              <mu>0.4</mu>
+              <mu2>0.8</mu2>
+              <fdir1>0 1 0</fdir1>
+              <slip1>0.3</slip1>
+              <slip2>0.0</slip2>
             </ode>
           </friction>
           <contact>
             <ode>
-              <min_depth>0.00</min_depth>
-              <max_depth>0.005</max_depth>
-              <kp>1e8</kp>
+              <min_depth>0.002</min_depth>
             </ode>
           </contact>
         </surface>
@@ -446,13 +437,13 @@
         <pose>-0.000000 0.030998 -0.000003 0 0 0</pose>
         <mass>4.0</mass>
         <inertia>
-          <ixx>1.835544e-2</ixx>
-          <iyy>3.058428e-2</iyy>
-          <izz>1.835553e-2</izz>
-          <iyz>0.000160e-2</iyz>
-          <ixy>0</ixy>
-          <ixz>0</ixz>
-          </inertia>
+          <ixx>0.013259137</ixx>
+          <iyy>0.022356067</iyy>
+          <izz>0.013259137</izz>
+          <iyz>0.0</iyz>
+          <ixy>0.0</ixy>
+          <ixz>0.0</ixz>
+        </inertia>
       </inertial>
 
       <collision name="collision_wheel_right_middle">
@@ -468,23 +459,21 @@
             <uri>model://morty/meshes/wheel.dae</uri>
           </mesh>
         </geometry>
-        <max_contacts>1</max_contacts>
+        <max_contacts>10</max_contacts>
         <surface>
           <friction>
+
             <ode>
-              <mu>0.5</mu>
-              <mu2>0.3</mu2>
-              <fdir1>1 0 1</fdir1>
-              <fdir2>0 1 0</fdir2>
-              <slip1>0.1</slip1>
-              <slip2>0.1</slip2>
+              <mu>0.4</mu>
+              <mu2>0.8</mu2>
+              <fdir1>0 1 0</fdir1>
+              <slip1>0.3</slip1>
+              <slip2>0.0</slip2>
             </ode>
           </friction>
           <contact>
             <ode>
-              <min_depth>0.00</min_depth>
-              <max_depth>0.005</max_depth>
-              <kp>1e8</kp>
+              <min_depth>0.002</min_depth>
             </ode>
           </contact>
         </surface>
@@ -515,13 +504,13 @@
         <pose>-0.000000 0.030998 -0.000003 0 0 0</pose>
         <mass>4.0</mass>
         <inertia>
-          <ixx>1.835544e-2</ixx>
-          <iyy>3.058428e-2</iyy>
-          <izz>1.835553e-2</izz>
-          <iyz>0.000160e-2</iyz>
-          <ixy>0</ixy>
-          <ixz>0</ixz>
-          </inertia>
+          <ixx>0.013259137</ixx>
+          <iyy>0.022356067</iyy>
+          <izz>0.013259137</izz>
+          <iyz>0.0</iyz>
+          <ixy>0.0</ixy>
+          <ixz>0.0</ixz>
+        </inertia>
       </inertial>
 
       <collision name="collision_wheel_right_rear">
@@ -537,23 +526,21 @@
             <uri>model://morty/meshes/wheel.dae</uri>
           </mesh>
         </geometry>
-        <max_contacts>1</max_contacts>
+        <max_contacts>10</max_contacts>
         <surface>
           <friction>
+
             <ode>
-              <mu>0.5</mu>
-              <mu2>0.3</mu2>
-              <fdir1>1 0 1</fdir1>
-              <fdir2>0 1 0</fdir2>
-              <slip1>0.1</slip1>
-              <slip2>0.1</slip2>
+              <mu>0.4</mu>
+              <mu2>0.8</mu2>
+              <fdir1>0 1 0</fdir1>
+              <slip1>0.3</slip1>
+              <slip2>0.0</slip2>
             </ode>
           </friction>
           <contact>
             <ode>
-              <min_depth>0.00</min_depth>
-              <max_depth>0.005</max_depth>
-              <kp>1e8</kp>
+              <min_depth>0.002</min_depth>
             </ode>
           </contact>
         </surface>
@@ -582,15 +569,15 @@
       <pose>-0.153 0 0.14 0 0 0</pose>
 
       <inertial>
-        <pose>0.000000 -0.000000 0.010000 0 0 0</pose>
-        <mass>2.0</mass>
+        <pose>-0.000560 -0.000000 0.010590 0 0 0</pose>
+        <mass>0.4</mass>
         <inertia>
-          <ixx>0.204804e-1</ixx>
-          <iyy>0.006227e-1</iyy>
-          <izz>0.209905e-1</izz>
-          <ixy>0</ixy>
-          <ixz>0</ixz>
-          <iyz>0</iyz>
+          <ixx>0.004035774</ixx>
+          <iyy>0.000069082</iyy>
+          <izz>0.004086541</izz>
+          <ixy>0.0</ixy>
+          <ixz>-0.000001484</ixz>
+          <iyz>0.0</iyz>
         </inertia>
       </inertial>
       <collision name="collision_hebel">
@@ -614,15 +601,15 @@
       <pose>-0.153 0.167 0.15 0 -0.06981317 0</pose>
 
       <inertial>
-        <pose>0.050000 0.000455 0.006981 0 0 0</pose>
-        <mass>0.3</mass>
+        <pose>0.077000 -0.000000 -0.000001 0 0 0</pose>
+        <mass>0.1</mass>
         <inertia>
-          <ixx>0.000413e-1</ixx>
-          <iyy>0.008758e-1</iyy>
-          <izz>0.008759e-1</izz>
-          <ixy>0.000063e-1</ixy>
-          <ixz>-0.000032e-1</ixz>
-          <iyz>0.000024e-1</iyz>
+          <ixx>0.000006552</ixx>
+          <iyy>0.000330104</iyy>
+          <izz>0.000330075</izz>
+          <ixy>0.0</ixy>
+          <ixz>0.0</ixz>
+          <iyz>0.0</iyz>
         </inertia>
       </inertial>
 
@@ -647,15 +634,15 @@
       <pose>-0.153 -0.167 0.15 0 -0.06981317 0</pose>
 
       <inertial>
-        <pose>0.050000 0.000455 0.006981 0 0 0</pose>
-        <mass>0.3</mass>
+        <pose>0.077000 -0.000000 -0.000001 0 0 0</pose>
+        <mass>0.1</mass>
         <inertia>
-          <ixx>0.000413e-1</ixx>
-          <iyy>0.008758e-1</iyy>
-          <izz>0.008759e-1</izz>
-          <ixy>0.000063e-1</ixy>
-          <ixz>-0.000032e-1</ixz>
-          <iyz>0.000024e-1</iyz>
+          <ixx>0.000006552</ixx>
+          <iyy>0.000330104</iyy>
+          <izz>0.000330075</izz>
+          <ixy>0.0</ixy>
+          <ixz>0.0</ixz>
+          <iyz>0.0</iyz>
         </inertia>
       </inertial>
 
@@ -677,6 +664,7 @@
     </link>
 
     <!-- Sensors -->
+<!--
     <include>
       <uri>model://laser_leveling</uri>
       <pose>0.2 0.0 0.14 0 0 0</pose>
@@ -686,7 +674,7 @@
       <pose>0.222 0.0 0.22 0 0 0</pose>
       <parent>laser_leveling</parent>
     </include>
-
+-->
     <!-- Joints -->
     <!-- Joints left. -->
     <joint type="revolute" name="left_body_rocker">
@@ -717,15 +705,26 @@
       <parent>bogie_left</parent>
       <axis>
         <xyz>0 1 0</xyz>
+<!--
+        <dynamics>
+          <damping>1.0</damping>
+          <friction>1.0</friction>
+        </dynamics>
+-->
       </axis>
     </joint>
-
     <joint type="revolute" name="left_bogie_wheel_middle">
       <pose>0 0.095 0 0 0 3.141592654</pose>
       <child>wheel_left_middle</child>
       <parent>bogie_left</parent>
       <axis>
         <xyz>0 1 0</xyz>
+<!--
+        <dynamics>
+          <damping>1.0</damping>
+          <friction>1.0</friction>
+        </dynamics>
+-->
       </axis>
     </joint>
     <joint type="revolute" name="left_rocker_wheel_rear">
@@ -734,6 +733,12 @@
       <parent>rocker_left</parent>
       <axis>
         <xyz>0 1 0</xyz>
+<!--
+        <dynamics>
+          <damping>1.0</damping>
+          <friction>1.0</friction>
+        </dynamics>
+-->
       </axis>
     </joint>
 
@@ -765,15 +770,26 @@
       <parent>bogie_right</parent>
       <axis>
         <xyz>0 1 0</xyz>
+<!--
+        <dynamics>
+          <damping>1.0</damping>
+          <friction>1.0</friction>
+        </dynamics>
+-->
       </axis>
     </joint>
-
     <joint type="revolute" name="right_bogie_wheel_middle">
       <pose>0 0.095 0 0 0 0</pose>
       <child>wheel_right_middle</child>
       <parent>bogie_right</parent>
       <axis>
         <xyz>0 1 0</xyz>
+<!--
+        <dynamics>
+          <damping>1.0</damping>
+          <friction>1.0</friction>
+        </dynamics>
+-->
       </axis>
     </joint>
     <joint type="revolute" name="right_rocker_wheel_rear">
@@ -782,6 +798,12 @@
       <parent>rocker_right</parent>
       <axis>
         <xyz>0 1 0</xyz>
+<!--
+        <dynamics>
+          <damping>1.0</damping>
+          <friction>1.0</friction>
+        </dynamics>
+-->
       </axis>
     </joint>
 
@@ -833,6 +855,7 @@
     </joint>
 
     <!-- Joints for the sensors. -->
+<!--
     <joint type="fixed" name="mount_leveling">
       <child>laser_leveling::dynamixel_roll</child>
       <parent>body</parent>
@@ -841,7 +864,6 @@
       <child>rplidar_a2_m6::case</child>
       <parent>laser_leveling::mount_dynamixel_pitch</parent>
     </joint>
-
     <plugin name="morty_motor_controller" filename="libgazebo-francor-morty-motor-controller-plugin.so">
       <motorLeftFrontJoint>left_bogie_wheel_front</motorLeftFrontJoint>
       <motorLeftMidJoint>left_bogie_wheel_middle</motorLeftMidJoint>
@@ -868,5 +890,6 @@
       <velocityTopic>velocity</velocityTopic>
       <odometryTopic>odom</odometryTopic>
     </plugin>
+-->
   </model>
 </sdf>
