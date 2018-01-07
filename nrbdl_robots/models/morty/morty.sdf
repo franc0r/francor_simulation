@@ -38,39 +38,53 @@
 
     <!-- Left side. -->
     <link name="rocker_left">
-      <pose>.0 .168 .046 0 0 1.571</pose>
+      <pose>0 0.15 0.065 0 0 0</pose>
 
       <inertial>
-        <pose>-0.001305 0.014993 -0.061079 0 0 0</pose>
-        <mass>1.0</mass>
+        <pose>0.010037 0.077234 -0.117803 0 0 0 0 0 0</pose>
+        <mass>2.0</mass>
         <inertia>
-          <ixx>0.039783161</ixx>
-          <iyy>0.008013079</iyy>
-          <izz>0.031963488</izz>
-          <ixy>-0.000468774</ixy>
-          <ixz>0.000198665</ixz>
-          <iyz>0.005691635</iyz>
+          <ixx>0.021629412</ixx>
+          <iyy>0.086821176</iyy>
+          <izz>0.067970113</izz>
+          <ixy>-0.000143129</ixy>
+          <ixz>-0.012378748</ixz>
+          <iyz>0.002395294</iyz>
         </inertia>
       </inertial>
 
-      <collision name="collision_rocker_left">
+      <collision name="collision_rear">
+        <pose>0 0 0 0 -0.785398163 0</pose>
         <geometry>
-          <mesh><uri>model://morty/meshes/rocker_2_left.dae</uri></mesh>
+          <box>
+            <size>0.05 0.05 0.5</size>
+          </box>
+        </geometry>
+      </collision>
+
+      <collision name="collision_front">
+        <pose>0 0 0 0 0.785398163 0</pose>
+        <geometry>
+          <box>
+            <size>0.05 0.05 0.3</size>
+          </box>
         </geometry>
       </collision>
 
       <visual name="visual_rocker_left">
         <geometry>
-          <mesh><uri>model://morty/meshes/rocker_2_left.dae</uri></mesh>
+          <mesh>
+            <uri>model://morty/meshes/rocker-left.dae</uri>
+          </mesh>
         </geometry>
       </visual>
     </link>
 
     <link name="bogie_left">
-      <pose>.2 .203 -.067 0 0 0</pose>
+      <pose>0 0.15 0.065 0 0 0</pose>
 
       <inertial>
-        <pose>0.000632 -0.010000 -0.038800 0 0 0</pose>
+        <pose>0.010037 0.077234 -0.117803 0 0 0</pose>
         <mass>0.3</mass>
         <inertia>
           <ixx>0.000572097</ixx>
