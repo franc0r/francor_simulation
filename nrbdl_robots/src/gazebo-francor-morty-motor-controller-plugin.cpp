@@ -128,13 +128,18 @@ void GazeboFrancorMortyMotorController::Load(gazebo::physics::ModelPtr model, sd
     joint_controller_ = std::make_shared<gazebo::physics::JointController>(model);
     // A copy of this PID controller is used by each motor joint.
     // TODO: find good parameter for the controller.
-    gazebo::common::PID pid(50.0, 0.01, 0.0);
+    gazebo::common::PID pid(20.0, 1.0, 0.0001);
+    pid.SetCmdMax(100.0);
+    pid.SetCmdMin(-100.0);
+    pid.SetIMax(70.0);
+    pid.SetIMin(-70.0);
 
     for (std::size_t i = 0; i < static_cast<std::size_t>(Wheel::COUNT_WHEELS); ++i)
     {
         // Limit the joint. TODO: The limits should be configurable by SDF file.
-        motor_joints_[i]->SetVelocityLimit(0, 10.0);
-        motor_joints_[i]->SetParam("fmax", 0, 50.0);
+        motor_joints_[i]->SetVelocityLimit(0, 90.0);
+//        motor_joints_[i]->SetEffortLimit(0, 100.0);
+//        motor_joints_[i]->SetParam("fmax", 0, 50.0);
 
         // Add joint as wheel to the kinematic.
         kinematic_.addWheel(motor_joints_[i]->GetScopedName(), diameterWheels[i], posWheels[i]);
@@ -170,12 +175,30 @@ void GazeboFrancorMortyMotorController::update(void)
 {
     // The update method of the joint controller has to be called in each iteration.
     std::lock_guard<std::mutex> lock(mutex_ros_msgs_);
-//    joint_controller_->Update();
+
+    if ((model_->GetWorld()->GetSimTime() - joint_controller_->GetLastUpdateTime()).Double() > 0.01) // Every 10 ms.
+    {
+        joint_controller_->Update();
+
+//        auto pids = joint_controller_->GetVelocityPIDs();
+//        double pe, ie, de;
+
+//        for (auto& joint : motor_joints_)
+//        {
+//            pids[joint->GetScopedName()].GetErrors(pe, ie, de);
+//            std::cout << "joint controller PID errors: " << pe << " " << ie << " " << de << " " << std::endl;
+//            std::cout << "and cmd: " << pids[joint->GetScopedName()].GetCmd() << std::endl;
+//        }
+    }
+
+    return; // Skip debug print out below.
 
     for (auto& joint : motor_joints_)
+    {
         std::cout << joint->GetScopedName() << " force: " << joint->GetForce(0) << " fmax: "
-                  << joint->GetForce(0) << " vmax: " << joint->GetVelocityLimit(0)
+                  << joint->GetParam("fmax", 0) << " vmax: " << joint->GetVelocityLimit(0)
                   << " axis: " << joint->GetLocalAxis(0) << " effmax: " << joint->GetEffortLimit(0) << std::endl;
+    }
 }
 
 void GazeboFrancorMortyMotorController::rosQueueThread(void)
@@ -191,9 +214,14 @@ void GazeboFrancorMortyMotorController::receiveTwistMsg(const geometry_msgs::Twi
     // Lock mutex to manipulate the target velocities of the wheels.
     std::lock_guard<std::mutex> lock(mutex_ros_msgs_);
     kinematic_.calculate(msg.linear.x, msg.angular.z); // Respect only linear speed in x direction and yaw rotating.
+//    joint_controller_->Reset(); // TODO: Only reset if direction of a wheel was changed.
 
     for (std::size_t i = 0; i < static_cast<std::size_t>(Wheel::COUNT_WHEELS); ++i)
+    {
         joint_controller_->SetVelocityTarget(motor_joints_[i]->GetScopedName(), kinematic_.getWheelRotatingSpeed(i));
+        std::cout << motor_joints_[i]->GetScopedName() << " set target velocity to "
+                  << kinematic_.getWheelRotatingSpeed(i) << std::endl;
+    }
 }
 
 } // end namespace nrbdl

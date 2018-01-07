@@ -17,7 +17,7 @@
           <ixz>0.005320407</ixz>
           <ixy>-0.000000017</ixy>
           <iyz>0.0</iyz>
-          </inertia>
+        </inertia>
       </inertial>
 
       <collision name="collision">
@@ -131,13 +131,20 @@
         <max_contacts>10</max_contacts>
         <surface>
           <friction>
-
+            <torsional>
+              <coefficient>1.0</coefficient>
+              <surface_radius>0.11</surface_radius>
+              <use_patch_radius>false</use_patch_radius>
+              <ode>
+                <slip>0.0</slip>
+              </ode>
+            </torsional>
             <ode>
-              <mu>0.4</mu>
-              <mu2>0.8</mu2>
-              <fdir1>0 1 0</fdir1>
-              <slip1>0.3</slip1>
-              <slip2>0.0</slip2>
+              <mu>0.6</mu>
+              <mu2>0.6</mu2>
+<!--              <fdir1>0 1 0</fdir1>-->
+              <slip1>0.02</slip1>
+              <slip2>0.02</slip2>
             </ode>
           </friction>
           <contact>
@@ -198,13 +205,20 @@
         <max_contacts>10</max_contacts>
         <surface>
           <friction>
-
+            <torsional>
+              <coefficient>1.0</coefficient>
+              <surface_radius>0.11</surface_radius>
+              <use_patch_radius>false</use_patch_radius>
+              <ode>
+                <slip>0.0</slip>
+              </ode>
+            </torsional>
             <ode>
-              <mu>0.4</mu>
-              <mu2>0.8</mu2>
-              <fdir1>0 1 0</fdir1>
-              <slip1>0.3</slip1>
-              <slip2>0.0</slip2>
+              <mu>0.6</mu>
+              <mu2>0.6</mu2>
+<!--              <fdir1>0 1 0</fdir1>-->
+              <slip1>0.02</slip1>
+              <slip2>0.02</slip2>
             </ode>
           </friction>
           <contact>
@@ -265,13 +279,20 @@
         <max_contacts>10</max_contacts>
         <surface>
           <friction>
-
+            <torsional>
+              <coefficient>1.0</coefficient>
+              <surface_radius>0.11</surface_radius>
+              <use_patch_radius>false</use_patch_radius>
+              <ode>
+                <slip>0.0</slip>
+              </ode>
+            </torsional>
             <ode>
-              <mu>0.4</mu>
-              <mu2>0.8</mu2>
-              <fdir1>0 1 0</fdir1>
-              <slip1>0.3</slip1>
-              <slip2>0.0</slip2>
+              <mu>0.6</mu>
+              <mu2>0.6</mu2>
+<!--              <fdir1>0 1 0</fdir1>-->
+              <slip1>0.02</slip1>
+              <slip2>0.02</slip2>
             </ode>
           </friction>
           <contact>
@@ -395,13 +416,20 @@
         <max_contacts>10</max_contacts>
         <surface>
           <friction>
-
+            <torsional>
+              <coefficient>1.0</coefficient>
+              <surface_radius>0.11</surface_radius>
+              <use_patch_radius>false</use_patch_radius>
+              <ode>
+                <slip>0.0</slip>
+              </ode>
+            </torsional>
             <ode>
-              <mu>0.4</mu>
-              <mu2>0.8</mu2>
-              <fdir1>0 1 0</fdir1>
-              <slip1>0.3</slip1>
-              <slip2>0.0</slip2>
+              <mu>0.6</mu>
+              <mu2>0.6</mu2>
+<!--              <fdir1>0 1 0</fdir1>-->
+              <slip1>0.02</slip1>
+              <slip2>0.02</slip2>
             </ode>
           </friction>
           <contact>
@@ -462,13 +490,20 @@
         <max_contacts>10</max_contacts>
         <surface>
           <friction>
-
+            <torsional>
+              <coefficient>1.0</coefficient>
+              <surface_radius>0.11</surface_radius>
+              <use_patch_radius>false</use_patch_radius>
+              <ode>
+                <slip>0.0</slip>
+              </ode>
+            </torsional>
             <ode>
-              <mu>0.4</mu>
-              <mu2>0.8</mu2>
-              <fdir1>0 1 0</fdir1>
-              <slip1>0.3</slip1>
-              <slip2>0.0</slip2>
+              <mu>0.6</mu>
+              <mu2>0.6</mu2>
+<!--              <fdir1>0 1 0</fdir1>-->
+              <slip1>0.02</slip1>
+              <slip2>0.02</slip2>
             </ode>
           </friction>
           <contact>
@@ -529,13 +564,20 @@
         <max_contacts>10</max_contacts>
         <surface>
           <friction>
-
+            <torsional>
+              <coefficient>1.0</coefficient>
+              <surface_radius>0.11</surface_radius>
+              <use_patch_radius>false</use_patch_radius>
+              <ode>
+                <slip>0.0</slip>
+              </ode>
+            </torsional>
             <ode>
-              <mu>0.4</mu>
-              <mu2>0.8</mu2>
-              <fdir1>0 1 0</fdir1>
-              <slip1>0.3</slip1>
-              <slip2>0.0</slip2>
+              <mu>0.6</mu>
+              <mu2>0.6</mu2>
+<!--              <fdir1>0 1 0</fdir1>-->
+              <slip1>0.02</slip1>
+              <slip2>0.02</slip2>
             </ode>
           </friction>
           <contact>
@@ -864,6 +906,7 @@
       <child>rplidar_a2_m6::case</child>
       <parent>laser_leveling::mount_dynamixel_pitch</parent>
     </joint>
+-->
     <plugin name="morty_motor_controller" filename="libgazebo-francor-morty-motor-controller-plugin.so">
       <motorLeftFrontJoint>left_bogie_wheel_front</motorLeftFrontJoint>
       <motorLeftMidJoint>left_bogie_wheel_middle</motorLeftMidJoint>
@@ -890,6 +933,5 @@
       <velocityTopic>velocity</velocityTopic>
       <odometryTopic>odom</odometryTopic>
     </plugin>
--->
   </model>
 </sdf>

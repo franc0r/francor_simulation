@@ -97,7 +97,7 @@ void RobotKinematicDifferential::calculate (const double linearVelocity, const g
 double RobotKinematicDifferential::Wheel::rotationSpeed (const double linearSpeed) const
 {
     // Return rad/sec.
-    return linearSpeed / (M_PI * diameter_);
+    return (2.0 * M_PI * linearSpeed) / (M_PI * diameter_);
 }
 
 } // end namespace nrbdl

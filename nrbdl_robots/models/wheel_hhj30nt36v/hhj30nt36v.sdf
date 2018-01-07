@@ -1,0 +1,121 @@
+<?xml version='1.0'?>
+<sdf version='1.5'>
+  <model name="wheel_hhj30nt36v">
+    <static>false</static>
+    <pose>0 0 -0.1 0 0 0</pose>
+
+    <!-- The axis of this wheel. -->
+    <link name="axis">
+      <pose>0 0 0 0 0 0</pose>
+
+      <inertial>
+        <pose>0.000000 0.000165 0.0464 0 0 0</pose>
+        <mass>0.3</mass>
+        <inertia>
+          <ixx>0.00055056</ixx>
+          <iyy>0.00055086</iyy>
+          <izz>0.00001032</izz>
+          <ixy>0.0</ixy>
+          <ixz>0.0</ixz>
+          <iyz>-0.00000345</iyz>
+        </inertia>
+      </inertial>
+
+      <collision name="collision">
+        <pose>0 0 0.0364 0 0 0</pose>
+        <geometry>
+          <cylinder>
+            <radius>0.0084</radius>
+            <length>0.1528</length>
+          </cylinder>
+        </geometry>
+      </collision>
+
+      <visual name="visual">
+        <pose>0 0 0 0 0 0</pose>
+        <geometry>
+          <mesh>
+            <uri>model://wheel_hhj30nt36v/meshes/axis.dae</uri>
+          </mesh>
+        </geometry>
+      </visual>
+    </link>
+
+    <!-- The rotating part of this wheel. -->
+    <link name="wheel">
+      <pose>0 0 0 0 0 0</pose>
+
+      <inertial>
+        <pose>-0.000000 -0.000000 0.002033 0 0 0</pose>
+        <mass>3.7</mass>
+        <inertia>
+          <ixx>0.012247851</ixx>
+          <iyy>0.012247851</iyy>
+          <izz>0.020656847</izz>
+          <ixy>0.0</ixy>
+          <ixz>0.0</ixz>
+          <iyz>0.0</iyz>
+        </inertia>
+      </inertial>
+
+      <collision name="collision">
+        <pose>0 0 0 0 0 0</pose>
+        <geometry>
+          <mesh>
+            <uri>model://wheel_hhj30nt36v/meshes/wheel.dae</uri>
+          </mesh>
+        </geometry>
+<!--
+        <max_contacts>10</max_contacts>
+-->
+        <surface>
+          <!-- TODO: add friction for other physic engines. -->
+          <friction>
+<!--
+            <torsional>
+              <coefficient>1.0</coefficient>
+              <surface_radius>0.11</surface_radius>
+              <use_patch_radius>false</use_patch_radius>
+              <ode>
+                <slip>0.0</slip>
+              </ode>
+            </torsional>
+-->
+            <ode>
+              <mu>0.6</mu>
+              <mu2>0.6</mu2>
+              <fdir1>1 1 0</fdir1> <!-- TODO: not clear what happen if two axes are used. -->
+              <slip1>0.02</slip1>
+              <slip2>0.02</slip2>
+            </ode>
+          </friction>
+          <contact>
+            <ode>
+              <min_depth>0.002</min_depth>
+            </ode>
+          </contact>
+        </surface>
+      </collision>
+
+      <visual name="visual">
+        <pose>0 0 0 0 0 0</pose>
+        <geometry>
+          <mesh>
+            <uri>model://wheel_hhj30nt36v/meshes/wheel.dae</uri>
+          </mesh>
+        </geometry>
+      </visual>
+    </link>
+
+    <!-- The motor joint of this wheel. -->
+    <joint type="revolute" name="motor">
+      <pose>0 0 0 0 0 0</pose>
+      <child>wheel</child>
+      <parent>axis</parent>
+      <axis>
+        <xyz>0 0 1</xyz>
+      </axis>
+    </joint>
+
+  </model>
+</sdf>
