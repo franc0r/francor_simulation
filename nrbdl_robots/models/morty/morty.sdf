@@ -2,7 +2,7 @@
 <sdf version='1.5'>
   <model name="morty">
     <static>false</static>
-    <pose>0 0 0.264 0 0 0</pose>
+    <pose>0 0 0.284 0 0 0</pose>
 
     <link name="body">
       <pose>0 0 0 0 0 0</pose>
@@ -41,15 +41,15 @@
       <pose>.0 .168 .046 0 0 1.571</pose>
 
       <inertial>
-        <pose>-0.015279 0.001330 -0.062246 0 0 1.571</pose>
+        <pose>-0.001305 0.014993 -0.061079 0 0 0</pose>
         <mass>1.0</mass>
         <inertia>
-          <ixx>0.007941717</ixx>
-          <iyy>0.039707548</iyy>
-          <izz>0.031959155</izz>
-          <ixy>-0.000232016</ixy>
-          <ixz>-0.005681226</ixz>
-          <iyz>-0.00008782</iyz>
+          <ixx>0.039783161</ixx>
+          <iyy>0.008013079</iyy>
+          <izz>0.031963488</izz>
+          <ixy>-0.000468774</ixy>
+          <ixz>0.000198665</ixz>
+          <iyz>0.005691635</iyz>
         </inertia>
       </inertial>
 
@@ -99,227 +99,24 @@
       </visual>
     </link>
 
-    <link name="wheel_left_front">
-      <pose>.35 .287 -.155 3.141592654 0 0</pose>
+    <!-- Wheels -->
+    <include>
+      <uri>model://wheel_hhj30nt36v</uri>
+      <pose>0.35 0.157 -0.155 1.570796327 0 0</pose>
+      <name>wheel_left_front</name>
+    </include>
 
-      <inertial>
-        <pose>-0.000000 0.030325 0.000000 0 0 0</pose>
-        <mass>4.0</mass>
-        <inertia>
-          <ixx>0.013259137</ixx>
-          <iyy>0.022356067</iyy>
-          <izz>0.013259137</izz>
-          <iyz>0.0</iyz>
-          <ixy>0.0</ixy>
-          <ixz>0.0</ixz>
-          </inertia>
-      </inertial>
+    <include>
+      <uri>model://wheel_hhj30nt36v</uri>
+      <pose>0.05 0.157 -0.155 1.570796327 0 0</pose>
+      <name>wheel_left_middle</name>
+    </include>
 
-      <collision name="collision_wheel_left_front">
-<!--        <pose>0 .03 0 1.570796327 0 0</pose> -->
-        <geometry>
-<!--          <cylinder>
-            <radius>.11</radius>
-            <length>.08</length>
-          </cylinder>
--->
-          <mesh>
-<!--            <pose>0 0 0 1.570796327 0 0</pose>-->
-            <uri>model://morty/meshes/wheel.dae</uri>
-          </mesh>
-        </geometry>
-        <max_contacts>10</max_contacts>
-        <surface>
-          <friction>
-            <torsional>
-              <coefficient>1.0</coefficient>
-              <surface_radius>0.11</surface_radius>
-              <use_patch_radius>false</use_patch_radius>
-              <ode>
-                <slip>0.0</slip>
-              </ode>
-            </torsional>
-            <ode>
-              <mu>0.6</mu>
-              <mu2>0.6</mu2>
-<!--              <fdir1>0 1 0</fdir1>-->
-              <slip1>0.02</slip1>
-              <slip2>0.02</slip2>
-            </ode>
-          </friction>
-          <contact>
-            <ode>
-              <min_depth>0.002</min_depth>
-            </ode>
-          </contact>
-        </surface>
-      </collision>
-      <collision name="collision_wheel_left_front_axis">
-        <pose>0 .11 0 1.570796327 0 0</pose>
-        <geometry>
-          <cylinder>
-            <radius>.01</radius>
-            <length>.08</length>
-          </cylinder>
-        </geometry>
-      </collision>
-
-      <visual name="visual_wheel_left_front">
-        <geometry>
-          <mesh>
-            <uri>model://morty/meshes/wheel.dae</uri>
-          </mesh>
-        </geometry>
-      </visual>
-    </link>
-
-    <link name="wheel_left_middle">
-      <pose>.05 .287 -.155 3.141592654 0 0</pose>
-
-      <inertial>
-        <pose>-0.000000 0.030998 -0.000003 0 0 0</pose>
-        <mass>4.0</mass>
-        <inertia>
-          <ixx>0.013259137</ixx>
-          <iyy>0.022356067</iyy>
-          <izz>0.013259137</izz>
-          <iyz>0.0</iyz>
-          <ixy>0.0</ixy>
-          <ixz>0.0</ixz>
-        </inertia>
-      </inertial>
-
-      <collision name="collision_wheel_left_middle">
-<!--        <pose>0 .03 0 1.570796327 0 0</pose>-->
-        <geometry>
-<!--
-          <cylinder>
-            <radius>.11</radius>
-            <length>.08</length>
-          </cylinder>
--->
-          <mesh>
-            <uri>model://morty/meshes/wheel.dae</uri>
-          </mesh>
-        </geometry>
-        <max_contacts>10</max_contacts>
-        <surface>
-          <friction>
-            <torsional>
-              <coefficient>1.0</coefficient>
-              <surface_radius>0.11</surface_radius>
-              <use_patch_radius>false</use_patch_radius>
-              <ode>
-                <slip>0.0</slip>
-              </ode>
-            </torsional>
-            <ode>
-              <mu>0.6</mu>
-              <mu2>0.6</mu2>
-<!--              <fdir1>0 1 0</fdir1>-->
-              <slip1>0.02</slip1>
-              <slip2>0.02</slip2>
-            </ode>
-          </friction>
-          <contact>
-            <ode>
-              <min_depth>0.002</min_depth>
-            </ode>
-          </contact>
-        </surface>
-      </collision>
-      <collision name="collision_wheel_left_middle_axis">
-        <pose>0 .11 0 1.570796327 0 0</pose>
-        <geometry>
-          <cylinder>
-            <radius>.01</radius>
-            <length>.08</length>
-          </cylinder>
-        </geometry>
-      </collision>
-
-      <visual name="visual_wheel_left_middle">
-        <geometry>
-          <mesh>
-            <uri>model://morty/meshes/wheel.dae</uri>
-          </mesh>
-        </geometry>
-      </visual>
-    </link>
-
-    <link name="wheel_left_rear">
-      <pose>-.35 .287 -.155 3.141592654 0 0</pose>
-
-      <inertial>
-        <pose>-0.000000 0.030998 -0.000003 0 0 0</pose>
-        <mass>4.0</mass>
-        <inertia>
-          <ixx>0.013259137</ixx>
-          <iyy>0.022356067</iyy>
-          <izz>0.013259137</izz>
-          <iyz>0.0</iyz>
-          <ixy>0.0</ixy>
-          <ixz>0.0</ixz>
-        </inertia>
-      </inertial>
-
-      <collision name="collision_wheel_left_rear">
-<!--        <pose>0 .03 0 1.570796327 0 0</pose>-->
-        <geometry>
-<!--
-          <cylinder>
-            <radius>.11</radius>
-            <length>.08</length>
-          </cylinder>
--->
-          <mesh>
-            <uri>model://morty/meshes/wheel.dae</uri>
-          </mesh>
-        </geometry>
-        <max_contacts>10</max_contacts>
-        <surface>
-          <friction>
-            <torsional>
-              <coefficient>1.0</coefficient>
-              <surface_radius>0.11</surface_radius>
-              <use_patch_radius>false</use_patch_radius>
-              <ode>
-                <slip>0.0</slip>
-              </ode>
-            </torsional>
-            <ode>
-              <mu>0.6</mu>
-              <mu2>0.6</mu2>
-<!--              <fdir1>0 1 0</fdir1>-->
-              <slip1>0.02</slip1>
-              <slip2>0.02</slip2>
-            </ode>
-          </friction>
-          <contact>
-            <ode>
-              <min_depth>0.002</min_depth>
-            </ode>
-          </contact>
-        </surface>
-      </collision>
-      <collision name="collision_wheel_left_rear_axis">
-        <pose>0 .11 0 1.570796327 0 0</pose>
-        <geometry>
-          <cylinder>
-            <radius>.01</radius>
-            <length>.08</length>
-          </cylinder>
-        </geometry>
-      </collision>
-
-      <visual name="visual_wheel_left_rear">
-        <geometry>
-          <mesh>
-            <uri>model://morty/meshes/wheel.dae</uri>
-          </mesh>
-        </geometry>
-      </visual>
-    </link>
+    <include>
+      <uri>model://wheel_hhj30nt36v</uri>
+      <pose>-0.35 0.157 -0.155 1.570796327 0 0</pose>
+      <name>wheel_left_rear</name>
+    </include>
 
     <!-- Right side. -->
     <link name="rocker_right">
@@ -384,227 +181,24 @@
       </visual>
     </link>
 
-    <link name="wheel_right_front">
-      <pose>.35 -.287 -.155 0 0 0</pose>
+    <!-- Wheels -->
+    <include>
+      <uri>model://wheel_hhj30nt36v</uri>
+      <pose>0.35 -0.157 -0.155 -1.570796327 0 0</pose>
+      <name>wheel_right_front</name>
+    </include>
 
-      <inertial>
-        <pose>-0.000000 0.030998 -0.000003 0 0 0</pose>
-        <mass>4.0</mass>
-        <inertia>
-          <ixx>0.013259137</ixx>
-          <iyy>0.022356067</iyy>
-          <izz>0.013259137</izz>
-          <iyz>0.0</iyz>
-          <ixy>0.0</ixy>
-          <ixz>0.0</ixz>
-        </inertia>
-      </inertial>
+    <include>
+      <uri>model://wheel_hhj30nt36v</uri>
+      <pose>0.05 -0.157 -0.155 -1.570796327 0 0</pose>
+      <name>wheel_right_middle</name>
+    </include>
 
-      <collision name="collision_wheel_right_front">
-<!--        <pose>0 .03 0 1.570796327 0 0</pose>-->
-        <geometry>
-<!--
-          <cylinder>
-            <radius>.11</radius>
-            <length>.08</length>
-          </cylinder>
--->
-          <mesh>
-            <uri>model://morty/meshes/wheel.dae</uri>
-          </mesh>
-        </geometry>
-        <max_contacts>10</max_contacts>
-        <surface>
-          <friction>
-            <torsional>
-              <coefficient>1.0</coefficient>
-              <surface_radius>0.11</surface_radius>
-              <use_patch_radius>false</use_patch_radius>
-              <ode>
-                <slip>0.0</slip>
-              </ode>
-            </torsional>
-            <ode>
-              <mu>0.6</mu>
-              <mu2>0.6</mu2>
-<!--              <fdir1>0 1 0</fdir1>-->
-              <slip1>0.02</slip1>
-              <slip2>0.02</slip2>
-            </ode>
-          </friction>
-          <contact>
-            <ode>
-              <min_depth>0.002</min_depth>
-            </ode>
-          </contact>
-        </surface>
-      </collision>
-      <collision name="collision_wheel_left_right_axis">
-        <pose>0 .11 0 1.570796327 0 0</pose>
-        <geometry>
-          <cylinder>
-            <radius>.01</radius>
-            <length>.08</length>
-          </cylinder>
-        </geometry>
-      </collision>
-
-      <visual name="visual_wheel_right_front">
-        <geometry>
-          <mesh>
-            <uri>model://morty/meshes/wheel.dae</uri>
-          </mesh>
-        </geometry>
-      </visual>
-    </link>
-
-    <link name="wheel_right_middle">
-      <pose>.05 -.287 -.155 0 0 0</pose>
-
-      <inertial>
-        <pose>-0.000000 0.030998 -0.000003 0 0 0</pose>
-        <mass>4.0</mass>
-        <inertia>
-          <ixx>0.013259137</ixx>
-          <iyy>0.022356067</iyy>
-          <izz>0.013259137</izz>
-          <iyz>0.0</iyz>
-          <ixy>0.0</ixy>
-          <ixz>0.0</ixz>
-        </inertia>
-      </inertial>
-
-      <collision name="collision_wheel_right_middle">
-<!--        <pose>0 .03 0 1.570796327 0 0</pose>-->
-        <geometry>
-<!--
-          <cylinder>
-            <radius>.11</radius>
-            <length>.08</length>
-          </cylinder>
--->
-          <mesh>
-            <uri>model://morty/meshes/wheel.dae</uri>
-          </mesh>
-        </geometry>
-        <max_contacts>10</max_contacts>
-        <surface>
-          <friction>
-            <torsional>
-              <coefficient>1.0</coefficient>
-              <surface_radius>0.11</surface_radius>
-              <use_patch_radius>false</use_patch_radius>
-              <ode>
-                <slip>0.0</slip>
-              </ode>
-            </torsional>
-            <ode>
-              <mu>0.6</mu>
-              <mu2>0.6</mu2>
-<!--              <fdir1>0 1 0</fdir1>-->
-              <slip1>0.02</slip1>
-              <slip2>0.02</slip2>
-            </ode>
-          </friction>
-          <contact>
-            <ode>
-              <min_depth>0.002</min_depth>
-            </ode>
-          </contact>
-        </surface>
-      </collision>
-      <collision name="collision_wheel_right_middle_axis">
-        <pose>0 .11 0 1.570796327 0 0</pose>
-        <geometry>
-          <cylinder>
-            <radius>.01</radius>
-            <length>.08</length>
-          </cylinder>
-        </geometry>
-      </collision>
-
-      <visual name="visual_wheel_right_middle">
-        <geometry>
-          <mesh>
-            <uri>model://morty/meshes/wheel.dae</uri>
-          </mesh>
-        </geometry>
-      </visual>
-    </link>
-
-    <link name="wheel_right_rear">
-      <pose>-.35 -.287 -.155 0 0 0</pose>
-
-      <inertial>
-        <pose>-0.000000 0.030998 -0.000003 0 0 0</pose>
-        <mass>4.0</mass>
-        <inertia>
-          <ixx>0.013259137</ixx>
-          <iyy>0.022356067</iyy>
-          <izz>0.013259137</izz>
-          <iyz>0.0</iyz>
-          <ixy>0.0</ixy>
-          <ixz>0.0</ixz>
-        </inertia>
-      </inertial>
-
-      <collision name="collision_wheel_right_rear">
-<!--        <pose>0 .03 0 1.570796327 0 0</pose>-->
-        <geometry>
-<!--
-          <cylinder>
-            <radius>.11</radius>
-            <length>.08</length>
-          </cylinder>
--->
-          <mesh>
-            <uri>model://morty/meshes/wheel.dae</uri>
-          </mesh>
-        </geometry>
-        <max_contacts>10</max_contacts>
-        <surface>
-          <friction>
-            <torsional>
-              <coefficient>1.0</coefficient>
-              <surface_radius>0.11</surface_radius>
-              <use_patch_radius>false</use_patch_radius>
-              <ode>
-                <slip>0.0</slip>
-              </ode>
-            </torsional>
-            <ode>
-              <mu>0.6</mu>
-              <mu2>0.6</mu2>
-<!--              <fdir1>0 1 0</fdir1>-->
-              <slip1>0.02</slip1>
-              <slip2>0.02</slip2>
-            </ode>
-          </friction>
-          <contact>
-            <ode>
-              <min_depth>0.002</min_depth>
-            </ode>
-          </contact>
-        </surface>
-      </collision>
-      <collision name="collision_wheel_right_rear_axis">
-        <pose>0 .11 0 1.570796327 0 0</pose>
-        <geometry>
-          <cylinder>
-            <radius>.01</radius>
-            <length>.08</length>
-          </cylinder>
-        </geometry>
-      </collision>
-
-      <visual name="visual_wheel_right_rear">
-        <geometry>
-          <mesh>
-            <uri>model://morty/meshes/wheel.dae</uri>
-          </mesh>
-        </geometry>
-      </visual>
-    </link>
+    <include>
+      <uri>model://wheel_hhj30nt36v</uri>
+      <pose>-0.35 -0.157 -0.155 -1.570796327 0 0</pose>
+      <name>wheel_right_rear</name>
+    </include>
 
     <!-- Hebel -->
     <link name="hebel">
@@ -742,45 +336,39 @@
     </joint>
 
     <joint type="revolute" name="left_bogie_wheel_front">
-      <pose>0 0.095 0 0 0 3.141592654</pose>
-      <child>wheel_left_front</child>
+      <pose>0 0 0.063 0 0 0</pose>
+      <child>wheel_left_front::axis</child>
       <parent>bogie_left</parent>
       <axis>
-        <xyz>0 1 0</xyz>
-<!--
-        <dynamics>
-          <damping>1.0</damping>
-          <friction>1.0</friction>
-        </dynamics>
--->
+        <xyz>0 0 1</xyz>
+        <limit>
+          <lower>0.0</lower>
+          <upper>0.0</upper>
+        </limit>
       </axis>
     </joint>
     <joint type="revolute" name="left_bogie_wheel_middle">
-      <pose>0 0.095 0 0 0 3.141592654</pose>
-      <child>wheel_left_middle</child>
+      <pose>0 0 0.063 0 0 0</pose>
+      <child>wheel_left_middle::axis</child>
       <parent>bogie_left</parent>
       <axis>
-        <xyz>0 1 0</xyz>
-<!--
-        <dynamics>
-          <damping>1.0</damping>
-          <friction>1.0</friction>
-        </dynamics>
--->
+        <xyz>0 0 1</xyz>
+        <limit>
+          <lower>0.0</lower>
+          <upper>0.0</upper>
+        </limit>
       </axis>
     </joint>
     <joint type="revolute" name="left_rocker_wheel_rear">
-      <pose>0 0.095 0 0 0 3.141592654</pose>
-      <child>wheel_left_rear</child>
+      <pose>0 0 0.063 0 0 0</pose>
+      <child>wheel_left_rear::axis</child>
       <parent>rocker_left</parent>
       <axis>
-        <xyz>0 1 0</xyz>
-<!--
-        <dynamics>
-          <damping>1.0</damping>
-          <friction>1.0</friction>
-        </dynamics>
--->
+        <xyz>0 0 1</xyz>
+        <limit>
+          <lower>0.0</lower>
+          <upper>0.0</upper>
+        </limit>
       </axis>
     </joint>
 
@@ -807,45 +395,39 @@
     </joint>
 
     <joint type="revolute" name="right_bogie_wheel_front">
-      <pose>0 0.095 0 0 0 0</pose>
-      <child>wheel_right_front</child>
+      <pose>0 0 0.063 0 0 0</pose>
+      <child>wheel_right_front::axis</child>
       <parent>bogie_right</parent>
       <axis>
-        <xyz>0 1 0</xyz>
-<!--
-        <dynamics>
-          <damping>1.0</damping>
-          <friction>1.0</friction>
-        </dynamics>
--->
+        <xyz>0 0 1</xyz>
+        <limit>
+          <lower>0.0</lower>
+          <upper>0.0</upper>
+        </limit>
       </axis>
     </joint>
     <joint type="revolute" name="right_bogie_wheel_middle">
-      <pose>0 0.095 0 0 0 0</pose>
-      <child>wheel_right_middle</child>
+      <pose>0 0 0.063 0 0 0</pose>
+      <child>wheel_right_middle::axis</child>
       <parent>bogie_right</parent>
       <axis>
-        <xyz>0 1 0</xyz>
-<!--
-        <dynamics>
-          <damping>1.0</damping>
-          <friction>1.0</friction>
-        </dynamics>
--->
+        <xyz>0 0 1</xyz>
+        <limit>
+          <lower>0.0</lower>
+          <upper>0.0</upper>
+        </limit>
       </axis>
     </joint>
     <joint type="revolute" name="right_rocker_wheel_rear">
-      <pose>0 0.095 0 0 0 0</pose>
-      <child>wheel_right_rear</child>
+      <pose>0 0 0.063 0 0 0</pose>
+      <child>wheel_right_rear::axis</child>
       <parent>rocker_right</parent>
       <axis>
-        <xyz>0 1 0</xyz>
-<!--
-        <dynamics>
-          <damping>1.0</damping>
-          <friction>1.0</friction>
-        </dynamics>
--->
+        <xyz>0 0 1</xyz>
+        <limit>
+          <lower>0.0</lower>
+          <upper>0.0</upper>
+        </limit>
       </axis>
     </joint>
 
@@ -908,12 +490,12 @@
     </joint>
 -->
     <plugin name="morty_motor_controller" filename="libgazebo-francor-morty-motor-controller-plugin.so">
-      <motorLeftFrontJoint>left_bogie_wheel_front</motorLeftFrontJoint>
-      <motorLeftMidJoint>left_bogie_wheel_middle</motorLeftMidJoint>
-      <motorLeftRearJoint>left_rocker_wheel_rear</motorLeftRearJoint>
-      <motorRightFrontJoint>right_bogie_wheel_front</motorRightFrontJoint>
-      <motorRightMidJoint>right_bogie_wheel_middle</motorRightMidJoint>
-      <motorRightRearJoint>right_rocker_wheel_rear</motorRightRearJoint>
+      <motorLeftFrontJoint>wheel_left_front::motor</motorLeftFrontJoint>
+      <motorLeftMidJoint>wheel_left_middle::motor</motorLeftMidJoint>
+      <motorLeftRearJoint>wheel_left_rear::motor</motorLeftRearJoint>
+      <motorRightFrontJoint>wheel_right_front::motor</motorRightFrontJoint>
+      <motorRightMidJoint>wheel_right_middle::motor</motorRightMidJoint>
+      <motorRightRearJoint>wheel_right_rear::motor</motorRightRearJoint>
 
       <motorLeftFrontPos>0.35 0.24 0</motorLeftFrontPos>
       <motorLeftMidPos>0.05 0.24 0</motorLeftMidPos>

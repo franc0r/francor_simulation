@@ -2,14 +2,14 @@
 <sdf version='1.5'>
   <model name="wheel_hhj30nt36v">
     <static>false</static>
-    <pose>0 0 -0.1 0 0 0</pose>
+    <pose>0 0 0 0 0 0</pose>
 
     <!-- The axis of this wheel. -->
     <link name="axis">
-      <pose>0 0 0 0 0 0</pose>
+      <pose>0 0 -0.1 0 0 0</pose>
 
       <inertial>
-        <pose>0.000000 0.000165 0.0464 0 0 0</pose>
+        <pose>0 0 0.0464 0 0 0</pose>
         <mass>0.3</mass>
         <inertia>
           <ixx>0.00055056</ixx>
@@ -43,7 +43,7 @@
 
     <!-- The rotating part of this wheel. -->
     <link name="wheel">
-      <pose>0 0 0 0 0 0</pose>
+      <pose>0 0 -0.1 0 0 0</pose>
 
       <inertial>
         <pose>-0.000000 -0.000000 0.002033 0 0 0</pose>
@@ -113,6 +113,7 @@
       <child>wheel</child>
       <parent>axis</parent>
       <axis>
+        <use_parent_model_frame>true</use_parent_model_frame>
         <xyz>0 0 1</xyz>
       </axis>
     </joint>
