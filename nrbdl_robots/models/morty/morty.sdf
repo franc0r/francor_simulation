@@ -5,7 +5,7 @@
     <pose>0 0 0.5 0 0 0</pose>
 
     <link name="frame">
-      <pose>0 0 0 0 0 1.570796327</pose>
+      <pose>0 0 0 0 0 0</pose>
 
       <inertial>
         <pose>0.000418 0.007152 0.040106 0 0 0</pose>
@@ -39,19 +39,19 @@
     </link>
 
     <!-- Left side. -->
-    <link name="rocker_left">
-      <pose>0 0.06266 0.06489 0 0 3.141592654</pose>
+    <link name="rocker_axis_left">
+      <pose>0.07765 0 0.06553 0 0 1.570796327</pose>
 
       <inertial>
-        <pose>0.000690 -0.081665 -0.079849 0 0 0</pose>
-        <mass>1.0</mass>
+        <pose>-0.000000 -0.047414 0.007917 0 0 0</pose>
+        <mass>0.5</mass>
         <inertia>
-          <ixx>0.007787284</ixx>
-          <iyy>0.027409676</iyy>
-          <izz>0.02086277</izz>
-          <ixy>0.00003377</ixy>
-          <ixz>0.006141838</ixz>
-          <iyz>-0.000973446</iyz>
+          <ixx>0.000581951</ixx>
+          <iyy>0.00039783</iyy>
+          <izz>0.00055294</izz>
+          <ixy>0.0</ixy>
+          <ixz>0.0</ixz>
+          <iyz>0.000036374</iyz>
         </inertia>
       </inertial>
 
@@ -59,7 +59,42 @@
         <pose>0 0 0 0 0 0</pose>
         <geometry>
           <mesh>
-            <uri>model://morty/meshes/rocker-left-lod-3.dae</uri>
+            <uri>model://morty/meshes/rocker-axis-lod-1.dae</uri>
+          </mesh>
+        </geometry>
+      </collision>
+
+      <visual name="visual">
+        <pose>0 0 0 0 0 0</pose>
+        <geometry>
+          <mesh>
+            <uri>model://morty/meshes/rocker-axis-lod-2.dae</uri>
+          </mesh>
+        </geometry>
+      </visual>
+    </link>
+
+    <link name="rocker_left_front">
+      <pose>0.16999 0.01045 0.11097 0 0 1.570796327</pose>
+
+      <inertial>
+        <pose>-0.103843 0.000207 -0.080442 0 0 0</pose>
+        <mass>1.5</mass>
+        <inertia>
+          <ixx>0.0091575</ixx>
+          <iyy>0.01351175</iyy>
+          <izz>0.00480425</izz>
+          <ixy>0.000048607</ixy>
+          <ixz>-0.005074536</ixz>
+          <iyz>-0.00003325</iyz>
+        </inertia>
+      </inertial>
+
+      <collision name="collision">
+        <pose>0 0 0 0 0 0</pose>
+        <geometry>
+          <mesh>
+            <uri>model://morty/meshes/rocker-front-lod-1.dae</uri>
           </mesh>
         </geometry>
       </collision>
@@ -67,149 +102,424 @@
       <visual name="visual">
         <geometry>
           <mesh>
-            <uri>model://morty/meshes/rocker-left-lod-2.dae</uri>
+            <uri>model://morty/meshes/rocker-front-lod-2.dae</uri>
           </mesh>
         </geometry>
       </visual>
     </link>
-<!--
-    <link name="bogie_left">
-      <pose>0 0.15 0.065 0 0 0</pose>
+
+    <link name="rocker_left_rear">
+      <pose>0.1698 0.01045 0.09013 0 0 1.570796327</pose>
 
       <inertial>
-        <pose>0.010037 0.077234 -0.117803 0 0 0</pose>
-        <mass>0.3</mass>
+        <pose>0.180409 -0.000496 -0.180775 0 0 0</pose>
+        <mass>0.5</mass>
         <inertia>
-          <ixx>0.000572097</ixx>
-          <iyy>0.003464068</iyy>
-          <izz>0.002910728</izz>
-          <ixz>0.000001631</ixz>
-          <ixy>0.0</ixy>
-          <iyz>0.0</iyz>
+          <ixx>0.004664009</ixx>
+          <iyy>0.009240307</iyy>
+          <izz>0.004668302</izz>
+          <ixy>-0.000000849</ixy>
+          <ixz>0.004392335</ixz>
+          <iyz>0.000000165</iyz>
         </inertia>
       </inertial>
 
-      <collision name="collision_bogie_left">
+      <collision name="collision">
+        <pose>0 0 0 0 0 0</pose>
         <geometry>
           <mesh>
-            <uri>model://morty/meshes/bogie.dae</uri>
+            <uri>model://morty/meshes/rocker-rear-lod-1.dae</uri>
           </mesh>
         </geometry>
       </collision>
 
-      <visual name="visual_bogie_left">
+      <visual name="visual">
         <geometry>
           <mesh>
-            <uri>model://morty/meshes/bogie.dae</uri>
+            <uri>model://morty/meshes/rocker-rear-lod-2.dae</uri>
           </mesh>
         </geometry>
       </visual>
     </link>
--->
+
+
+    <link name="bogie_left">
+      <pose>0.17002 -0.12722 -0.02625 0 0 1.570796327</pose>
+
+      <inertial>
+        <pose>-0.000000 -0.000283 -0.065016 0 0 0</pose>
+        <mass>0.5</mass>
+        <inertia>
+          <ixx>0.001971824</ixx>
+          <iyy>0.004614839</iyy>
+          <izz>0.003279392</izz>
+          <ixy>0.000000012</ixy>
+          <ixz>0.0</ixz>
+          <iyz>0.000009194</iyz>
+        </inertia>
+      </inertial>
+
+      <collision name="collision">
+        <geometry>
+          <mesh>
+            <uri>model://morty/meshes/bogie-lod-1.dae</uri>
+          </mesh>
+        </geometry>
+      </collision>
+
+      <visual name="visual">
+        <geometry>
+          <mesh>
+            <uri>model://morty/meshes/bogie-lod-2.dae</uri>
+          </mesh>
+        </geometry>
+      </visual>
+    </link>
+
     <!-- Wheels -->
-<!--
     <include>
       <uri>model://wheel_hhj30nt36v</uri>
-      <pose>0.35 0.157 -0.155 1.570796327 0 0</pose>
+      <pose>0.14 -0.27477 -0.20783 0 -1.570796327 0</pose>
       <name>wheel_left_front</name>
     </include>
 
     <include>
       <uri>model://wheel_hhj30nt36v</uri>
-      <pose>0.05 0.157 -0.155 1.570796327 0 0</pose>
+      <pose>0.14 0.01596 -0.20783 0 -1.570796327 0</pose>
       <name>wheel_left_middle</name>
     </include>
 
     <include>
       <uri>model://wheel_hhj30nt36v</uri>
-      <pose>-0.35 0.157 -0.155 1.570796327 0 0</pose>
+      <pose>0.14 0.30884 -0.20783 0 -1.570796327 0</pose>
       <name>wheel_left_rear</name>
     </include>
--->
+
+    <!-- Joints. -->
+    <joint type="revolute" name="left_frame_axis">
+      <pose>0 0 0 0 0 0</pose>
+      <parent>frame</parent>
+      <child>rocker_axis_left</child>
+      <axis>
+        <xyz>0 1 0</xyz>
+      </axis>
+    </joint>
+    <joint type="revolute" name="left_axis_rocker_rear">
+      <pose>0 0 0 0 0 0</pose>
+      <child>rocker_left_rear</child>
+      <parent>rocker_axis_left</parent>
+      <axis>
+        <xyz>1 0 0</xyz>
+        <limit>
+          <lower>0</lower>
+          <upper>0</upper>
+        </limit>
+      </axis>
+    </joint>
+    <joint type="revolute" name="left_axis_rocker_front">
+      <pose>0 0 0 0 0 0</pose>
+      <child>rocker_left_front</child>
+      <parent>rocker_axis_left</parent>
+      <axis>
+        <xyz>1 0 0</xyz>
+        <limit>
+          <lower>0</lower>
+          <upper>0</upper>
+        </limit>
+      </axis>
+    </joint>
+    <joint type="revolute" name="left_rocker_front_bogie">
+      <pose>0 0 0 0 0 0</pose>
+      <child>bogie_left</child>
+      <parent>rocker_left_front</parent>
+      <axis>
+        <xyz>0 1 0</xyz>
+        <limit>
+          <lower>-0.785398163</lower>
+          <upper>2.35619449</upper>
+        </limit>
+      </axis>
+    </joint>
+    <joint type="revolute" name="left_bogie_wheel_front">
+      <pose>0 0 0.07 0 0 0</pose>
+      <child>wheel_left_front::axis</child>
+      <parent>bogie_left</parent>
+      <axis>
+        <xyz>1 0 0</xyz>
+        <limit>
+          <lower>0</lower>
+          <upper>0</upper>
+        </limit>
+      </axis>
+    </joint>
+    <joint type="revolute" name="left_bogie_wheel_middle">
+      <pose>0 0 0.07 0 0 0</pose>
+      <child>wheel_left_middle::axis</child>
+      <parent>bogie_left</parent>
+      <axis>
+        <xyz>1 0 0</xyz>
+        <limit>
+          <lower>0</lower>
+          <upper>0</upper>
+        </limit>
+      </axis>
+    </joint>
+    <joint type="revolute" name="left_rocker_wheel_rear">
+      <pose>0 0 0.07 0 0 0</pose>
+      <child>wheel_left_rear::axis</child>
+      <parent>rocker_left_rear</parent>
+      <axis>
+        <xyz>1 0 0</xyz>
+        <limit>
+          <lower>0</lower>
+          <upper>0</upper>
+        </limit>
+      </axis>
+    </joint>
+
+
     <!-- Right side. -->
-<!--
-    <link name="rocker_right">
-      <pose>.0 -.168 .046 0 0 1.571</pose>
+    <!-- ########################################################################################################## -->
+    <link name="rocker_axis_right">
+      <pose>-0.07765 0 0.06553 0 0 -1.570796327</pose>
 
       <inertial>
-        <pose>-0.015279 -0.000801 -0.062246 0 0 1.571</pose>
-        <mass>1.0</mass>
+        <pose>-0.000000 -0.047414 0.007917 0 0 0</pose>
+        <mass>0.5</mass>
         <inertia>
-          <ixx>0.007932371</ixx>
-          <iyy>0.039707548</iyy>
-          <izz>0.031949809</izz>
-          <ixy>-0.000232016</ixy>
-          <ixz>-0.005681226</ixz>
-          <iyz>-0.00008782</iyz>
+          <ixx>0.000581951</ixx>
+          <iyy>0.00039783</iyy>
+          <izz>0.00055294</izz>
+          <ixy>0.0</ixy>
+          <ixz>0.0</ixz>
+          <iyz>0.000036374</iyz>
         </inertia>
       </inertial>
 
-      <collision name="collision_center">
+      <collision name="collision">
+        <pose>0 0 0 0 0 0</pose>
         <geometry>
-          <mesh><uri>model://morty/meshes/rocker_2_right.dae</uri></mesh>
+          <mesh>
+            <uri>model://morty/meshes/rocker-axis-lod-1.dae</uri>
+          </mesh>
         </geometry>
       </collision>
 
-      <visual name="visual_rocker_right">
+      <visual name="visual">
+        <pose>0 0 0 0 0 0</pose>
         <geometry>
-          <mesh><uri>model://morty/meshes/rocker_2_right.dae</uri></mesh>
+          <mesh>
+            <uri>model://morty/meshes/rocker-axis-lod-2.dae</uri>
+          </mesh>
         </geometry>
       </visual>
     </link>
+
+    <link name="rocker_right_front">
+      <pose>-0.16999 0.01045 0.11097 0 0 1.570796327</pose>
+
+      <inertial>
+        <pose>-0.103843 0.000207 -0.080442 0 0 0</pose>
+        <mass>1.5</mass>
+        <inertia>
+          <ixx>0.0091575</ixx>
+          <iyy>0.01351175</iyy>
+          <izz>0.00480425</izz>
+          <ixy>0.000048607</ixy>
+          <ixz>-0.005074536</ixz>
+          <iyz>-0.00003325</iyz>
+        </inertia>
+      </inertial>
+
+      <collision name="collision">
+        <pose>0 0 0 0 0 0</pose>
+        <geometry>
+          <mesh>
+            <uri>model://morty/meshes/rocker-front-lod-1.dae</uri>
+          </mesh>
+        </geometry>
+      </collision>
+
+      <visual name="visual">
+        <geometry>
+          <mesh>
+            <uri>model://morty/meshes/rocker-front-lod-2.dae</uri>
+          </mesh>
+        </geometry>
+      </visual>
+    </link>
+
+    <link name="rocker_right_rear">
+      <pose>-0.1698 0.01045 0.09013 0 0 1.570796327</pose>
+
+      <inertial>
+        <pose>0.180409 -0.000496 -0.180775 0 0 0</pose>
+        <mass>0.5</mass>
+        <inertia>
+          <ixx>0.004664009</ixx>
+          <iyy>0.009240307</iyy>
+          <izz>0.004668302</izz>
+          <ixy>-0.000000849</ixy>
+          <ixz>0.004392335</ixz>
+          <iyz>0.000000165</iyz>
+        </inertia>
+      </inertial>
+
+      <collision name="collision">
+        <pose>0 0 0 0 0 0</pose>
+        <geometry>
+          <mesh>
+            <uri>model://morty/meshes/rocker-rear-lod-1.dae</uri>
+          </mesh>
+        </geometry>
+      </collision>
+
+      <visual name="visual">
+        <geometry>
+          <mesh>
+            <uri>model://morty/meshes/rocker-rear-lod-2.dae</uri>
+          </mesh>
+        </geometry>
+      </visual>
+    </link>
+
 
     <link name="bogie_right">
-      <pose>.2 -.183 -.067 0 0 0</pose>
+      <pose>-0.17002 -0.12722 -0.02625 0 0 1.570796327</pose>
 
       <inertial>
-        <pose>0.000632 -0.010000 -0.038800 0 0 0</pose>
-        <mass>0.3</mass>
+        <pose>-0.000000 -0.000283 -0.065016 0 0 0</pose>
+        <mass>0.5</mass>
         <inertia>
-          <ixx>0.000572097</ixx>
-          <iyy>0.003464068</iyy>
-          <izz>0.002910728</izz>
-          <ixz>0.000001631</ixz>
-          <ixy>0.0</ixy>
-          <iyz>0.0</iyz>
+          <ixx>0.001971824</ixx>
+          <iyy>0.004614839</iyy>
+          <izz>0.003279392</izz>
+          <ixy>0.000000012</ixy>
+          <ixz>0.0</ixz>
+          <iyz>0.000009194</iyz>
         </inertia>
       </inertial>
 
-      <collision name="collision_bogie_right">
+      <collision name="collision">
         <geometry>
           <mesh>
-            <uri>model://morty/meshes/bogie.dae</uri>
+            <uri>model://morty/meshes/bogie-lod-1.dae</uri>
           </mesh>
         </geometry>
       </collision>
 
-      <visual name="visual_bogie_right">
+      <visual name="visual">
         <geometry>
           <mesh>
-            <uri>model://morty/meshes/bogie.dae</uri>
+            <uri>model://morty/meshes/bogie-lod-2.dae</uri>
           </mesh>
         </geometry>
       </visual>
     </link>
--->
+
     <!-- Wheels -->
-<!--
     <include>
       <uri>model://wheel_hhj30nt36v</uri>
-      <pose>0.35 -0.157 -0.155 -1.570796327 0 0</pose>
+      <pose>-0.14 -0.27477 -0.20783 0 1.570796327 0</pose>
       <name>wheel_right_front</name>
     </include>
 
     <include>
       <uri>model://wheel_hhj30nt36v</uri>
-      <pose>0.05 -0.157 -0.155 -1.570796327 0 0</pose>
+      <pose>-0.14 0.01596 -0.20783 0 1.570796327 0</pose>
       <name>wheel_right_middle</name>
     </include>
 
     <include>
       <uri>model://wheel_hhj30nt36v</uri>
-      <pose>-0.35 -0.157 -0.155 -1.570796327 0 0</pose>
+      <pose>-0.14 0.30884 -0.20783 0 1.570796327 0</pose>
       <name>wheel_right_rear</name>
     </include>
--->
+
+    <!-- Joints. -->
+    <joint type="revolute" name="right_frame_axis">
+      <pose>0 0 0 0 0 0</pose>
+      <parent>frame</parent>
+      <child>rocker_axis_right</child>
+      <axis>
+        <xyz>0 1 0</xyz>
+      </axis>
+    </joint>
+    <joint type="revolute" name="right_axis_rocker_rear">
+      <pose>0 0 0 0 0 0</pose>
+      <child>rocker_right_rear</child>
+      <parent>rocker_axis_right</parent>
+      <axis>
+        <xyz>1 0 0</xyz>
+        <limit>
+          <lower>0</lower>
+          <upper>0</upper>
+        </limit>
+      </axis>
+    </joint>
+    <joint type="revolute" name="right_axis_rocker_front">
+      <pose>0 0 0 0 0 0</pose>
+      <child>rocker_right_front</child>
+      <parent>rocker_axis_right</parent>
+      <axis>
+        <xyz>1 0 0</xyz>
+        <limit>
+          <lower>0</lower>
+          <upper>0</upper>
+        </limit>
+      </axis>
+    </joint>
+    <joint type="revolute" name="right_rocker_front_bogie">
+      <pose>0 0 0 0 0 0</pose>
+      <child>bogie_right</child>
+      <parent>rocker_right_front</parent>
+      <axis>
+        <xyz>0 1 0</xyz>
+        <limit>
+          <lower>-0.785398163</lower>
+          <upper>2.35619449</upper>
+        </limit>
+      </axis>
+    </joint>
+    <joint type="revolute" name="right_bogie_wheel_front">
+      <pose>0 0 0.07 0 0 0</pose>
+      <child>wheel_right_front::axis</child>
+      <parent>bogie_right</parent>
+      <axis>
+        <xyz>1 0 0</xyz>
+        <limit>
+          <lower>0</lower>
+          <upper>0</upper>
+        </limit>
+      </axis>
+    </joint>
+    <joint type="revolute" name="right_bogie_wheel_middle">
+      <pose>0 0 0.07 0 0 0</pose>
+      <child>wheel_right_middle::axis</child>
+      <parent>bogie_right</parent>
+      <axis>
+        <xyz>1 0 0</xyz>
+        <limit>
+          <lower>0</lower>
+          <upper>0</upper>
+        </limit>
+      </axis>
+    </joint>
+    <joint type="revolute" name="right_rocker_wheel_rear">
+      <pose>0 0 0.07 0 0 0</pose>
+      <child>wheel_right_rear::axis</child>
+      <parent>rocker_right_rear</parent>
+      <axis>
+        <xyz>1 0 0</xyz>
+        <limit>
+          <lower>0</lower>
+          <upper>0</upper>
+        </limit>
+      </axis>
+    </joint>
+
+
+
     <!-- Hebel -->
 <!--
     <link name="hebel">
@@ -323,126 +633,7 @@
     </include>
 -->
     <!-- Joints -->
-    <!-- Joints left. -->
-<!--
-    <joint type="revolute" name="left_body_rocker">
-      <pose>-0.01 0 0 0 0 0</pose>
-      <child>rocker_left</child>
-      <parent>body</parent>
-      <axis>
-        <xyz>1 0 0</xyz>
-      </axis>
-    </joint>
 
-    <joint type="revolute" name="left_rocker_bogie">
-      <pose>0 -0.02 0 0 0 0</pose>
-      <child>bogie_left</child>
-      <parent>rocker_left</parent>
-      <axis>
-        <xyz>0 1 0</xyz>
-        <limit>
-          <lower>-1.570796327</lower>
-          <upper>1.570796327</upper>
-        </limit>
-      </axis>
-    </joint>
-
-    <joint type="revolute" name="left_bogie_wheel_front">
-      <pose>0 0 0.063 0 0 0</pose>
-      <child>wheel_left_front::axis</child>
-      <parent>bogie_left</parent>
-      <axis>
-        <xyz>0 0 1</xyz>
-        <limit>
-          <lower>0.0</lower>
-          <upper>0.0</upper>
-        </limit>
-      </axis>
-    </joint>
-    <joint type="revolute" name="left_bogie_wheel_middle">
-      <pose>0 0 0.063 0 0 0</pose>
-      <child>wheel_left_middle::axis</child>
-      <parent>bogie_left</parent>
-      <axis>
-        <xyz>0 0 1</xyz>
-        <limit>
-          <lower>0.0</lower>
-          <upper>0.0</upper>
-        </limit>
-      </axis>
-    </joint>
-    <joint type="revolute" name="left_rocker_wheel_rear">
-      <pose>0 0 0.063 0 0 0</pose>
-      <child>wheel_left_rear::axis</child>
-      <parent>rocker_left</parent>
-      <axis>
-        <xyz>0 0 1</xyz>
-        <limit>
-          <lower>0.0</lower>
-          <upper>0.0</upper>
-        </limit>
-      </axis>
-    </joint>
--->
-    <!-- Joints right. -->
-<!--
-    <joint type="revolute" name="right_body_rocker">
-      <pose>0.01 0 0 0 0 0</pose>
-      <child>rocker_right</child>
-      <parent>body</parent>
-      <axis>
-        <xyz>1 0 0</xyz>
-      </axis>
-    </joint>
-
-    <joint type="revolute" name="right_rocker_bogie">
-      <child>bogie_right</child>
-      <parent>rocker_right</parent>
-      <axis>
-        <xyz>0 1 0</xyz>
-        <limit>
-          <lower>-1.570796327</lower>
-          <upper>1.570796327</upper>
-        </limit>
-      </axis>
-    </joint>
-
-    <joint type="revolute" name="right_bogie_wheel_front">
-      <pose>0 0 0.063 0 0 0</pose>
-      <child>wheel_right_front::axis</child>
-      <parent>bogie_right</parent>
-      <axis>
-        <xyz>0 0 1</xyz>
-        <limit>
-          <lower>0.0</lower>
-          <upper>0.0</upper>
-        </limit>
-      </axis>
-    </joint>
-    <joint type="revolute" name="right_bogie_wheel_middle">
-      <pose>0 0 0.063 0 0 0</pose>
-      <child>wheel_right_middle::axis</child>
-      <parent>bogie_right</parent>
-      <axis>
-        <xyz>0 0 1</xyz>
-        <limit>
-          <lower>0.0</lower>
-          <upper>0.0</upper>
-        </limit>
-      </axis>
-    </joint>
-    <joint type="revolute" name="right_rocker_wheel_rear">
-      <pose>0 0 0.063 0 0 0</pose>
-      <child>wheel_right_rear::axis</child>
-      <parent>rocker_right</parent>
-      <axis>
-        <xyz>0 0 1</xyz>
-        <limit>
-          <lower>0.0</lower>
-          <upper>0.0</upper>
-        </limit>
-      </axis>
-    </joint>
 -->
     <!-- Joints for the body balancer. -->
 <!--
@@ -503,7 +694,7 @@
       <parent>laser_leveling::mount_dynamixel_pitch</parent>
     </joint>
 -->
-<!--
+
     <plugin name="morty_motor_controller" filename="libgazebo-francor-morty-motor-controller-plugin.so">
       <motorLeftFrontJoint>wheel_left_front::motor</motorLeftFrontJoint>
       <motorLeftMidJoint>wheel_left_middle::motor</motorLeftMidJoint>
@@ -512,12 +703,12 @@
       <motorRightMidJoint>wheel_right_middle::motor</motorRightMidJoint>
       <motorRightRearJoint>wheel_right_rear::motor</motorRightRearJoint>
 
-      <motorLeftFrontPos>0.35 0.24 0</motorLeftFrontPos>
-      <motorLeftMidPos>0.05 0.24 0</motorLeftMidPos>
-      <motorLeftRearPos>-0.35 0.24 0</motorLeftRearPos>
-      <motorRightFrontPos>0.35 -0.24 0</motorRightFrontPos>
-      <motorRightMidPos>0.25 -0.24 0</motorRightMidPos>
-      <motorRightRearPos>0.25 -0.24 0</motorRightRearPos>
+      <motorLeftFrontPos>0.27477 0.17 0</motorLeftFrontPos>
+      <motorLeftMidPos>0.01596 0.17 0</motorLeftMidPos>
+      <motorLeftRearPos>-0.30884 0.17 0</motorLeftRearPos>
+      <motorRightFrontPos>0.27477 -0.17 0</motorRightFrontPos>
+      <motorRightMidPos>0.01596 -0.17 0</motorRightMidPos>
+      <motorRightRearPos>-0.30884 -0.17 0</motorRightRearPos>
 
       <motorLeftFrontDiameter>0.22</motorLeftFrontDiameter>
       <motorLeftMidDiameter>0.22</motorLeftMidDiameter>
@@ -530,6 +721,6 @@
       <velocityTopic>velocity</velocityTopic>
       <odometryTopic>odom</odometryTopic>
     </plugin>
--->
+
   </model>
 </sdf>
