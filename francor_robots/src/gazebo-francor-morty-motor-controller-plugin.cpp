@@ -1,6 +1,6 @@
 #include "gazebo-francor-morty-motor-controller-plugin.h"
 
-namespace nrbdl {
+namespace francor {
 
 GZ_REGISTER_MODEL_PLUGIN(GazeboFrancorMortyMotorController)
 
@@ -224,4 +224,4 @@ void GazeboFrancorMortyMotorController::receiveTwistMsg(const geometry_msgs::Twi
     }
 }
 
-} // end namespace nrbdl
+} // end namespace francor

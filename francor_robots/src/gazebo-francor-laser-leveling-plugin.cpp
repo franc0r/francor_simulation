@@ -1,8 +1,8 @@
-#include "nrbdl_robots/gazebo-francor-laser-leveling-plugin.h"
+#include "gazebo-francor-laser-leveling-plugin.h"
 
 #include <ros/ros.h>
 
-namespace nrbdl {
+namespace francor {
 
 GZ_REGISTER_MODEL_PLUGIN(GazeboFrancorLaserLevelingPlugin)
 
@@ -91,4 +91,4 @@ void GazeboFrancorLaserLevelingPlugin::levelLaser(void)
     joint_pitch_->SetForce(0, controller_pitch_.output());
 }
 
-} // end namespace nrbdl
+} // end namespace francor

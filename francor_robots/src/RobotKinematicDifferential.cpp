@@ -4,7 +4,7 @@
 
 #include <ros/ros.h>
 
-namespace nrbdl {
+namespace francor {
 
 int RobotKinematicDifferential::addWheel(const std::string& name,
                                          const double diameter,
@@ -102,4 +102,4 @@ double RobotKinematicDifferential::Wheel::rotationSpeed (const double linearSpee
     return (position_.y < 0.0 ? speed : speed * -1.0);
 }
 
-} // end namespace nrbdl
+} // end namespace francor

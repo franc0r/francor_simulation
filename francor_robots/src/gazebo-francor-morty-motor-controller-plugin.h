@@ -15,7 +15,7 @@
 
 #include "RobotKinematicDifferential.h"
 
-namespace nrbdl {
+namespace francor {
 
 class GazeboFrancorMortyMotorController : public gazebo::ModelPlugin
 {
@@ -65,6 +65,6 @@ private:
     RobotKinematicDifferential kinematic_;
 };
 
-} // end namespace nrbdl
+} // end namespace francor
 
 #endif 

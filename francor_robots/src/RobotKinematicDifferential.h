@@ -5,7 +5,7 @@
 
 #include <gazebo/math/gzmath.hh>
 
-namespace nrbdl {
+namespace francor {
 
 class RobotKinematicDifferential
 {
@@ -94,6 +94,6 @@ private:
     std::vector<Wheel> wheels_;
 };
 
-} // end namespace nrbdl
+} // end namespace francor
 
 #endif

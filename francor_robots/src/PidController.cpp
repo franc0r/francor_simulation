@@ -2,7 +2,7 @@
 
 #include <ros/ros.h>
 
-namespace nrbdl {
+namespace francor {
 
 PidController::PidController(const double k_p, const double k_i, const double k_d)
     : k_p_(k_p),
@@ -83,4 +83,4 @@ void PidController::checkLimits(void)
         u_k0_ = limit_min_u_;
 }
 
-} // end namespace nrbdl
+} // end namespace francor

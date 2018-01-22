@@ -7,7 +7,7 @@
 
 #include "PidController.h"
 
-namespace nrbdl {
+namespace francor {
 
 class GazeboFrancorLaserLevelingPlugin : public gazebo::ModelPlugin
 {
@@ -32,6 +32,6 @@ private:
 };
 
 
-} // end namespace nrbdl
+} // end namespace francor
 
 #endif

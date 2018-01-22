@@ -14,7 +14,7 @@
 #ifndef ___FRANCOR_PID_CONTROLLER_H___
 #define ___FRANCOR_PID_CONTROLLER_H___
 
-namespace nrbdl {
+namespace francor {
 
 class PidController
 {
@@ -92,6 +92,6 @@ private:
 	double u_k1_;
 };
 
-} // end namespace nrbdl
+} // end namespace francor
 
 #endif
