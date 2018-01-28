@@ -520,107 +520,144 @@
 
 
 
-    <!-- Hebel -->
-<!--
-    <link name="hebel">
-      <pose>-0.153 0 0.14 0 0 0</pose>
+    <!-- Diff -->
+    <!-- ########################################################################################################## -->
+    <!-- Sensors -->
+    <link name="diff_connector">
+      <pose>0 0.2348023 0.1239466 0 0 0</pose>
 
       <inertial>
-        <pose>-0.000560 -0.000000 0.010590 0 0 0</pose>
-        <mass>0.4</mass>
-        <inertia>
-          <ixx>0.004035774</ixx>
-          <iyy>0.000069082</iyy>
-          <izz>0.004086541</izz>
-          <ixy>0.0</ixy>
-          <ixz>-0.000001484</ixz>
-          <iyz>0.0</iyz>
-        </inertia>
-      </inertial>
-      <collision name="collision_hebel">
-        <geometry>
-          <mesh>
-            <uri>model://morty/meshes/hebel.dae</uri>
-          </mesh>
-        </geometry>
-      </collision>
-
-      <visual name="visual_hebel">
-        <geometry>
-          <mesh>
-            <uri>model://morty/meshes/hebel.dae</uri>
-          </mesh>
-        </geometry>
-      </visual>
-    </link>
-
-    <link name="verbinder_left">
-      <pose>-0.153 0.167 0.15 0 -0.06981317 0</pose>
-
-      <inertial>
-        <pose>0.077000 -0.000000 -0.000001 0 0 0</pose>
+        <pose>-0.000001 0.000000 0.000466 0 0 0</pose>
         <mass>0.1</mass>
         <inertia>
-          <ixx>0.000006552</ixx>
-          <iyy>0.000330104</iyy>
-          <izz>0.000330075</izz>
+          <ixx>0.000012108</ixx>
+          <iyy>0.000574568</iyy>
+          <izz>0.000581622</izz>
           <ixy>0.0</ixy>
-          <ixz>0.0</ixz>
+          <ixz>-0.000000919</ixz>
           <iyz>0.0</iyz>
         </inertia>
       </inertial>
-
-      <collision name="collision_verbinder_left">
-        <geometry>
-          <mesh>
-            <uri>model://morty/meshes/verbinder.dae</uri>
-          </mesh>
-        </geometry>
-      </collision>
-
-      <visual name="visual_verbinder_left">
-        <geometry>
-          <mesh>
-            <uri>model://morty/meshes/verbinder.dae</uri>
-          </mesh>
-        </geometry>
-      </visual>
-    </link>
-
-    <link name="verbinder_right">
-      <pose>-0.153 -0.167 0.15 0 -0.06981317 0</pose>
-
-      <inertial>
-        <pose>0.077000 -0.000000 -0.000001 0 0 0</pose>
-        <mass>0.1</mass>
-        <inertia>
-          <ixx>0.000006552</ixx>
-          <iyy>0.000330104</iyy>
-          <izz>0.000330075</izz>
-          <ixy>0.0</ixy>
-          <ixz>0.0</ixz>
-          <iyz>0.0</iyz>
-        </inertia>
-      </inertial>
-
-      <collision name="collision">
-        <geometry>
-          <mesh>
-            <uri>model://morty/meshes/verbinder.dae</uri>
-          </mesh>
-        </geometry>
-      </collision>
 
       <visual name="visual">
+        <pose>0 0 0 0 0 0</pose>
         <geometry>
           <mesh>
-            <uri>model://morty/meshes/verbinder.dae</uri>
+            <uri>model://morty/meshes/diff-connector-lod-2.dae</uri>
           </mesh>
         </geometry>
       </visual>
+
+      <collision name="collision">
+        <pose>0 0 0 0 0 0</pose>
+        <geometry>
+          <mesh>
+            <uri>model://morty/meshes/diff-connector-lod-1.dae</uri>
+          </mesh>
+        </geometry>
+      </collision>
+
     </link>
--->
-    <!-- Sensors -->
+
+    <link name="diff_bar_left">
+      <pose>0.11155671 0.1170713 0.1441726 0 0 0</pose>
+
+      <inertial>
+        <pose>-0.000076 0.000022 0.000074 0 0 0</pose>
+        <mass>0.1</mass>
+        <inertia>
+          <ixx>0.000780727</ixx>
+          <iyy>0.000001273</iyy>
+          <izz>0.000780727</izz>
+          <ixy>-0.000000909</ixy>
+          <ixz>0.0</ixz>
+          <iyz>-0.000000909</iyz>
+        </inertia>
+      </inertial>
+
+      <visual name="visual">
+        <pose>0 0 0 0 0 0</pose>
+        <geometry>
+          <mesh>
+            <uri>model://morty/meshes/diff-bar-left-lod-2.dae</uri>
+          </mesh>
+        </geometry>
+      </visual>
+
+      <collision name="collision">
+        <pose>0 0 0 0 0 0</pose>
+        <geometry>
+          <mesh>
+            <uri>model://morty/meshes/diff-bar-left-lod-1.dae</uri>
+          </mesh>
+        </geometry>
+      </collision>
+    </link>
+
+    <link name="diff_bar_right">
+      <pose>-0.11155671 0.1170713 0.1441726 0 0 0</pose>
+
+      <inertial>
+        <pose>-0.000077 0.000022 -0.000075 0 0 0</pose>
+        <mass>0.1</mass>
+        <inertia>
+          <ixx>0.000770182</ixx>
+          <iyy>0.000001273</iyy>
+          <izz>0.000770091</izz>
+          <ixy>-0.000000909</ixy>
+          <ixz>0.0</ixz>
+          <iyz>0.000000909</iyz>
+        </inertia>
+      </inertial>
+
+      <visual name="visual">
+        <pose>0 0 0 0 0 0</pose>
+        <geometry>
+          <mesh>
+            <uri>model://morty/meshes/diff-bar-right-lod-2.dae</uri>
+          </mesh>
+        </geometry>
+      </visual>
+
+      <collision name="collision">
+        <pose>0 0 0 0 0 0</pose>
+        <geometry>
+          <mesh>
+            <uri>model://morty/meshes/diff-bar-right-lod-1.dae</uri>
+          </mesh>
+        </geometry>
+      </collision>
+
+    </link>
+
+    <joint type="revolute" name="frame_diff">
+      <child>diff_connector</child>
+      <parent>frame</parent>
+      <axis>
+        <xyz>0 0 1</xyz>
+      </axis>
+    </joint>
+    <joint type="ball" name="diff_connector_bar_left">
+      <pose>0 0.1168 0 0 0 0</pose>
+      <child>diff_bar_left</child>
+      <parent>diff_connector</parent>
+    </joint>
+    <joint type="ball" name="diff_bar_rocker_left">
+      <pose>0 -0.1170713 0 0 0 0</pose>
+      <child>diff_bar_left</child>
+      <parent>rocker_axis_left</parent>
+    </joint>
+    <joint type="ball" name="diff_connector_bar_right">
+      <pose>0 0.1168 0 0 0 0</pose>
+      <child>diff_bar_right</child>
+      <parent>diff_connector</parent>
+    </joint>
+    <joint type="ball" name="diff_bar_rocker_right">
+      <pose>0 -0.1170713 0 0 0 0</pose>
+      <child>diff_bar_right</child>
+      <parent>rocker_axis_right</parent>
+    </joint>
+
 <!--
     <include>
       <uri>model://laser_leveling</uri>
