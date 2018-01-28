@@ -83,8 +83,8 @@
               </ode>
             </torsional>
             <ode>
-              <mu>0.5</mu>
-              <mu2>0.5</mu2>
+              <mu>0.45</mu>
+              <mu2>0.45</mu2>
               <fdir1>1 1 1</fdir1> <!-- TODO: not clear what happen if two axes are used. -->
               <slip1>0.02</slip1>
               <slip2>0.02</slip2>
@@ -92,7 +92,7 @@
           </friction>
           <contact>
             <ode>
-              <min_depth>0.002</min_depth>
+              <min_depth>0.005</min_depth>
             </ode>
           </contact>
         </surface>
@@ -126,7 +126,7 @@
           </friction>
           <contact>
             <ode>
-              <min_depth>0.002</min_depth>
+              <min_depth>0.01</min_depth>
             </ode>
           </contact>
         </surface>

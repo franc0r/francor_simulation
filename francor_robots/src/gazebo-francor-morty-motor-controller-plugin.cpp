@@ -131,7 +131,7 @@ void GazeboFrancorMortyMotorController::Load(gazebo::physics::ModelPtr model, sd
     joint_controller_ = std::make_shared<gazebo::physics::JointController>(model);
     // A copy of this PID controller is used by each motor joint.
     // TODO: find good parameter for the controller.
-    gazebo::common::PID pid(30.0, 1.0, 0.0001);
+    gazebo::common::PID pid(10.0, 2.0, 0.0001);
     pid.SetCmdMax(100.0);
     pid.SetCmdMin(-100.0);
     pid.SetIMax(70.0);
