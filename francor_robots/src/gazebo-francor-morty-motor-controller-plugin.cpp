@@ -17,6 +17,7 @@ void GazeboFrancorMortyMotorController::Load(gazebo::physics::ModelPtr model, sd
     // enum class Wheel!
     const std::vector<std::string> sdfJointTags{ "motorLeftFrontJoint", "motorLeftMidJoint",
         "motorLeftRearJoint", "motorRightFrontJoint", "motorRightMidJoint", "motorRightRearJoint" };
+//    const std::vector<std::string> sdfJointTags{ "motorLeftFrontJoint", "motorLeftRearJoint", "motorRightFrontJoint", "motorRightRearJoint" };
 
     for (std::size_t i = 0; i < static_cast<std::size_t>(Wheel::COUNT_WHEELS); ++i)
     {
@@ -46,6 +47,8 @@ void GazeboFrancorMortyMotorController::Load(gazebo::physics::ModelPtr model, sd
     // Get the position of each motor center. The tag list must correspond to enum class Wheel!
     const std::vector<std::string> sdfPosTags{ "motorLeftFrontPos", "motorLeftMidPos", "motorLeftRearPos",
         "motorRightFrontPos", "motorRightMidPos", "motorRightRearPos" };
+//    const std::vector<std::string> sdfPosTags{ "motorLeftFrontPos", "motorLeftRearPos",
+//        "motorRightFrontPos", "motorRightRearPos" };
     std::vector<gazebo::math::Vector3> posWheels(sdfPosTags.size());
 
     for (std::size_t i = 0; i < static_cast<std::size_t>(Wheel::COUNT_WHEELS); ++i)
@@ -128,7 +131,7 @@ void GazeboFrancorMortyMotorController::Load(gazebo::physics::ModelPtr model, sd
     joint_controller_ = std::make_shared<gazebo::physics::JointController>(model);
     // A copy of this PID controller is used by each motor joint.
     // TODO: find good parameter for the controller.
-    gazebo::common::PID pid(20.0, 1.0, 0.0001);
+    gazebo::common::PID pid(30.0, 1.0, 0.0001);
     pid.SetCmdMax(100.0);
     pid.SetCmdMin(-100.0);
     pid.SetIMax(70.0);
@@ -191,7 +194,7 @@ void GazeboFrancorMortyMotorController::update(void)
 //        }
     }
 
-    return; // Skip debug print out below.
+//    return; // Skip debug print out below.
 
     for (auto& joint : motor_joints_)
     {

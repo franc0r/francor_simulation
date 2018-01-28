@@ -65,28 +65,23 @@
             <uri>model://wheel_hhj30nt36v/meshes/wheel.dae</uri>
           </mesh>
         </geometry>
-<!--
         <max_contacts>10</max_contacts>
--->
         <surface>
-          <!-- TODO: add friction for other physic engines. -->
           <friction>
-<!--
             <torsional>
-              <coefficient>1.0</coefficient>
+              <coefficient>0.4</coefficient>
               <surface_radius>0.11</surface_radius>
               <use_patch_radius>false</use_patch_radius>
               <ode>
-                <slip>0.0</slip>
+                <slip>0.02</slip>
               </ode>
             </torsional>
--->
             <ode>
-              <mu>0.7</mu>
-              <mu2>0.7</mu2>
-<!--              <fdir1>1 1 0</fdir1>--> <!-- TODO: not clear what happen if two axes are used. -->
-              <slip1>0.0</slip1>
-              <slip2>0.0</slip2>
+              <mu>0.4</mu>
+              <mu2>0.4</mu2>
+<!--              <fdir1>1 1 1</fdir1>--> <!-- TODO: not clear what happen if two axes are used. -->
+              <slip1>0.02</slip1>
+              <slip2>0.02</slip2>
             </ode>
           </friction>
           <contact>
