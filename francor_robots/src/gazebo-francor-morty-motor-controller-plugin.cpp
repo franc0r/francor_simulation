@@ -194,7 +194,7 @@ void GazeboFrancorMortyMotorController::update(void)
 //        }
     }
 
-//    return; // Skip debug print out below.
+    return; // Skip debug print out below.
 
     for (auto& joint : motor_joints_)
     {

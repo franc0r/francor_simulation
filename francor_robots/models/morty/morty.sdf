@@ -2,7 +2,7 @@
 <sdf version='1.5'>
   <model name="morty">
     <static>false</static>
-    <pose>0 0 0.5 0 0 0</pose>
+    <pose>0 0 0.5 0 0 1.570796327</pose>
 
     <link name="frame">
       <pose>0 0 0 0 0 0</pose>
@@ -658,79 +658,27 @@
       <parent>rocker_axis_right</parent>
     </joint>
 
-<!--
+
     <include>
       <uri>model://laser_leveling</uri>
-      <pose>0.2 0.0 0.14 0 0 0</pose>
+      <pose>0.0 -0.2 0 0 0 1.570796327</pose>
+      <parent>frame</parent>
     </include>
     <include>
       <uri>model://rplidar_a2_m6</uri>
-      <pose>0.222 0.0 0.22 0 0 0</pose>
+      <pose>0 -0.226 0.085 0 0 1.570796327</pose>
       <parent>laser_leveling</parent>
     </include>
--->
-    <!-- Joints -->
 
--->
-    <!-- Joints for the body balancer. -->
-<!--
-    <joint type="revolute" name="body_hebel">
-      <child>hebel</child>
-      <parent>body</parent>
-      <axis>
-        <xyz>0 0 1</xyz>
-      </axis>
-    </joint>
-    <joint type="ball" name="hebel_verbinder_left">
-      <child>verbinder_left</child>
-      <parent>hebel</parent>
-      <axis>
-        <dynamics>
-          <friction>0.1</friction>
-        </dynamics>
-      </axis>
-    </joint>
-    <joint type="ball" name="verbinder_rocker_left">
-      <child>rocker_left</child>
-      <parent>verbinder_left</parent>
-      <pose>0 0 0.115 0 0 0</pose>
-      <axis>
-        <dynamics>
-          <friction>0.1</friction>
-        </dynamics>
-      </axis>
-    </joint>
-    <joint type="ball" name="hebel_verbinder_right">
-      <child>verbinder_right</child>
-      <parent>hebel</parent>
-      <axis>
-        <dynamics>
-          <friction>0.1</friction>
-        </dynamics>
-      </axis>
-    </joint>
-    <joint type="ball" name="verbinder_rocker_right">
-      <child>rocker_right</child>
-      <parent>verbinder_right</parent>
-      <pose>0 0 0.115 0 0 0</pose>
-      <axis>
-        <dynamics>
-          <friction>0.1</friction>
-        </dynamics>
-      </axis>
-    </joint>
--->
     <!-- Joints for the sensors. -->
-<!--
     <joint type="fixed" name="mount_leveling">
       <child>laser_leveling::dynamixel_roll</child>
-      <parent>body</parent>
+      <parent>frame</parent>
     </joint>
     <joint type="fixed" name="laser_leveling">
       <child>rplidar_a2_m6::case</child>
       <parent>laser_leveling::mount_dynamixel_pitch</parent>
     </joint>
--->
 
     <plugin name="morty_motor_controller" filename="libgazebo-francor-morty-motor-controller-plugin.so">
       <motorLeftFrontJoint>wheel_left_front::motor</motorLeftFrontJoint>
