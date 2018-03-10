@@ -7,7 +7,11 @@ This package inlcudes a model of our robot Morty including several plugins to co
 Below listed packages are required and have to be installed/compiled before:
 
 * libgazebo7-dev
-* gazebo_ros_pkgs
+* gazebo_ros_pkgs (ros package)
+
+## Get Sources
+
+The current working version is the tag v0.1. Please checkout this tag!
 
 ## Start Simulator
 
