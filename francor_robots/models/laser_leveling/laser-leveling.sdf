@@ -135,6 +135,7 @@
       <pose>0 0 0 0 0 0</pose>
       <child>mount_dynamixel_roll</child>
       <parent>dynamixel_roll</parent>
+      <use_parent_model_frame>true</use_parent_model_frame>
       <axis>
         <xyz>1 0 0</xyz>
         <limit>
@@ -156,6 +157,7 @@
       <pose>0 0 0 0 0 0</pose>
       <child>mount_dynamixel_pitch</child>
       <parent>dynamixel_pitch</parent>
+      <use_parent_model_frame>true</use_parent_model_frame>
       <axis>
         <xyz>1 0 0</xyz>
         <limit>

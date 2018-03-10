@@ -5,6 +5,7 @@ project(francor_robots)
 ## if COMPONENTS list like find_package(catkin REQUIRED COMPONENTS xyz)
 ## is used, also find other catkin packages
 find_package(catkin REQUIRED COMPONENTS
+  gazebo_ros
   gazebo_dev
   roscpp
   geometry_msgs
@@ -102,7 +103,11 @@ find_package(catkin REQUIRED COMPONENTS
 catkin_package(
 #  INCLUDE_DIRS include
 #  LIBRARIES nrbdl_robots
-#  CATKIN_DEPENDS other_catkin_pkg
+  CATKIN_DEPENDS
+    roscpp
+    gazebo_ros
+    gazebo_dev
+    geometry_msgs
 #  DEPENDS system_lib
 )
 
@@ -113,8 +118,6 @@ catkin_package(
 ## Specify additional locations of header files
 ## Your package locations should be listed before other locations
 include_directories(
-  models/morty/plugins/include
-  include
   src
   ${catkin_INCLUDE_DIRS}
 )
@@ -136,6 +139,7 @@ add_library(gazebo-francor-laser-leveling-plugin
 ## Add cmake target dependencies of the library
 ## as an example, code may need to be generated before libraries
 ## either from message generation or dynamic reconfigure
+add_dependencies(gazebo-francor ${${PROJECT_NAME}_EXPORTED_TARGETS} ${catkin_EXPORTED_TARGETS})
 add_dependencies(gazebo-francor-morty-motor-controller-plugin ${${PROJECT_NAME}_EXPORTED_TARGETS} ${catkin_EXPORTED_TARGETS})
 add_dependencies(gazebo-francor-laser-leveling-plugin ${${PROJECT_NAME}_EXPORTED_TARGETS} ${catkin_EXPORTED_TARGETS})
 
@@ -176,11 +180,14 @@ target_link_libraries(gazebo-francor-laser-leveling-plugin
 # )
 
 ## Mark executables and/or libraries for installation
-# install(TARGETS nrbdl_robots nrbdl_robots_node
+install(TARGETS
+  gazebo-francor
+  gazebo-francor-morty-motor-controller-plugin
+  gazebo-francor-laser-leveling-plugin
 #   ARCHIVE DESTINATION ${CATKIN_PACKAGE_LIB_DESTINATION}
-#   LIBRARY DESTINATION ${CATKIN_PACKAGE_LIB_DESTINATION}
+  LIBRARY DESTINATION ${CATKIN_PACKAGE_LIB_DESTINATION}
 #   RUNTIME DESTINATION ${CATKIN_PACKAGE_BIN_DESTINATION}
-# )
+)
 
 ## Mark cpp header files for installation
 # install(DIRECTORY include/${PROJECT_NAME}/
@@ -188,6 +195,17 @@ target_link_libraries(gazebo-francor-laser-leveling-plugin
 #   FILES_MATCHING PATTERN "*.h"
 #   PATTERN ".svn" EXCLUDE
 # )
+
+install(DIRECTORY
+  models
+  DESTINATION ${CATKIN_PACKAGE_SHARE_DESTINATION}
+)
+
+install(DIRECTORY launch/
+  DESTINATION
+  ${CATKIN_PACKAGE_SHARE_DESTINATION}/launch
+  FILES_MATCHING PATTERN "*.launch"
+)
 
 ## Mark other files for installation (e.g. launch and bag files, etc.)
 # install(FILES

@@ -30,6 +30,7 @@ public:
 
     virtual void Load(gazebo::physics::ModelPtr model, sdf::ElementPtr sdf);
     virtual void Reset(void);
+    virtual void FiniChild(void) { }
 
 private:
     void update(void);
