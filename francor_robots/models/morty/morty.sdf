@@ -2,21 +2,21 @@
 <sdf version='1.5'>
   <model name="morty">
     <static>false</static>
-    <pose>0 0 0.5 0 0 1.570796327</pose>
+    <pose>0 0 0.5 0 0 0</pose>
 
     <link name="frame">
       <pose>0 0 0 0 0 0</pose>
 
       <inertial>
-        <pose>0.000418 0.007152 0.040106 0 0 0</pose>
+        <pose>-0.007506 0.000432 0.042077 0 0 0</pose>
         <mass>10.0</mass>
         <inertia>
-          <ixx>0.129354555</ixx>
-          <iyy>0.074772723</iyy>
-          <izz>0.174336387</izz>
-          <ixz>0.000156073</ixz>
-          <ixy>0.00009822</ixy>
-          <iyz>-0.004654188</iyz>
+          <ixx>0.07759446</ixx>
+          <iyy>0.134953099</iyy>
+          <izz>0.182993088</izz>
+          <ixz>0.004729512</ixz>
+          <ixy>-0.000038673</ixy>
+          <iyz>0.000110587</iyz>
         </inertia>
       </inertial>
 
@@ -40,7 +40,7 @@
 
     <!-- Left side. -->
     <link name="rocker_axis_left">
-      <pose>0.07765 0 0.06553 0 0 1.570796327</pose>
+      <pose>0 0.075 0.065 0 0 3.141592654</pose>
 
       <inertial>
         <pose>-0.000000 -0.047414 0.007917 0 0 0</pose>
@@ -75,7 +75,7 @@
     </link>
 
     <link name="rocker_left_front">
-      <pose>0.16999 0.01045 0.11097 0 0 1.570796327</pose>
+      <pose>-0.01 0.167 0.111 0 0 3.141592654</pose>
 
       <inertial>
         <pose>-0.103843 0.000207 -0.080442 0 0 0</pose>
@@ -109,7 +109,7 @@
     </link>
 
     <link name="rocker_left_rear">
-      <pose>0.1698 0.01045 0.09013 0 0 1.570796327</pose>
+      <pose>0.01 0.167 0.09 0 0 3.141592654</pose>
 
       <inertial>
         <pose>0.180409 -0.000496 -0.180775 0 0 0</pose>
@@ -144,7 +144,7 @@
 
 
     <link name="bogie_left">
-      <pose>0.17002 -0.12722 -0.02625 0 0 1.570796327</pose>
+      <pose>0.128 0.167 -0.02625 0 0 0</pose>
 
       <inertial>
         <pose>-0.000000 -0.000283 -0.065016 0 0 0</pose>
@@ -179,19 +179,19 @@
     <!-- Wheels -->
     <include>
       <uri>model://wheel_hhj30nt36v</uri>
-      <pose>0.14 -0.27477 -0.20783 0 -1.570796327 0</pose>
+      <pose>0.27477 0.14 -0.20783 1.570796327 0 0</pose>
       <name>wheel_left_front</name>
     </include>
 
     <include>
       <uri>model://wheel_hhj30nt36v</uri>
-      <pose>0.14 0.01596 -0.20783 0 -1.570796327 0</pose>
+      <pose>-0.01596 0.14 -0.20783 1.570796327 0 0</pose>
       <name>wheel_left_middle</name>
     </include>
 
     <include>
       <uri>model://wheel_hhj30nt36v</uri>
-      <pose>0.14 0.30884 -0.20783 0 -1.570796327 0</pose>
+      <pose>-0.30884 0.14 -0.20783 1.570796327 0 0</pose>
       <name>wheel_left_rear</name>
     </include>
 
@@ -281,7 +281,7 @@
     <!-- Right side. -->
     <!-- ########################################################################################################## -->
     <link name="rocker_axis_right">
-      <pose>-0.07765 0 0.06553 0 0 -1.570796327</pose>
+      <pose>0 -0.075 0.065 0 0 0</pose>
 
       <inertial>
         <pose>-0.000000 -0.047414 0.007917 0 0 0</pose>
@@ -316,7 +316,7 @@
     </link>
 
     <link name="rocker_right_front">
-      <pose>-0.16999 0.01045 0.11097 0 0 1.570796327</pose>
+      <pose>-0.01 -0.167 0.111 0 0 3.141592654</pose>
 
       <inertial>
         <pose>-0.103843 0.000207 -0.080442 0 0 0</pose>
@@ -350,7 +350,7 @@
     </link>
 
     <link name="rocker_right_rear">
-      <pose>-0.1698 0.01045 0.09013 0 0 1.570796327</pose>
+      <pose>-0.01 -0.167 0.089 0 0 3.141592654</pose>
 
       <inertial>
         <pose>0.180409 -0.000496 -0.180775 0 0 0</pose>
@@ -385,7 +385,7 @@
 
 
     <link name="bogie_right">
-      <pose>-0.17002 -0.12722 -0.02625 0 0 1.570796327</pose>
+      <pose>0.128 -0.167 -0.02625 0 0 0</pose>
 
       <inertial>
         <pose>-0.000000 -0.000283 -0.065016 0 0 0</pose>
@@ -420,19 +420,19 @@
     <!-- Wheels -->
     <include>
       <uri>model://wheel_hhj30nt36v</uri>
-      <pose>-0.14 -0.27477 -0.20783 0 1.570796327 0</pose>
+      <pose>0.27477 -0.14 -0.20783 -1.570796327 0 0</pose>
       <name>wheel_right_front</name>
     </include>
 
     <include>
       <uri>model://wheel_hhj30nt36v</uri>
-      <pose>-0.14 0.01596 -0.20783 0 1.570796327 0</pose>
+      <pose>-0.01596 -0.14 -0.20783 -1.570796327 0 0</pose>
       <name>wheel_right_middle</name>
     </include>
 
     <include>
       <uri>model://wheel_hhj30nt36v</uri>
-      <pose>-0.14 0.30884 -0.20783 0 1.570796327 0</pose>
+      <pose>-0.30884 -0.14 -0.20783 -1.570796327 0 0</pose>
       <name>wheel_right_rear</name>
     </include>
 
@@ -524,18 +524,18 @@
     <!-- ########################################################################################################## -->
     <!-- Sensors -->
     <link name="diff_connector">
-      <pose>0 0.2348023 0.1239466 0 0 0</pose>
+      <pose>-0.2348023 0 0.1239466 0 0 0</pose>
 
       <inertial>
-        <pose>-0.000001 0.000000 0.000466 0 0 0</pose>
+        <pose>-0.000000 -0.000001 0.000466 0 0 0</pose>
         <mass>0.1</mass>
         <inertia>
-          <ixx>0.000012108</ixx>
-          <iyy>0.000574568</iyy>
+          <ixx>0.000574568</ixx>
+          <iyy>0.000012108</iyy>
           <izz>0.000581622</izz>
           <ixy>0.0</ixy>
-          <ixz>-0.000000919</ixz>
-          <iyz>0.0</iyz>
+          <ixz>0.0</ixz>
+          <iyz>-0.000000041</iyz>
         </inertia>
       </inertial>
 
@@ -560,18 +560,18 @@
     </link>
 
     <link name="diff_bar_left">
-      <pose>0.11155671 0.1170713 0.1441726 0 0 0</pose>
+      <pose>-0.1170713 0.115 0.1441726 0 0 0</pose>
 
       <inertial>
-        <pose>-0.000076 0.000022 0.000074 0 0 0</pose>
+        <pose>-0.000022 -0.000077 -0.000075 0 0 0</pose>
         <mass>0.1</mass>
         <inertia>
-          <ixx>0.000780727</ixx>
-          <iyy>0.000001273</iyy>
-          <izz>0.000780727</izz>
-          <ixy>-0.000000909</ixy>
-          <ixz>0.0</ixz>
-          <iyz>-0.000000909</iyz>
+          <ixx>0.000001273</ixx>
+          <iyy>0.000770182</iyy>
+          <izz>0.000770091</izz>
+          <ixy>0.000000909</ixy>
+          <ixz>-0.000000909</ixz>
+          <iyz>0.0</iyz>
         </inertia>
       </inertial>
 
@@ -595,18 +595,18 @@
     </link>
 
     <link name="diff_bar_right">
-      <pose>-0.11155671 0.1170713 0.1441726 0 0 0</pose>
+      <pose>-0.1170713 -0.115 0.1441726 0 0 0</pose>
 
       <inertial>
-        <pose>-0.000077 0.000022 -0.000075 0 0 0</pose>
+        <pose>-0.000022 -0.000077 -0.000075 0 0 0</pose>
         <mass>0.1</mass>
         <inertia>
-          <ixx>0.000770182</ixx>
-          <iyy>0.000001273</iyy>
+          <ixx>0.000001273</ixx>
+          <iyy>0.000770182</iyy>
           <izz>0.000770091</izz>
-          <ixy>-0.000000909</ixy>
-          <ixz>0.0</ixz>
-          <iyz>0.000000909</iyz>
+          <ixy>0.000000909</ixy>
+          <ixz>-0.000000909</ixz>
+          <iyz>0.0</iyz>
         </inertia>
       </inertial>
 
@@ -638,22 +638,22 @@
       </axis>
     </joint>
     <joint type="ball" name="diff_connector_bar_left">
-      <pose>0 0.1168 0 0 0 0</pose>
+      <pose>0.1168 0 0 0 0 0</pose>
       <child>diff_bar_left</child>
       <parent>diff_connector</parent>
     </joint>
     <joint type="ball" name="diff_bar_rocker_left">
-      <pose>0 -0.1170713 0 0 0 0</pose>
+      <pose>-0.1170713 0 0 0 0 0</pose>
       <child>diff_bar_left</child>
       <parent>rocker_axis_left</parent>
     </joint>
     <joint type="ball" name="diff_connector_bar_right">
-      <pose>0 0.1168 0 0 0 0</pose>
+      <pose>0.1168 0 0 0 0 0</pose>
       <child>diff_bar_right</child>
       <parent>diff_connector</parent>
     </joint>
     <joint type="ball" name="diff_bar_rocker_right">
-      <pose>0 -0.1170713 0 0 0 0</pose>
+      <pose>-0.1170713 0 0 0 0 0</pose>
       <child>diff_bar_right</child>
       <parent>rocker_axis_right</parent>
     </joint>
@@ -661,12 +661,12 @@
 
     <include>
       <uri>model://laser_leveling</uri>
-      <pose>0.0 -0.2 0 0 0 1.570796327</pose>
+      <pose>0.2 0 0 0 0 0</pose>
       <parent>frame</parent>
     </include>
     <include>
       <uri>model://rplidar_a2_m6</uri>
-      <pose>0 -0.226 0.085 0 0 1.570796327</pose>
+      <pose>0.226 0 0.085 0 0 0</pose>
       <parent>laser_leveling</parent>
     </include>
 
