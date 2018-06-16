@@ -669,6 +669,11 @@
       <pose>0.226 0 0.085 0 0 0</pose>
       <parent>laser_leveling</parent>
     </include>
+    <include>
+      <uri>model://logitech_c920</uri>
+      <pose>0.28 0 0 0 0 0</pose>
+      <parent>frame</parent>
+    </include>
 
     <!-- Joints for the sensors. -->
     <joint type="fixed" name="mount_leveling">
@@ -678,6 +683,10 @@
     <joint type="fixed" name="laser_leveling">
       <child>rplidar_a2_m6::case</child>
       <parent>laser_leveling::mount_dynamixel_pitch</parent>
+    </joint>
+    <joint type="fixed" name="mount_camera">
+      <child>logitech_c920::case</child>
+      <parent>frame</parent>
     </joint>
 
     <plugin name="morty_motor_controller" filename="libgazebo-francor-morty-motor-controller-plugin.so">
