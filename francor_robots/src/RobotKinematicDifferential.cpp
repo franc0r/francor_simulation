@@ -8,7 +8,7 @@ namespace francor {
 
 int RobotKinematicDifferential::addWheel(const std::string& name,
                                          const double diameter,
-                                         const gazebo::math::Vector3& position)
+                                         const ignition::math::Vector3d& position)
 {
     wheel_rotation_speeds_.push_back(0.0);
     wheels_.push_back(Wheel(name, diameter, position));
@@ -25,14 +25,14 @@ int RobotKinematicDifferential::getWheelIndex(const std::string& wheel) const
     return -1;
 }
 
-void RobotKinematicDifferential::modifyWheelPosition(const std::size_t wheel, const gazebo::math::Vector3& position)
+void RobotKinematicDifferential::modifyWheelPosition(const std::size_t wheel, const ignition::math::Vector3d& position)
 {
     wheels_[wheel].setPosition(position);
     wheel_rotation_speeds_[wheel] = 0.0; // The last calculated speed is not longer valid. I dont't know if zero is
                                          // the right choise!!!
 }
 
-void RobotKinematicDifferential::modifyWheelPosition(const std::string& wheel, const gazebo::math::Vector3& position)
+void RobotKinematicDifferential::modifyWheelPosition(const std::string& wheel, const ignition::math::Vector3d& position)
 {
     const int index = this->getWheelIndex(wheel);
 
@@ -60,7 +60,7 @@ double RobotKinematicDifferential::getWheelRotatingSpeed(const std::string& whee
     return wheel_rotation_speeds_[index];
 }
 
-void RobotKinematicDifferential::calculate (const double linearVelocity, const gazebo::math::Angle rotationSpeed)
+void RobotKinematicDifferential::calculate (const double linearVelocity, const ignition::math::Angle rotationSpeed)
 {
     std::cout << "RobotKinematicDifferential calculates rotating speeds of the wheels." << std::endl;
     for (std::size_t i = 0; i < wheels_.size(); ++i)
@@ -74,7 +74,7 @@ void RobotKinematicDifferential::calculate (const double linearVelocity, const g
 
         // Resulting velocity is the linear + neccesary velocity for rotation.
         // For wheels on the left side flip the rotation velocity.
-        const double d_v = (wheels_[i].position().y < 0.0 ? -1.0 : 1.0);
+        const double d_v = (wheels_[i].position()[1] < 0.0 ? -1.0 : 1.0);
         const double v_wheel = v_circle * d_v + linearVelocity;
 
         wheel_rotation_speeds_[i] = wheels_[i].rotationSpeed(v_wheel);
@@ -91,7 +91,7 @@ double RobotKinematicDifferential::Wheel::rotationSpeed (const double linearSpee
     // Return rad/sec.
     const double speed = (2.0 * M_PI * linearSpeed) / (M_PI * diameter_);
     // Respects if a wheel is on the left or right side of the robot.
-    return (position_.y < 0.0 ? speed : speed * -1.0);
+    return (position_[1] < 0.0 ? speed : speed * -1.0);
 }
 
 } // end namespace francor

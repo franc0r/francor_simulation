@@ -70,17 +70,17 @@ void GazeboFrancorLaserLevelingPlugin::Load(gazebo::physics::ModelPtr model, sdf
 void GazeboFrancorLaserLevelingPlugin::levelLaser(void)
 {
     // Get current pose of the model and use the orientation as target values.
-    gazebo::math::Quaternion rotModel(joint_roll_->GetParent()->GetWorldPose().rot);
-    const gazebo::math::Angle targetRoll(-rotModel.GetRoll());
-    const gazebo::math::Angle targetPitch(-rotModel.GetPitch());
+    ignition::math::Quaterniond rotModel(joint_roll_->GetParent()->WorldPose().Rot());
+    const ignition::math::Angle targetRoll(-rotModel.Roll());
+    const ignition::math::Angle targetPitch(-rotModel.Pitch());
 
     controller_roll_.setTarget(targetRoll.Radian());
     controller_pitch_.setTarget(targetPitch.Radian());
 
 
     // Get the current angles of the servos as input value for the controller.
-    const gazebo::math::Angle rollJointAngle(joint_roll_->GetAngle(0));
-    const gazebo::math::Angle pitchJointAngle(joint_pitch_->GetAngle(0));
+    const ignition::math::Angle rollJointAngle(joint_roll_->Position(0));
+    const ignition::math::Angle pitchJointAngle(joint_pitch_->Position(0));
 
     controller_roll_.process(rollJointAngle.Radian());
     controller_pitch_.process(pitchJointAngle.Radian());

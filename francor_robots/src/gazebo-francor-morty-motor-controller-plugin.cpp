@@ -49,13 +49,13 @@ void GazeboFrancorMortyMotorController::Load(gazebo::physics::ModelPtr model, sd
         "motorRightFrontPos", "motorRightMidPos", "motorRightRearPos" };
 //    const std::vector<std::string> sdfPosTags{ "motorLeftFrontPos", "motorLeftRearPos",
 //        "motorRightFrontPos", "motorRightRearPos" };
-    std::vector<gazebo::math::Vector3> posWheels(sdfPosTags.size());
+    std::vector<ignition::math::Vector3d> posWheels(sdfPosTags.size());
 
     for (std::size_t i = 0; i < static_cast<std::size_t>(Wheel::COUNT_WHEELS); ++i)
     {
         if (sdf->HasElement(sdfPosTags[i]))
         {
-            posWheels[i] = sdf->GetElement(sdfPosTags[i])->Get<gazebo::math::Vector3>();
+            posWheels[i] = sdf->GetElement(sdfPosTags[i])->Get<ignition::math::Vector3d>();
             ROS_INFO_STREAM("GazeboFrancorMortyMotorController: Added position " << posWheels[i] <<
                             " to joint \"" << motor_joints_[i]->GetScopedName() << "\".");
         }
@@ -179,7 +179,7 @@ void GazeboFrancorMortyMotorController::update(void)
     // The update method of the joint controller has to be called in each iteration.
     std::lock_guard<std::mutex> lock(mutex_ros_msgs_);
 
-    if ((model_->GetWorld()->GetSimTime() - joint_controller_->GetLastUpdateTime()).Double() > 0.01) // Every 10 ms.
+    if ((model_->GetWorld()->SimTime() - joint_controller_->GetLastUpdateTime()).Double() > 0.01) // Every 10 ms.
     {
         joint_controller_->Update();
 
@@ -194,14 +194,7 @@ void GazeboFrancorMortyMotorController::update(void)
 //        }
     }
 
-    return; // Skip debug print out below.
-
-    for (auto& joint : motor_joints_)
-    {
-        std::cout << joint->GetScopedName() << " force: " << joint->GetForce(0) << " fmax: "
-                  << joint->GetParam("fmax", 0) << " vmax: " << joint->GetVelocityLimit(0)
-                  << " axis: " << joint->GetLocalAxis(0) << " effmax: " << joint->GetEffortLimit(0) << std::endl;
-    }
+    return;
 }
 
 void GazeboFrancorMortyMotorController::rosQueueThread(void)

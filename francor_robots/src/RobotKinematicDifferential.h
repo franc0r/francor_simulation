@@ -2,8 +2,9 @@
 #define ___FRANCOR_ROBOT_KINEMATIC_DIFFERENTIAL_H___
 
 #include <vector>
+#include <string>
 
-#include <gazebo/math/gzmath.hh>
+#include <ignition/math4/ignition/math.hh>
 
 namespace francor {
 
@@ -22,7 +23,7 @@ public:
      *                 rotating center of the robot.
      * \return The index of the added wheel. It can be used to modify a wheel.
      */
-    int addWheel(const std::string& name, const double diameter, const gazebo::math::Vector3& position);
+    int addWheel(const std::string& name, const double diameter, const ignition::math::Vector3d& position);
     /**
      * \brief Gets the wheel's index by name.
      * \param wheel The name of the wheel.
@@ -34,13 +35,13 @@ public:
      * \param wheel The index of the wheel that will be modified.
      * \param position The new position of the wheel.
      */
-    void modifyWheelPosition(const std::size_t wheel, const gazebo::math::Vector3& position);
+    void modifyWheelPosition(const std::size_t wheel, const ignition::math::Vector3d& position);
     /**
      * \brief Modifies a wheel's position.
      * \param wheel The name of the wheel that will be modified.
      * \param position The new postion of the wheel.
      */
-    void modifyWheelPosition(const std::string& wheel, const gazebo::math::Vector3& position);
+    void modifyWheelPosition(const std::string& wheel, const ignition::math::Vector3d& position);
     /**
      * \brief Gets the last calculated rotation speed of a wheel.
      * \param wheel The index of the wheel.
@@ -59,7 +60,7 @@ public:
      * \param linearVelocity The velocity in x-direction.
      * \param rotationSpeed The rotation speed (rad/sec).
      */
-    void calculate(const double linearVelocity, const gazebo::math::Angle rotationSpeed);
+    void calculate(const double linearVelocity, const ignition::math::Angle rotationSpeed);
 
 private:
 
@@ -67,25 +68,25 @@ private:
     {
     public:
         Wheel(void) = default;
-        Wheel(const std::string& name, const double diameter, const gazebo::math::Vector3& position)
-          : name_(name), diameter_(diameter), position_(position), distance_to_center_(position.GetLength()) { }
+        Wheel(const std::string& name, const double diameter, const ignition::math::Vector3d& position)
+          : name_(name), diameter_(diameter), position_(position), distance_to_center_(position.Length()) { }
         Wheel(const Wheel&) = default;
         Wheel(Wheel&&) = default;
 
         inline double diameter(void) const { return diameter_; }
-        inline const gazebo::math::Vector3& position(void) const { return position_; }
+        inline const ignition::math::Vector3d& position(void) const { return position_; }
         inline const std::string& name(void) const { return name_; }
 
-        inline void setPosition(const gazebo::math::Vector3& position) { position_ = position; }
+        inline void setPosition(const ignition::math::Vector3d& position) { position_ = position; }
 
         double rotationSpeed(const double linearSpeed) const;
-        inline double distanceTo(const Wheel& wheel) const { return (position_ - wheel.position_).GetLength(); }
+        inline double distanceTo(const Wheel& wheel) const { return (position_ - wheel.position_).Length(); }
         inline double distanceToCenter(void) const { return distance_to_center_; }
 
     private:
         std::string name_;
         double diameter_ = -1.0;
-        gazebo::math::Vector3 position_;
+        ignition::math::Vector3d position_;
         double distance_to_center_ = 0.0;
     };
 
